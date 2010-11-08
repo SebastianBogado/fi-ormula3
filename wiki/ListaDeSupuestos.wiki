@@ -1,0 +1,30 @@
+#summary Aclarando las aguas del enunciado
+
+= Comentario previo =
+
+Tengo que consultar con Francisco/Juan :P
+
+
+= Supuestos=
+
+==Obstaculos==
+=====Propuesta I=====
+Si pasamos por ellos a 30km/h o menos, no producen daño
+
+Razón: las lomas de burro hacen 10% a las ruedas Mess10, son muy asesinas. De esa manera, además, modelaría la realidad un poco mejor.
+
+=====Propuesta II=====
+Lomas de burro esquivables. Que dejen un espacio para pasar al costado
+
+Razón: por si no nos habilitan la de arriba
+
+=====Propuesta III=====
+Suma de las anteriores para hacerlo más divertido
+
+==Terreno==
+=====Propuesta===== 
+Como dice que cada 1km se desgasta un porcentaje, podemos asumir que cada 1m se gasta una milésima de ese porcentaje. 
+
+Razón: no necesariamente un terreno cubre un kilómetro. De hecho, el enunciado da un ejemplo en el que no. Esto nos evita los siguientes problemas:
+  * ¿qué hacemos cuando no llegó a cubrirse 1km de cierto terreno?
+  * ¿qué hacemos si la velocidad varía mucho durante ese kilómetro recorrido?

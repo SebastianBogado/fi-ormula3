@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.excepciones.ExcepcionObstaculoInvalido;
+import modelo.excepciones.ExcepcionTerrenoInvalido;
+
 public class Automovil extends CuerpoExtenso{
 	private Motor motor=null;
 	private Neumatico neumaticos=null;
@@ -30,11 +33,11 @@ public class Automovil extends CuerpoExtenso{
 		return this.posicionEsquinaInferiorIzquierda;
 	}
 	
-	public void desgastarPorObstaculo(Obstaculo obstaculo){
+	public void desgastarPorObstaculo(Obstaculo obstaculo) throws ExcepcionObstaculoInvalido{
 		this.neumaticos.desgastarPorObstaculo(obstaculo);
 	}
 	
-	public void desgastarPorTerreno(Terreno terrenoActual){
+	public void desgastarPorTerreno(Terreno terrenoActual) throws ExcepcionTerrenoInvalido{
 		this.neumaticos.desgastarPorTerreno(terrenoActual, this.velocidadInstantanea);
 	}
 	

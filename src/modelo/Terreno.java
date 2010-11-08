@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
+
 public class Terreno {
 	private int principio;
 	private int fin;
@@ -8,7 +10,8 @@ public class Terreno {
 	 * @param principio: línea donde empieza el terreno
 	 * @param fin: línea donde termina el terreno
 	 */
-	public Terreno(int principio, int fin){
+	public Terreno(int principio, int fin) throws ExcepcionLimitesIncorrectosEnElTerreno{
+		if (fin < principio) { throw new ExcepcionLimitesIncorrectosEnElTerreno(); }
 		this.fin = fin;
 		this.principio = principio;
 	}

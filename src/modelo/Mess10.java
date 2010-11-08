@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.excepciones.ExcepcionObstaculoInvalido;
+import modelo.excepciones.ExcepcionTerrenoInvalido;
+
 public class Mess10 extends Neumatico{
 
 	@Override
@@ -9,7 +12,8 @@ public class Mess10 extends Neumatico{
 	 * -ripo: velocidad/100
 	 * -tierra: velocidad/80
 	 */
-	public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea) {
+	public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea) 
+				throws ExcepcionTerrenoInvalido {
 		double difDaño = velocidadInstantanea.rapidez() / 1000.0; //cálculo por metro
 
 		if (terreno instanceof Ripio){
@@ -20,7 +24,10 @@ public class Mess10 extends Neumatico{
 				difDaño /= 70.0;
 			}
 			else{
-				difDaño = 0;
+				if (terreno instanceof Asfalto){
+					difDaño = 0;
+				}
+				else{ throw new ExcepcionTerrenoInvalido(); }
 			}
 		}
 		
@@ -28,7 +35,7 @@ public class Mess10 extends Neumatico{
 	}
 
 	@Override
-	public void desgastarPorObstaculo(Obstaculo obstaculo) {
+	public void desgastarPorObstaculo(Obstaculo obstaculo) throws ExcepcionObstaculoInvalido {
 		double difDaño;
 		if (obstaculo instanceof LomaDeBurro){
 			difDaño = 10;
@@ -39,7 +46,9 @@ public class Mess10 extends Neumatico{
 				difDaño = 5;
 				this.aumentarDaño(difDaño);
 			}
-		}		
-	}
-
+			else{ throw new ExcepcionObstaculoInvalido(); }
+			}
+	}		
 }
+
+

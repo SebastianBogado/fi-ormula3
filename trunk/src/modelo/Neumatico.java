@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.excepciones.ExcepcionObstaculoInvalido;
+import modelo.excepciones.ExcepcionTerrenoInvalido;
+
 abstract public class Neumatico {
 	
 	private double daño=0;
@@ -34,7 +37,8 @@ abstract public class Neumatico {
 		return cubiertas;
 	}
 
-	abstract public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea);
-	abstract public void desgastarPorObstaculo(Obstaculo obstaculo);
+	abstract public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea) 
+			throws ExcepcionTerrenoInvalido;
+	abstract public void desgastarPorObstaculo(Obstaculo obstaculo) throws ExcepcionObstaculoInvalido;
 	 
 }

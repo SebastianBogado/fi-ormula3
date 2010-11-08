@@ -4,17 +4,17 @@ abstract public class Neumatico {
 	
 	private double daño=0;
 	
-	public void aumentarDaño(double difDaño){
-		
-		this.daño+=difDaño;
-		
+	protected void aumentarDaño(double difDaño){
+		if (this.daño <= 100){
+			this.daño+=difDaño;
+		}
 	}		
 	
 	/*
 	 * Devuelve el daño en que se encuentra el neumatico porcentualmente (0-100)
 	 */
 	public double daño(){
-		return daño;
+		return daño/100;
 	}
 	
 	/*
@@ -33,4 +33,8 @@ abstract public class Neumatico {
 
 		return cubiertas;
 	}
+
+	abstract public void desgatarPorTerreno(Terreno terreno);
+	abstract public void desgastarPorObstaculo(Obstaculo obstaculo);
+	 
 }

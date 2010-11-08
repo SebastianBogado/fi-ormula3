@@ -28,3 +28,5 @@ Como dice que cada 1km se desgasta un porcentaje, podemos asumir que cada 1m se 
 Razón: no necesariamente un terreno cubre un kilómetro. De hecho, el enunciado da un ejemplo en el que no. Esto nos evita los siguientes problemas:
   * ¿qué hacemos cuando no llegó a cubrirse 1km de cierto terreno?
   * ¿qué hacemos si la velocidad varía mucho durante ese kilómetro recorrido?
+
+Sin embargo, en las ruedas Paler9 indica un daño de 2% cada 3km. _Si es necesario que se cumpla así_, agregamos un atributo "ritmoDeActualizacionDelDaño", y separamos "dañoReal" "dañoDiscreto". El primero iría aumentando de a puchitos, por metros. Pero el que se devuelve cuando se pide el daño es dañoDiscreto. Este se actualiza cada, por ejemplo, 2% en las ruedas Paler9. Y eso lo controla ritmoDeActualiz... se entendió.

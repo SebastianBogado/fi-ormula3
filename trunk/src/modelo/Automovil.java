@@ -1,7 +1,5 @@
 package modelo;
 
-import java.awt.Point;
-
 public class Automovil extends CuerpoExtenso{
 	private Motor motor=null;
 	private Neumatico neumaticos=null;
@@ -18,9 +16,19 @@ public class Automovil extends CuerpoExtenso{
 		this.velocidadInstantanea = new Velocidad(0, 0);
 		this.ancho = 1;
 		this.largo = 2;
-		this.posicionEsquinaSuperiorIzquierda = new Point(0,0);
+		this.posicionEsquinaSuperiorIzquierda = new Posicion(0,0);
 	}
 	
+	/* 
+	 * actualiza la posición en base a un diferencial de tiempo
+	 */
+	public void actualizarPosicion(double difTiempo){
+		posicionEsquinaSuperiorIzquierda.mover(this.velocidadInstantanea.variacionDePosicion(difTiempo));
+	}
+	
+	public Posicion getPosicionReal(){
+		return posicionEsquinaSuperiorIzquierda;
+	}
 	
 	/*
 	 * Produce una aumento de la velocidad en un diferencial de Tiempo (grande o pequeño)
@@ -30,7 +38,7 @@ public class Automovil extends CuerpoExtenso{
 		
 		if(velocidadInstantanea.y() < motor.VelocidadMaxima()){
 		
-			velocidadInstantanea.setY(motor.acelerar(difTiempo,velocidadInstantanea.y())
+			velocidadInstantanea.y(motor.acelerar(difTiempo,velocidadInstantanea.y())
 			-motor.VelocidadMaxima()*neumaticos.daño());
 		
 		}
@@ -42,10 +50,10 @@ public class Automovil extends CuerpoExtenso{
 	 */	
 	public void frenar(double difTiempo){
 		
-		velocidadInstantanea.setY(velocidadInstantanea.y() + motor.frenar(difTiempo));
+		velocidadInstantanea.y(velocidadInstantanea.y() + motor.frenar(difTiempo));
 		
 		if (velocidadInstantanea.y()<0)
-			velocidadInstantanea.setY(0);
+			velocidadInstantanea.y(0);
 	}
 	
 	

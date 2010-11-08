@@ -16,18 +16,26 @@ public class Automovil extends CuerpoExtenso{
 		this.velocidadInstantanea = new Velocidad(0, 0);
 		this.ancho = 1;
 		this.largo = 2;
-		this.posicionEsquinaSuperiorIzquierda = new Posicion(0,0);
+		this.posicionEsquinaInferiorIzquierda = new Posicion(0,0);
 	}
 	
 	/* 
 	 * actualiza la posición en base a un diferencial de tiempo
 	 */
 	public void actualizarPosicion(double difTiempo){
-		posicionEsquinaSuperiorIzquierda.mover(this.velocidadInstantanea.variacionDePosicion(difTiempo));
+		this.posicionEsquinaInferiorIzquierda.mover(this.velocidadInstantanea.variacionDePosicion(difTiempo));
 	}
 	
 	public Posicion getPosicionReal(){
-		return posicionEsquinaSuperiorIzquierda;
+		return this.posicionEsquinaInferiorIzquierda;
+	}
+	
+	public void desgastarPorObstaculo(Obstaculo obstaculo){
+		this.neumaticos.desgastarPorObstaculo(obstaculo);
+	}
+	
+	public void desgastarPorTerreno(Terreno terrenoActual){
+		this.neumaticos.desgastarPorTerreno(terrenoActual, this.velocidadInstantanea);
 	}
 	
 	/*
@@ -54,15 +62,6 @@ public class Automovil extends CuerpoExtenso{
 		
 		if (velocidadInstantanea.y()<0)
 			velocidadInstantanea.y(0);
-	}
-	
-	
-	/*
-	 * Devuelve la velocidad instantanea del auto 
-	 */	
-	public Velocidad velocidad() {
-		
-		return velocidadInstantanea;
 	}
 	
 	

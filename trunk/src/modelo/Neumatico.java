@@ -14,7 +14,7 @@ abstract public class Neumatico {
 	 * Devuelve el daño en que se encuentra el neumatico porcentualmente (0-100)
 	 */
 	public double daño(){
-		return daño/100;
+		return daño/100.0;
 	}
 	
 	/*
@@ -34,7 +34,7 @@ abstract public class Neumatico {
 		return cubiertas;
 	}
 
-	abstract public void desgatarPorTerreno(Terreno terreno);
+	abstract public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea);
 	abstract public void desgastarPorObstaculo(Obstaculo obstaculo);
 	 
 }

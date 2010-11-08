@@ -12,6 +12,17 @@ public class Entorno extends Observable {
 
 	}
 	
-
+	private void actualizarPosicion(){
+		//@todo
+	}
+	private void chequearColisiones(){
+		//@todo
+	}
+	private void informarColision(){
+		//@todo
+	}
+	private void informarTerreno(){
+		//@todo
+	}
 
 }

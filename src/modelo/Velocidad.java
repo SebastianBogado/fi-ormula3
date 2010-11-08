@@ -1,23 +1,13 @@
 package modelo;
 
-import java.awt.Point;
-
-public class Velocidad {
-	private Point velocidad;
+public class Velocidad extends Vector2D{
 	
 	public Velocidad(double x, double y){
-		velocidad.setLocation(x, y);
+		super(x,y);
 	}
-	public double x(){
-		return velocidad.getX();
+
+	public Posicion variacionDePosicion(double difTiempo) {
+		return new Posicion(vector.x * difTiempo, vector.y * difTiempo);
 	}
-	public double y(){
-		return velocidad.getY();
-	}
-	public void setX(double x){
-		velocidad.setLocation(x, velocidad.getY());
-	}
-	public void setY(double y){
-		velocidad.setLocation(velocidad.getX(), y);
-	}
+
 }

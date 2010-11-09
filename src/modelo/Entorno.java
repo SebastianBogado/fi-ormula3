@@ -5,6 +5,19 @@ import java.util.Observable;
 
 public class Entorno extends Observable {
 
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+	}
+	
+	
+	/*
+	 * 
+	 * 
+	 * 
 	private Posicion posicionAutoReal;
 	private Posicion posicionAutoDiscreta;
 	
@@ -20,12 +33,6 @@ public class Entorno extends Observable {
 	
 	
 	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
-	}
 	
 	
 	public Entorno(){
@@ -39,9 +46,9 @@ public class Entorno extends Observable {
 		posicionAutoReal.y(posicionAutoReal.y()+unAutomovil.getVelocidadInstantanea()*DiferencialDeTiempo);
 		variacionPosicionDiscretaEnY=(Math.round(posicionAutoReal.y())-posicionAutoDiscreta.y());
 		posicionAutoDiscreta.y(Math.round(posicionAutoReal.y()));
-		if (variacionPosicionDiscretaEnY == 1 /*unMetro*/){ autoAvanzoUnMetro = true;}
+		if (variacionPosicionDiscretaEnY == 1 ){ autoAvanzoUnMetro = true;}
 		else{ autoAvanzoUnMetro = false;}
-		//@todo
+		
 	}
 	
 	private void chequearColisiones(Pista unPista){
@@ -62,7 +69,7 @@ public class Entorno extends Observable {
 			  }
 		  }
 	}
-	//@todo
+	
 	
 	private void informarColision(Obstaculo obstaculoChocado){
 		if ((obstaculoChocado != null) && (obstaculoYaChocado != obstaculoChocado)){
@@ -75,7 +82,7 @@ public class Entorno extends Observable {
 			obstaculoYaChocado = obstaculoChocado;
 		}
 	}
-		//@todo
+		
 	
 	private void informarTerreno(Terreno terrenoActual){
 		if (autoAvanzoUnMetro){
@@ -85,8 +92,8 @@ public class Entorno extends Observable {
 			catch(Exception e){
 			}
 		}
-	}	
-		//@todo
+	}	*/
+		
 }
 
 

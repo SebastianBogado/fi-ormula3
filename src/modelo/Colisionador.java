@@ -2,6 +2,11 @@ package modelo;
 
 	public class Colisionador{
 		
+		
+		public Colisionador(){
+			
+		}
+		
 		public boolean pasoElObstaculo(Obstaculo obstaculoSiguiente,Posicion posicionAutoDiscreta){
 			//TODO
 			return false;

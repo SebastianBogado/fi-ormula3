@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import modelo.excepciones.ExcepcionDificultadInvalida;
+
 public class Pista {
 	/*
 	 * carga la pista desde el archivo XML pasado por parámetro
@@ -14,11 +16,12 @@ public class Pista {
 	 * crea una pista aleatoria en base a la dificultad, hardcodeada en ints :D
 	 * fuera de joda: pensar cómo dejarlo más lindo
 	 */
-	public void aleatoria(int dificultad){
+	public void aleatoria(int dificultad) throws ExcepcionDificultadInvalida{
 		switch (dificultad){
 		case 1 : this.aleatoriaFacil(); break;
 		case 2 : this.aleatoriaMedia(); break;
-		case 3 : this.aleatoriaDificil(); 
+		case 3 : this.aleatoriaDificil();
+		default: throw new ExcepcionDificultadInvalida();
 		}
 	}
 	

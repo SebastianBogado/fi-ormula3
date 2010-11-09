@@ -67,6 +67,13 @@ public class Automovil extends CuerpoExtenso{
 			velocidadInstantanea.y(0);
 	}
 	
+	public void doblarALaIzquierda(){
+		//TODO
+	}
+	
+	public void doblarALaDerecha(){
+		//TODO
+	}
 	
 	/*
 	 * Devuelve de que tipo es el motor

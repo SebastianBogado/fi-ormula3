@@ -15,9 +15,8 @@ public class Entorno extends Observable {
 	
 	
 	  
-	private double posicionAutoRealEnX;
 	private double posicionAutoRealEnY;
-	
+	private double posicionAutoRealEnX;
 	private long posicionAutoDiscretaEnX;
 	private long posicionAutoDiscretaEnY;
 	
@@ -37,6 +36,9 @@ public class Entorno extends Observable {
 	
 	
 	public Entorno(){
+		
+		this.pistaDeAutos= new Pista();
+		obstaculoSiguiente=this.pistaDeAutos.getObstaculoSiguiente();
 		
 	}
 	

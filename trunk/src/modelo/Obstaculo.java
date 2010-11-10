@@ -5,5 +5,6 @@ public abstract class Obstaculo extends CuerpoExtenso{
 		this.largo = 1;
 		this.posicionEsquinaInferiorIzquierda = new Posicion(posicionX, posicionY);
 	}
-
+	
+	abstract public double chocarCon(Neumatico neumaticos);
 }

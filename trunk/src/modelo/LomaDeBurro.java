@@ -12,4 +12,9 @@ public class LomaDeBurro extends Obstaculo {
 		this.ancho = anchoPista - 2;		
 	}
 
+	@Override
+	public double chocarCon(Neumatico neumaticos) {
+		return neumaticos.chocarConLomaDeBurro();
+	}
+
 }

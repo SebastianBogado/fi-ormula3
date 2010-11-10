@@ -1,8 +1,5 @@
 package modelo;
 
-import modelo.excepciones.ExcepcionObstaculoInvalido;
-import modelo.excepciones.ExcepcionTerrenoInvalido;
-
 abstract public class Neumatico {
 	
 	private double daño=0;
@@ -36,9 +33,35 @@ abstract public class Neumatico {
 
 		return cubiertas;
 	}
+	
+	/*
+	 * Cálculo del desgaste POR METRO. 
+	 * Depende de velocidad * constanteDeDesgasteDelTerreno
+	 */
+	public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea){
+		double difDaño = velocidadInstantanea.rapidez() / 1000.0; //cálculo por metro
+		double constanteDeDesgasteDelTerreno = terreno.desgastar(this);
+		this.aumentarDaño(difDaño * constanteDeDesgasteDelTerreno);
+	}
 
-	abstract public void desgastarPorTerreno(Terreno terreno, Velocidad velocidadInstantanea) 
-			throws ExcepcionTerrenoInvalido;
-	abstract public void desgastarPorObstaculo(Obstaculo obstaculo) throws ExcepcionObstaculoInvalido;
+	public void desgastarPorObstaculo(Obstaculo obstaculo){
+		double difDaño = obstaculo.chocarCon(this);
+		this.aumentarDaño(difDaño);
+	}
+	
+	/*
+	 * los siguientes métodos devuelven el desgaste al chocar con 
+	 * lomas de burro o pozos
+	 */
+	public abstract double chocarConLomaDeBurro();
+	abstract public double chocarConPozo();
+	
+	/*
+	 * los siguientes métodos devuelven el desgaste producido por
+	 * los distintos tipos de terrenos
+	 */
+	public abstract double desgastePorTierra();
+	public abstract double desgastePorRipio();
+	public abstract double desgastePorAsfalto();
 	 
 }

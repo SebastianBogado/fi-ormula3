@@ -8,4 +8,9 @@ public class Ripio extends Terreno {
 		super(principio, fin);
 	}
 
+	@Override
+	public double desgastar(Neumatico neumaticos) {
+		return neumaticos.desgastePorRipio();
+	}
+
 }

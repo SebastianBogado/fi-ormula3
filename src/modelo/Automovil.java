@@ -34,7 +34,7 @@ public class Automovil extends CuerpoExtenso{
 	}
 	
 	public void desgastarPorObstaculo(Obstaculo obstaculo) throws ExcepcionObstaculoInvalido{
-		this.neumaticos.desgastarPorObstaculo(obstaculo);
+		this.neumaticos.desgastarPorObstaculo(obstaculo, this.velocidadInstantanea);
 	}
 	
 	public void desgastarPorTerreno(Terreno terrenoActual) throws ExcepcionTerrenoInvalido{

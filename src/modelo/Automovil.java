@@ -83,5 +83,8 @@ public class Automovil extends CuerpoExtenso{
 		return motor.motor();
 	}
 	
+	public Velocidad getVelocidadInstantanea(){
+		return this.velocidadInstantanea;
+	}
 
 }

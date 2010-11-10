@@ -3,8 +3,20 @@ package modelo;
 import java.util.ArrayList;
 
 import modelo.excepciones.ExcepcionDificultadInvalida;
+import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Pista {
+	
+	private LinkedList<Pozo> ListaDePozos;
+	private LinkedList<LomaDeBurro> ListaDeLomasDeBurro;
+	private LinkedList<CambioDeTerreno> ListaDeCambiosDeTerreno;
+	private Obstaculo ObstaculoSiguiente;
+	private Iterator <Pozo> IteradorListaDePozos;
+	private Iterator <LomaDeBurro> IteradorListaDeLomasDeBurro;
+	private Pozo PoximoPozo;
+	private LomaDeBurro ProximaLomaDeBurro;
+	
 	/*
 	 * carga la pista desde el archivo XML pasado por parámetro
 	 */
@@ -12,18 +24,59 @@ public class Pista {
 		//@todo
 	}
 	
+	
+	
 	/*
-	 * crea una pista aleatoria en base a la dificultad, hardcodeada en ints :D
-	 * fuera de joda: pensar cómo dejarlo más lindo
+	 * devulve la lista que contiene los pozos a lo largo de la pista
 	 */
-	public void aleatoria(int dificultad) throws ExcepcionDificultadInvalida{
-		switch (dificultad){
-		case 1 : this.aleatoriaFacil(); break;
-		case 2 : this.aleatoriaMedia(); break;
-		case 3 : this.aleatoriaDificil();
-		default: throw new ExcepcionDificultadInvalida();
-		}
+	LinkedList<Pozo> getListaDePozos(){
+		return this.ListaDePozos;
 	}
+	
+	/*
+	 * devulve la lista que contiene las lomas de burro a lo largo de la pista
+	 */
+	LinkedList<LomaDeBurro> getListaDeLomasDeBurro(){
+		return this.ListaDeLomasDeBurro;
+	}
+	
+	public LinkedList<CambioDeTerreno> getListaDeCambiosDeTerreno(){
+		return this.ListaDeCambiosDeTerreno;
+	}
+	
+	private void ActualizarProximoPozo(){
+		if (IteradorListaDePozos.hasNext())
+			this.PoximoPozo= IteradorListaDePozos.next();		
+	}
+	
+	
+	private void ActualiarProximaLomaDeBurro(){
+		if(IteradorListaDeLomasDeBurro.hasNext())
+				this.ProximaLomaDeBurro=IteradorListaDeLomasDeBurro.next();			
+	}
+	
+	
+	
+	
+	public Obstaculo getObstaculoSiguiente(){
+		
+		double posicionProximoPozo=this.PoximoPozo.posicionEsquinaInferiorIzquierda().y();
+		double posicionProximaLomaDeBurro=this.ProximaLomaDeBurro.posicionEsquinaInferiorIzquierda().y();
+		Obstaculo obstaculoSiguiente;
+		
+		if(posicionProximoPozo<posicionProximaLomaDeBurro){
+			obstaculoSiguiente=PoximoPozo;
+			this.ActualizarProximoPozo();
+		}
+		else
+		{
+			obstaculoSiguiente=ProximaLomaDeBurro;
+			this.ActualiarProximaLomaDeBurro();
+		}
+		return obstaculoSiguiente;	
+	}
+	
+	
 	
 	/*
 	 * devuelve el tipo de terreno en la posición pasada como parámetro
@@ -40,6 +93,19 @@ public class Pista {
 	public ArrayList<Obstaculo> getObstaculos(){
 		//@todo
 		return null;
+	}
+	
+	/*
+	 * crea una pista aleatoria en base a la dificultad, hardcodeada en ints :D
+	 * fuera de joda: pensar cómo dejarlo más lindo
+	 */
+	public void aleatoria(int dificultad) throws ExcepcionDificultadInvalida{
+		switch (dificultad){
+		case 1 : this.aleatoriaFacil(); break;
+		case 2 : this.aleatoriaMedia(); break;
+		case 3 : this.aleatoriaDificil();
+		default: throw new ExcepcionDificultadInvalida();
+		}
 	}
 	
 	private void aleatoriaDificil() {

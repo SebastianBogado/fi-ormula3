@@ -11,11 +11,13 @@ public class Pista {
 	private LinkedList<Pozo> ListaDePozos;
 	private LinkedList<LomaDeBurro> ListaDeLomasDeBurro;
 	private LinkedList<CambioDeTerreno> ListaDeCambiosDeTerreno;
-	private Obstaculo ObstaculoSiguiente;
+	private Iterator <CambioDeTerreno> IteradorListaDeCambiosDeTerreno;
 	private Iterator <Pozo> IteradorListaDePozos;
 	private Iterator <LomaDeBurro> IteradorListaDeLomasDeBurro;
 	private Pozo PoximoPozo;
 	private LomaDeBurro ProximaLomaDeBurro;
+	private Terreno TerrenoActual;
+	private int PosicionDeCambioDeTerreno;
 	
 	/*
 	 * carga la pista desde el archivo XML pasado por parámetro
@@ -56,8 +58,6 @@ public class Pista {
 	}
 	
 	
-	
-	
 	public Obstaculo getObstaculoSiguiente(){
 		
 		double posicionProximoPozo=this.PoximoPozo.posicionEsquinaInferiorIzquierda().y();
@@ -76,15 +76,28 @@ public class Pista {
 		return obstaculoSiguiente;	
 	}
 	
+	private void ActualizarTerreno(){
+		if(IteradorListaDeCambiosDeTerreno.hasNext())
+			TerrenoActual=IteradorListaDeCambiosDeTerreno.next().getTipoDeTerreno();		
+	}
+	
+	public  Terreno getTerreno (long posicionAutoDiscretaEnY){
+		if(posicionAutoDiscretaEnY<this.PosicionDeCambioDeTerreno)
+			return this.TerrenoActual;
+		else{
+			this.ActualizarTerreno();
+			return this.TerrenoActual;
+		}		
+	}
 	
 	
 	/*
 	 * devuelve el tipo de terreno en la posición pasada como parámetro
 	 */
-	public Terreno getTerreno(Posicion posicion){
+	/*public Terreno getTerreno(Posicion posicion){
 		//@todo
 		return null;
-	}
+	}*/
 	
 	/*
 	 * devuelve la lista de obstaculos, ordenada por posicion.y

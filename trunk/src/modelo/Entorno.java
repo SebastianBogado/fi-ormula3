@@ -31,6 +31,7 @@ public class Entorno extends Observable {
 	private Obstaculo obstaculoYaChocado;
 	private Obstaculo obstaculoSiguiente;
 	
+	private Pista pistaDeAutos;
 	
 	
 	
@@ -51,7 +52,7 @@ public class Entorno extends Observable {
 		
 	}
 	
-	private void chequearColisiones(Pista unPista){
+	private void chequearColisiones(){
 		
 		
 		Colisionador unColisionador=new Colisionador() ;
@@ -59,12 +60,12 @@ public class Entorno extends Observable {
 		
 		  if (unColisionador.pasoElObstaculo(obstaculoSiguiente, posicionAutoDiscretaEnY)){
 			  obstaculoYaChocado = null;
-			  obstaculoSiguiente = unPista.getObstaculoSiguiente();
+			  obstaculoSiguiente = pistaDeAutos.getObstaculoSiguiente();
 		  }
 		  else{
 			  if (unColisionador.coinciden(obstaculoSiguiente,posicionAutoDiscretaEnY, posicionAutoDiscretaEnY)){
 				  obstaculoYaChocado = obstaculoSiguiente;
-				  obstaculoSiguiente = unPista.getObstaculoSiguiente();
+				  obstaculoSiguiente = pistaDeAutos.getObstaculoSiguiente();
 			  }
 		  }
 	}
@@ -83,10 +84,10 @@ public class Entorno extends Observable {
 	}
 		
 	
-	private void informarTerreno(Terreno terrenoActual){
+	private void informarTerreno(){
 		if (autoAvanzoUnMetro){
 			try{
-			unAutomovil.desgastarPorTerreno(terrenoActual);
+			unAutomovil.desgastarPorTerreno(pistaDeAutos.getTerreno(posicionAutoDiscretaEnY));
 			}
 			catch(Exception e){
 			}
@@ -94,5 +95,9 @@ public class Entorno extends Observable {
 	}	
 		
 }
+
+	
+
+
 
 

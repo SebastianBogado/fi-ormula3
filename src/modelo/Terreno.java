@@ -2,7 +2,7 @@ package modelo;
 
 import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
-public class Terreno {
+public abstract class Terreno {
 	private int principio;
 	private int fin;
 	
@@ -23,4 +23,6 @@ public class Terreno {
 	public int principio(){
 		return this.principio;
 	}
+
+	public abstract double desgastar(Neumatico neumaticos);
 }

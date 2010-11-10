@@ -7,4 +7,9 @@ public class Pozo extends Obstaculo {
 		this.ancho = 1;
 	}
 
+	@Override
+	public double chocarCon(Neumatico neumaticos) {
+		return neumaticos.chocarConPozo();
+	}
+
 }

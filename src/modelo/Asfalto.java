@@ -8,4 +8,9 @@ public class Asfalto extends Terreno {
 		super(principio, fin);
 	}
 
+	@Override
+	public double desgastar(Neumatico neumaticos) {
+		return neumaticos.desgastePorAsfalto();
+	}
+
 }

@@ -10,8 +10,8 @@ public class Pista {
 	
 	private LinkedList<Pozo> ListaDePozos;
 	private LinkedList<LomaDeBurro> ListaDeLomasDeBurro;
-	private LinkedList<CambioDeTerreno> ListaDeCambiosDeTerreno;
-	private Iterator <CambioDeTerreno> IteradorListaDeCambiosDeTerreno;
+	private LinkedList<Terreno> ListaDeTerrenos;
+	private Iterator <Terreno> IteradorListaDeTerrenos;
 	private Iterator <Pozo> IteradorListaDePozos;
 	private Iterator <LomaDeBurro> IteradorListaDeLomasDeBurro;
 	private Pozo PoximoPozo;
@@ -23,11 +23,11 @@ public class Pista {
 	public Pista(){
 		ListaDePozos= new LinkedList<Pozo>();
 		ListaDeLomasDeBurro= new LinkedList<LomaDeBurro>();
-		ListaDeCambiosDeTerreno = new LinkedList<CambioDeTerreno>();
+		ListaDeTerrenos = new LinkedList<Terreno>();
 		
 		IteradorListaDePozos=ListaDePozos.iterator();
 		IteradorListaDeLomasDeBurro=ListaDeLomasDeBurro.iterator();
-		IteradorListaDeCambiosDeTerreno=ListaDeCambiosDeTerreno.iterator();
+		IteradorListaDeTerrenos=ListaDeTerrenos.iterator();
 		
 		this.ActualizarTerreno();		
 		
@@ -77,10 +77,43 @@ public class Pista {
 		
 	}
 	
+	private void cargarListaEstaticaTerrenos(){
+		
+		Terreno unTerreno;
+				
+		try{
+			unTerreno= new Asfalto(0,4000);	
+			this.ListaDeTerrenos.add(1,unTerreno);
+		}
+		catch (Exception e){}
+		
+		
+		try{
+			unTerreno= new Ripio(4001,7000);
+			this.ListaDeTerrenos.add(2,unTerreno);
+		}
+		catch (Exception e){}
+		
+		
+		try{
+			unTerreno= new Ripio(7001,10000);
+			this.ListaDeTerrenos.add(3,unTerreno);
+		}
+		catch (Exception e){}
+		
+	}
+	
 	public void cargarPistaEstatica (){
 		int AnchoPista=6;
-	
+		int LargoPista=10000;		
+		int CantidadDePozos=10;
+		int CantidadDeLomasDeBurro=10;
 		
+		this.cargarListaEstaticaDePozos(AnchoPista, LargoPista, CantidadDePozos);
+		
+		this.cargarListaEstaticaDeLomasDeBurro(AnchoPista, LargoPista, CantidadDeLomasDeBurro);
+
+		this.cargarListaEstaticaTerrenos();		
 	}
 	
 	/*
@@ -97,8 +130,8 @@ public class Pista {
 		return this.ListaDeLomasDeBurro;
 	}
 	
-	public LinkedList<CambioDeTerreno> getListaDeCambiosDeTerreno(){
-		return this.ListaDeCambiosDeTerreno;
+	public LinkedList<Terreno> getListaDeCambiosDeTerreno(){
+		return this.ListaDeTerrenos;
 	}
 	
 	private void ActualizarProximoPozo(){
@@ -132,8 +165,11 @@ public class Pista {
 	}
 	
 	private void ActualizarTerreno(){
-		if(IteradorListaDeCambiosDeTerreno.hasNext())
-			TerrenoActual=IteradorListaDeCambiosDeTerreno.next().getTipoDeTerreno();		
+		if(IteradorListaDeTerrenos.hasNext()){
+			TerrenoActual=IteradorListaDeTerrenos.next();
+			this.PosicionDeCambioDeTerreno=TerrenoActual.fin();
+		}
+		
 	}
 	
 

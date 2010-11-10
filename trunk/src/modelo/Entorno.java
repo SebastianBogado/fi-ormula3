@@ -14,22 +14,22 @@ public class Entorno extends Observable {
 	}
 	
 	
-	/*
-	 * 
-	 * 
-	 * 
-	private Posicion posicionAutoReal;
-	private Posicion posicionAutoDiscreta;
+	  
+	private double posicionAutoRealEnX;
+	private double posicionAutoRealEnY;
 	
-	private Double variacionPosicionDiscretaEnY;
-	private Double DiferencialDeTiempo;
+	private long posicionAutoDiscretaEnX;
+	private long posicionAutoDiscretaEnY;
+	
+	private double variacionPosicionDiscretaEnY;
+	private double DiferencialDeTiempo;
 	
 	private Automovil unAutomovil;
 	
 	private boolean autoAvanzoUnMetro;
 	
 	private Obstaculo obstaculoYaChocado;
-	
+	private Obstaculo obstaculoSiguiente;
 	
 	
 	
@@ -43,9 +43,9 @@ public class Entorno extends Observable {
 	
 	
 	private void actualizarPosicion(){
-		posicionAutoReal.y(posicionAutoReal.y()+unAutomovil.getVelocidadInstantanea()*DiferencialDeTiempo);
-		variacionPosicionDiscretaEnY=(Math.round(posicionAutoReal.y())-posicionAutoDiscreta.y());
-		posicionAutoDiscreta.y(Math.round(posicionAutoReal.y()));
+		posicionAutoRealEnY=posicionAutoRealEnY+unAutomovil.getVelocidadInstantanea().rapidez()*DiferencialDeTiempo;
+		variacionPosicionDiscretaEnY=(Math.round(posicionAutoRealEnY)-posicionAutoDiscretaEnY);
+		posicionAutoDiscretaEnY=(Math.round(posicionAutoRealEnY));
 		if (variacionPosicionDiscretaEnY == 1 ){ autoAvanzoUnMetro = true;}
 		else{ autoAvanzoUnMetro = false;}
 		
@@ -53,18 +53,17 @@ public class Entorno extends Observable {
 	
 	private void chequearColisiones(Pista unPista){
 		
-		Obstaculo obstaculoSiguiente;
-		Obstaculo obstaculoChocado;
-		Colisionador unColisionador;
+		
+		Colisionador unColisionador=new Colisionador() ;
 		
 		
-		  if (unColisionador.pasoElObstaculo(obstaculoSiguiente, posicionAutoDiscreta)){
-			  obstaculoChocado = null;
+		  if (unColisionador.pasoElObstaculo(obstaculoSiguiente, posicionAutoDiscretaEnY)){
+			  obstaculoYaChocado = null;
 			  obstaculoSiguiente = unPista.getObstaculoSiguiente();
 		  }
 		  else{
-			  if (unColisionador.coinciden(obstaculoSiguiente, posicionAutoDiscreta)){
-				  obstaculoChocado = obstaculoSiguiente;
+			  if (unColisionador.coinciden(obstaculoSiguiente,posicionAutoDiscretaEnY, posicionAutoDiscretaEnY)){
+				  obstaculoYaChocado = obstaculoSiguiente;
 				  obstaculoSiguiente = unPista.getObstaculoSiguiente();
 			  }
 		  }
@@ -92,7 +91,7 @@ public class Entorno extends Observable {
 			catch(Exception e){
 			}
 		}
-	}	*/
+	}	
 		
 }
 

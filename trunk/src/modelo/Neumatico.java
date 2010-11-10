@@ -43,10 +43,15 @@ abstract public class Neumatico {
 		double constanteDeDesgasteDelTerreno = terreno.desgastar(this);
 		this.aumentarDaño(difDaño * constanteDeDesgasteDelTerreno);
 	}
-
-	public void desgastarPorObstaculo(Obstaculo obstaculo){
-		double difDaño = obstaculo.chocarCon(this);
-		this.aumentarDaño(difDaño);
+	
+	/*
+	 * Si pasamos por los obstaculos a 30km/h o menos no desgastan las ruedas
+	 */
+	public void desgastarPorObstaculo(Obstaculo obstaculo, Velocidad velocidadInstantanea){
+		if (velocidadInstantanea.rapidez() > 30){
+			double difDaño = obstaculo.chocarCon(this);
+			this.aumentarDaño(difDaño);
+		}		
 	}
 	
 	/*

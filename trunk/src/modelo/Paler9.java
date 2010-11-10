@@ -10,14 +10,6 @@ public class Paler9 extends Neumatico{
 	}
 
 	@Override
-	public void desgastarPorObstaculo(Obstaculo obstaculo) {
-		// daño: 6% para cualquier obstáculo
-		double difDaño = 6;
-		this.aumentarDaño(difDaño);
-		
-	}
-
-	@Override
 	public double chocarConLomaDeBurro() {
 		return 6.0;
 	}

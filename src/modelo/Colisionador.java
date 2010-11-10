@@ -7,12 +7,17 @@ package modelo;
 			
 		}
 		
-		public boolean pasoElObstaculo(Obstaculo obstaculoSiguiente,Posicion posicionAutoDiscreta){
-			//TODO
+		public boolean pasoElObstaculo(Obstaculo obstaculoSiguiente, double posicionAutoDiscreta){
+			
+			
+			
+			if (posicionAutoDiscreta>obstaculoSiguiente.posicionEsquinaInferiorIzquierda().x()+obstaculoSiguiente.getLargo())
+			return true;
+			else
 			return false;
 		}
 		
-		public boolean coinciden (Obstaculo obstaculoSiguiente,Posicion posicionAutoDiscreta){
+		public boolean coinciden (Obstaculo obstaculoSiguiente,long  posicionAutoDiscretaEnX,long posicionAutoDiscretaEnY){
 			
 			Posicion EsquinaInferiorIzquierdaDelObstaculo;
 			double anchoObstaculo;
@@ -26,8 +31,8 @@ package modelo;
 			
 			for (double i= EsquinaInferiorIzquierdaDelObstaculo.x();i<=anchoObstaculo;i++){
 				for(double j= EsquinaInferiorIzquierdaDelObstaculo.y(); j<=largoObstaculo;j++){
-					if(i==posicionAutoDiscreta.x())
-						if(j==posicionAutoDiscreta.y())
+					if(i==posicionAutoDiscretaEnX)
+						if(j==posicionAutoDiscretaEnY)
 							coincide=true;;			
 				}
 			}

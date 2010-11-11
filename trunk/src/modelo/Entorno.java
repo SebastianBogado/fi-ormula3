@@ -28,13 +28,33 @@ public class Entorno extends Observable {
 		this.unAutomovil = auto;
 		this.pistaDeAutos= new Pista();
 		obstaculoSiguiente=this.pistaDeAutos.getObstaculoSiguiente();
-		
+		this.darTresSegundosPrevios();
+		this.iniciarSecuencia();
 		
 	}
 	
 	
 	
-	
+	private void iniciarSecuencia() {
+		this.actualizarPosicion();
+		this.chequearColisiones();
+		this.informarTerreno();
+		this.chequearFinDePista();		
+	}
+
+
+
+	/*
+	 * 3...2...1..GO! es la idea de esto. No es primordial
+	 */
+	private void darTresSegundosPrevios() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
 	private void actualizarPosicion(){
 		unAutomovil.actualizarPosicion(diferencialDeTiempoEnHoras);
 		double auxPosicionX = unAutomovil.getPosicionReal().x();
@@ -62,6 +82,7 @@ public class Entorno extends Observable {
 		  }
 		  else{
 			  if (unColisionador.coinciden(obstaculoSiguiente,posicionAutoDiscretaEnY, posicionAutoDiscretaEnY)){
+				  this.informarColision(obstaculoSiguiente);
 				  obstaculoYaChocado = obstaculoSiguiente;
 				  obstaculoSiguiente = pistaDeAutos.getObstaculoSiguiente();
 			  }
@@ -69,10 +90,12 @@ public class Entorno extends Observable {
 	}
 	
 	
+	/*
+	 * PRE: sólo puede ser llamado por this.chequearColisiones()
+	 */
 	private void informarColision(Obstaculo obstaculoChocado){
-		if ((obstaculoChocado != null) && (obstaculoYaChocado != obstaculoChocado)){
+		if (obstaculoYaChocado != obstaculoChocado){
 			unAutomovil.desgastarPorObstaculo (obstaculoChocado);
-			obstaculoYaChocado = obstaculoChocado;
 		}
 	}
 		
@@ -83,12 +106,11 @@ public class Entorno extends Observable {
 		}
 	}	
 		
-	/*
 	private boolean chequearFinDePista(){
 	 
 		return (this.posicionAutoDiscretaEnY == this.pistaDeAutos.getLargo());
 	}
-	 */
+
 }
 
 	

@@ -1,34 +1,35 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import modelo.CuerpoExtenso;
+import modelo.Pozo;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class CuerpoExtensoTest {
 
+	private CuerpoExtenso cuerpo;
+
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
+		cuerpo = new Pozo(1, 1);
 	}
 
 	@Test
 	public void testGetAncho() {
-		fail("Not yet implemented");
+		assertTrue(cuerpo.getAncho() == 1);
 	}
 
 	@Test
 	public void testGetLargo() {
-		fail("Not yet implemented");
+		assertTrue(cuerpo.getLargo() == 1);
 	}
 
 	@Test
 	public void testPosicionEsquinaInferiorIzquierda() {
-		fail("Not yet implemented");
+		assertTrue(cuerpo.posicionEsquinaInferiorIzquierda().x() == 1.0);
+		assertTrue(cuerpo.posicionEsquinaInferiorIzquierda().y() == 1.0);
 	}
 
 }

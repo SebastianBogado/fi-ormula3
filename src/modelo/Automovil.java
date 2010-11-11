@@ -1,12 +1,11 @@
 package modelo;
 
-import modelo.excepciones.ExcepcionObstaculoInvalido;
-import modelo.excepciones.ExcepcionTerrenoInvalido;
-
 public class Automovil extends CuerpoExtenso{
 	private Motor motor=null;
 	private Neumatico neumaticos=null;
 	private Velocidad velocidadInstantanea;
+	private static int ANCHO = 1;
+	private static int LARGO = 2;
 	
 	/*
 	 * Constructor; Son recibidos como parametros los tipos Motor y Neumaticos que
@@ -17,27 +16,27 @@ public class Automovil extends CuerpoExtenso{
 		this.motor=Motor.NuevoMotorDeTipo(tipoMotor);
 		this.neumaticos=Neumatico.NuevoNeumatico(tipoNeumatico);
 		this.velocidadInstantanea = new Velocidad(0, 0);
-		this.ancho = 1;
-		this.largo = 2;
+		this.ancho = Automovil.ANCHO;
+		this.largo = Automovil.LARGO;
 		this.posicionEsquinaInferiorIzquierda = new Posicion(0,0);
 	}
 	
 	/* 
 	 * actualiza la posición en base a un diferencial de tiempo
 	 */
-	public void actualizarPosicion(double difTiempo){
-		this.posicionEsquinaInferiorIzquierda.mover(this.velocidadInstantanea.variacionDePosicion(difTiempo));
+	public void actualizarPosicion(double difTiempoEnHoras){
+		this.posicionEsquinaInferiorIzquierda.mover(this.velocidadInstantanea.variacionDePosicionEnMetros(difTiempoEnHoras));
 	}
 	
 	public Posicion getPosicionReal(){
 		return this.posicionEsquinaInferiorIzquierda;
 	}
 	
-	public void desgastarPorObstaculo(Obstaculo obstaculo) throws ExcepcionObstaculoInvalido{
+	public void desgastarPorObstaculo(Obstaculo obstaculo){
 		this.neumaticos.desgastarPorObstaculo(obstaculo, this.velocidadInstantanea);
 	}
 	
-	public void desgastarPorTerreno(Terreno terrenoActual) throws ExcepcionTerrenoInvalido{
+	public void desgastarPorTerreno(Terreno terrenoActual){
 		this.neumaticos.desgastarPorTerreno(terrenoActual, this.velocidadInstantanea);
 	}
 	

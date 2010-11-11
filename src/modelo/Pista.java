@@ -18,6 +18,7 @@ public class Pista {
 	private LomaDeBurro ProximaLomaDeBurro;
 	private Terreno TerrenoActual;
 	private int PosicionDeCambioDeTerreno;
+	private int LagroDeLaPista;
 	
 	
 	public Pista(){
@@ -29,6 +30,7 @@ public class Pista {
 		IteradorListaDeLomasDeBurro=ListaDeLomasDeBurro.iterator();
 		IteradorListaDeTerrenos=ListaDeTerrenos.iterator();
 		
+		this.cargarPistaEstatica();
 		this.ActualizarTerreno();		
 		
 	}
@@ -40,6 +42,10 @@ public class Pista {
 	 */
 	public void cargarPista(String ubicacion){
 		//@todo
+	}
+	
+	public int getLargo(){
+		return this.LagroDeLaPista;
 	}
 	
 	private void cargarListaEstaticaDePozos(int AnchoPista,int LargoPista,int CantidadDePozos){
@@ -185,6 +191,8 @@ public class Pista {
 	}
 	
 	
+
+
 	/*
 	 * devuelve el tipo de terreno en la posición pasada como parámetro
 	 */

@@ -1,24 +1,13 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-public class ObstaculoTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
+/*
+ * Clase Obstaculo es abstracta no puede ser instanciada
+ */
+public class ObstaculoTest extends TestCase {
 	public void testObstaculo() {
-		fail("Not yet implemented");
+
 	}
 
 }

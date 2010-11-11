@@ -1,24 +1,28 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.LomaDeBurro;
+import modelo.Neumatico;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LomaDeBurroTest {
+public class LomaDeBurroTest extends TestCase {
 
+	private LomaDeBurro loma;
+
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
 
-	@After
-	public void tearDown() throws Exception {
+		loma = new LomaDeBurro(1, 1, 3);
 	}
 
 	@Test
 	public void testLomaDeBurro() {
-		fail("Not yet implemented");
+		double daño = 0;
+		daño = loma.chocarCon(Neumatico.NuevoNeumatico(1));
+		assertTrue(daño > 0);
 	}
 
 }

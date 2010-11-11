@@ -17,23 +17,30 @@ package modelo;
 			return false;
 		}
 		
-		public boolean coinciden (Obstaculo obstaculoSiguiente,long  posicionAutoDiscretaEnX,long posicionAutoDiscretaEnY){
+		public boolean coinciden (Obstaculo obstaculoSiguiente, Automovil auto){
 			
 			Posicion EsquinaInferiorIzquierdaDelObstaculo;
-			double anchoObstaculo;
-			double largoObstaculo;
+			int anchoObstaculo;
+			int largoObstaculo;
+			int largoAuto;
 			boolean coincide=false;
 			
 			
-			EsquinaInferiorIzquierdaDelObstaculo= obstaculoSiguiente.posicionEsquinaInferiorIzquierda();
-			anchoObstaculo= obstaculoSiguiente.getAncho();
-			largoObstaculo= obstaculoSiguiente.getLargo();
 			
-			for (double i= EsquinaInferiorIzquierdaDelObstaculo.x();i<=anchoObstaculo;i++){
-				for(double j= EsquinaInferiorIzquierdaDelObstaculo.y(); j<=largoObstaculo;j++){
-					if(i==posicionAutoDiscretaEnX)
-						if(j==posicionAutoDiscretaEnY)
-							coincide=true;;			
+			EsquinaInferiorIzquierdaDelObstaculo= obstaculoSiguiente.posicionEsquinaInferiorIzquierda();
+			anchoObstaculo= (int)obstaculoSiguiente.getAncho();
+			largoObstaculo= (int)obstaculoSiguiente.getLargo();
+			largoAuto = (int)auto.getLargo();
+						
+			for (int i= (int)EsquinaInferiorIzquierdaDelObstaculo.x();i<=anchoObstaculo;i++){
+				for(int j= (int)EsquinaInferiorIzquierdaDelObstaculo.y(); j<=largoObstaculo;j++){
+					for (int k = (int) auto.getPosicionReal().y(); k <= largoAuto; k++ ){
+						if(i == (int) auto.getPosicionReal().x())
+							if(j == k){
+								coincide=true;
+								return coincide;
+							}
+					}
 				}
 			}
 			return coincide;

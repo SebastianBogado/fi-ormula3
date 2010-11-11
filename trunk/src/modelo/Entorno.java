@@ -69,6 +69,7 @@ public class Entorno extends Observable implements ActionListener{
 
 
 	/*
+	 * GENTLEMEN, START YOUR ENGINES!
 	 * 3...2...1..GO! es la idea de esto. No es primordial
 	 */
 	private void darTresSegundosPrevios() {
@@ -105,7 +106,7 @@ public class Entorno extends Observable implements ActionListener{
 			  obstaculoSiguiente = pistaDeAutos.getObstaculoSiguiente();
 		  }
 		  else{
-			  if (unColisionador.coinciden(obstaculoSiguiente,posicionAutoDiscretaEnY, posicionAutoDiscretaEnY)){
+			  if (unColisionador.coinciden(obstaculoSiguiente, unAutomovil)){
 				  this.informarColision(obstaculoSiguiente);
 				  obstaculoYaChocado = obstaculoSiguiente;
 				  obstaculoSiguiente = pistaDeAutos.getObstaculoSiguiente();

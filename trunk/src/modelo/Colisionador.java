@@ -7,11 +7,12 @@ package modelo;
 			
 		}
 		
-		public boolean pasoElObstaculo(Obstaculo obstaculoSiguiente, double posicionAutoDiscreta){
+		public boolean pasoElObstaculo(Obstaculo obstaculoSiguiente, Automovil unAutomovil){
 			
+			int posicionDiscretaEnX = (int) unAutomovil.getPosicionReal().x();
 			
-			
-			if (posicionAutoDiscreta>obstaculoSiguiente.posicionEsquinaInferiorIzquierda().x()+obstaculoSiguiente.getLargo())
+			if (posicionDiscretaEnX > (int)obstaculoSiguiente.posicionEsquinaInferiorIzquierda().x()
+									+ (int) obstaculoSiguiente.getLargo())
 			return true;
 			else
 			return false;

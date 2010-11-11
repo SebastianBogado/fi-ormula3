@@ -1,24 +1,28 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Neumatico;
+import modelo.Pozo;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PozoTest {
+public class PozoTest extends TestCase {
 
+	private Pozo pozo;
+
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
 
-	@After
-	public void tearDown() throws Exception {
+		pozo = new Pozo(1, 1);
 	}
 
 	@Test
 	public void testPozo() {
-		fail("Not yet implemented");
+		double daño = 0;
+		daño = pozo.chocarCon(Neumatico.NuevoNeumatico(1));
+		assertTrue(daño > 0);
 	}
 
 }

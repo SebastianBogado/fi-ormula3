@@ -1,44 +1,31 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Vector2D;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Vector2DTest {
+public class Vector2DTest extends TestCase {
 
+	private Vector2D vector;
+
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testVector2D() {
-		fail("Not yet implemented");
+		vector = new Vector2D(0, 0);
 	}
 
 	@Test
 	public void testX() {
-		fail("Not yet implemented");
+		vector.x(50.0);
+		assertTrue(vector.x() == 50.0);
 	}
 
 	@Test
 	public void testY() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testXDouble() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testYDouble() {
-		fail("Not yet implemented");
+		vector.y(25.2);
+		assertTrue(vector.y() == 25.2);
 	}
 
 }

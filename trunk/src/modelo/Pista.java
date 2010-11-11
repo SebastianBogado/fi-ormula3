@@ -48,7 +48,7 @@ public class Pista {
 		int posicionPozoY=0;
 		Pozo unPozo;
 		
-		if (posicionPozoY>LargoPista){
+		if (posicionPozoY<LargoPista){
 			for (int i=1;i<=CantidadDePozos;i++){			
 				if(posicionPozoX==AnchoPista)
 					posicionPozoX=0;
@@ -70,7 +70,7 @@ public class Pista {
 		
 		if (posicionLomaDeBurroEnY<LargoPista)
 			for(int i=1;i<=CantidadDeLomasDeBurro;i++){
-				posicionLomaDeBurroEnX=+1000;
+				posicionLomaDeBurroEnY=+1000;
 				unaLomaDeBurro= new LomaDeBurro (posicionLomaDeBurroEnX,posicionLomaDeBurroEnY,AnchoPista);
 				ListaDeLomasDeBurro.add(i,unaLomaDeBurro);
 			}		
@@ -119,18 +119,18 @@ public class Pista {
 	/*
 	 * devulve la lista que contiene los pozos a lo largo de la pista
 	 */
-	LinkedList<Pozo> getListaDePozos(){
+	public LinkedList<Pozo> getListaDePozos(){
 		return this.ListaDePozos;
 	}
 	
 	/*
 	 * devulve la lista que contiene las lomas de burro a lo largo de la pista
 	 */
-	LinkedList<LomaDeBurro> getListaDeLomasDeBurro(){
+	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro(){
 		return this.ListaDeLomasDeBurro;
 	}
 	
-	public LinkedList<Terreno> getListaDeCambiosDeTerreno(){
+	public LinkedList<Terreno> getListaDeTerrenos(){
 		return this.ListaDeTerrenos;
 	}
 	

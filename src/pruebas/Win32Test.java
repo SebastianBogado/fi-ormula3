@@ -19,7 +19,7 @@ public class Win32Test extends TestCase {
 	@Test
 	public void testVelocidad() {
 
-		long velInst = (long) Math.ceil(motor.acelerar(5.5, 0));
+		long velInst = (long) Math.ceil(motor.acelerar(5.2, 0));
 		long velMax = (long) Math.ceil(motor.VelocidadMaxima());
 
 		System.out.println(velInst);

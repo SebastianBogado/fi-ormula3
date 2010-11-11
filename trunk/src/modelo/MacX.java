@@ -17,13 +17,13 @@ public class MacX extends Motor{
 		if(velocidadInstantanea>=0 && velocidadInstantanea<80.0-0.1)
 		{
 			tiempo=(double)2.0-Math.sqrt((80.0-velocidadInstantanea)/20.0);
-			System.out.println("Velocidad:" +velocidadInstantanea+ " Tiempo: "+ tiempo);
+			
 			
 		}else if(velocidadInstantanea>=80-0.1)
 		{
 			
 			tiempo=(15.0/70.0)*(velocidadInstantanea-80.0+140.0/15.0);			
-			System.out.println("Se imprimio "+tiempo);
+			
 		
 			if(tiempo<2.0)
 				tiempo=2.01;

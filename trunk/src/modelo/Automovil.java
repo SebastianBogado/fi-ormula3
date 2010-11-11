@@ -26,8 +26,15 @@ public class Automovil extends CuerpoExtenso{
 	 */
 	public void actualizarPosicion(double difTiempoEnHoras){
 		this.posicionEsquinaInferiorIzquierda.mover(this.velocidadInstantanea.variacionDePosicionEnMetros(difTiempoEnHoras));
+		if (this.velocidadInstantanea.x() != 0){
+			this.dejarDeDoblar();
+		}
 	}
 	
+	private void dejarDeDoblar() {
+		this.velocidadInstantanea.x(0.0);
+	}
+
 	public Posicion getPosicionReal(){
 		return this.posicionEsquinaInferiorIzquierda;
 	}
@@ -66,12 +73,18 @@ public class Automovil extends CuerpoExtenso{
 			velocidadInstantanea.y(0);
 	}
 	
+	/*
+	 * 100km/h hacia la dirección a doblar para que doble en un dt = 36ms. 
+	 * Luego de doblar, se vuelve a cero la velocidad en X (desde otro método)
+	 */
 	public void doblarALaIzquierda(){
-		//TODO
+		double  velocidadX = -100.0;
+		this.velocidadInstantanea.x(velocidadX);
 	}
 	
 	public void doblarALaDerecha(){
-		//TODO
+		double  velocidadX = 100.0;
+		this.velocidadInstantanea.x(velocidadX);
 	}
 	
 	/*

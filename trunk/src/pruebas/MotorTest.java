@@ -1,59 +1,35 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Motor;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class MotorTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testMotor() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testVelocidadMaxima() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testAcelerar() {
-		fail("Not yet implemented");
-	}
+public class MotorTest extends TestCase {
 
 	@Test
 	public void testFrenar() {
-		fail("Not yet implemented");
-	}
+		Motor motor = Motor.NuevoMotorDeTipo(1);
+		double velocDisminuida = motor.frenar(5);
 
-	@Test
-	public void testEvaluarFuncionVelocidad() {
-		fail("Not yet implemented");
-	}
+		assertTrue(velocDisminuida == -125.0);
 
-	@Test
-	public void testCalcularTiempo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMotor1() {
-		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testNuevoMotorDeTipo() {
-		fail("Not yet implemented");
+		Motor nuevoMotor1 = Motor.NuevoMotorDeTipo(1);
+		assertTrue("Lin64".equals(nuevoMotor1.motor()));
+
+		Motor nuevoMotor2 = Motor.NuevoMotorDeTipo(2);
+		assertTrue("Win32".equals(nuevoMotor2.motor()));
+
+		Motor nuevoMotor3 = Motor.NuevoMotorDeTipo(3);
+		assertTrue("MacX".equals(nuevoMotor3.motor()));
+
+		Motor nuevoMotor4 = Motor.NuevoMotorDeTipo(5);
+		assertTrue("Lin64".equals(nuevoMotor4.motor()));
+
 	}
 
 }

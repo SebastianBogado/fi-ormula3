@@ -1,39 +1,42 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Win32;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Win32Test {
+public class Win32Test extends TestCase {
 
+	private Win32 motor;
+
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
+		motor = new Win32();
 	}
 
 	@Test
-	public void testEvaluarFuncionVelocidad() {
-		fail("Not yet implemented");
-	}
+	public void testVelocidad() {
 
-	@Test
-	public void testCalcularTiempo() {
-		fail("Not yet implemented");
+		long velInst = (long) Math.ceil(motor.acelerar(5.5, 0));
+		long velMax = (long) Math.ceil(motor.VelocidadMaxima());
+
+		System.out.println(velInst);
+		assertTrue(velInst == velMax);
 	}
 
 	@Test
 	public void testMotor() {
-		fail("Not yet implemented");
+		Win32 nuevoMotor = new Win32();
+		String nombreMotor = "Win32";
+
+		assertTrue(nombreMotor.equals(nuevoMotor.motor()));
 	}
 
 	@Test
 	public void testWin32() {
-		fail("Not yet implemented");
+		assertTrue(motor.VelocidadMaxima() == 100.0);
 	}
 
 }

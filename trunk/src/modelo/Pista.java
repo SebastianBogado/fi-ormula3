@@ -217,24 +217,6 @@ public class Pista {
 	}
 	
 	
-
-
-	/*
-	 * devuelve el tipo de terreno en la posición pasada como parámetro
-	 */
-	/*public Terreno getTerreno(Posicion posicion){
-		//@todo
-		return null;
-	}*/
-	
-	/*
-	 * devuelve la lista de obstaculos, ordenada por posicion.y
-	 * o devuelve una lista de listas de obstaculos (una por carril), ordenada
-	 */
-	public ArrayList<Obstaculo> getObstaculos(){
-		//@todo
-		return null;
-	}
 	
 	/*
 	 * crea una pista aleatoria en base a la dificultad, hardcodeada en ints :D

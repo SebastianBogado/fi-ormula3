@@ -1,39 +1,43 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import modelo.MacX;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class MacXTest {
 
+	private MacX motor;
+
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
+		motor = new MacX();
 	}
 
 	@Test
-	public void testEvaluarFuncionVelocidad() {
-		fail("Not yet implemented");
-	}
+	public void testVelocidad() {
 
-	@Test
-	public void testCalcularTiempo() {
-		fail("Not yet implemented");
+		long velInst = (long) Math.ceil(motor.acelerar(2, 0));
+		long velMax = 80;// (long) Math.ceil(motor.VelocidadMaxima());
+
+		assertTrue(velInst == velMax);
+
+		velInst = (long) Math.ceil(motor.acelerar(15, 80));
+		velMax = (long) Math.ceil(motor.VelocidadMaxima());
+		assertTrue(velInst == velMax);
+
 	}
 
 	@Test
 	public void testMotor() {
-		fail("Not yet implemented");
+		MacX nuevoMotor = new MacX();
+		assertTrue("MacX".equals(nuevoMotor.motor()));
 	}
 
 	@Test
 	public void testMacX() {
-		fail("Not yet implemented");
+		assertTrue(motor.VelocidadMaxima() == 150.0);
 	}
 
 }

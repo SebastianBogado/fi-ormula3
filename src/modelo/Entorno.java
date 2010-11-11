@@ -101,7 +101,7 @@ public class Entorno extends Observable implements ActionListener{
 		Colisionador unColisionador=new Colisionador() ;
 		
 		
-		  if (unColisionador.pasoElObstaculo(obstaculoSiguiente, posicionAutoDiscretaEnY)){
+		  if (unColisionador.pasoElObstaculo(obstaculoSiguiente, unAutomovil)){
 			  obstaculoYaChocado = null;
 			  obstaculoSiguiente = pistaDeAutos.getObstaculoSiguiente();
 		  }

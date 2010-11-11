@@ -1,34 +1,32 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Colisionador;
+import modelo.Pozo;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ColisionadorTest {
+public class ColisionadorTest extends TestCase {
 
+	private Colisionador colisionador;
+
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testColisionador() {
-		fail("Not yet implemented");
+		colisionador = new Colisionador();
 	}
 
 	@Test
 	public void testPasoElObstaculo() {
-		fail("Not yet implemented");
+		Pozo pozo = new Pozo(1, 1);
+		assertTrue(colisionador.pasoElObstaculo(pozo, 3.0));
 	}
 
 	@Test
 	public void testCoinciden() {
-		fail("Not yet implemented");
+		Pozo pozo = new Pozo(1, 1);
+		assertTrue(colisionador.coinciden(pozo, 1, 1));
 	}
 
 }

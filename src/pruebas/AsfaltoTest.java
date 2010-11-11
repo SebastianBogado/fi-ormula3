@@ -1,19 +1,23 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Asfalto;
+import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
-import org.junit.Before;
 import org.junit.Test;
 
-public class AsfaltoTest {
+public class AsfaltoTest extends TestCase {
 
-	@Before
-	public void setUp() throws Exception {
-	}
+	private Asfalto terreno;
 
 	@Test
-	public void testAsfalto() {
-		fail("Not yet implemented");
+	public void testAsfalto() throws ExcepcionLimitesIncorrectosEnElTerreno {
+		terreno = new Asfalto(100, 200);
+
+		assertTrue(terreno.principio() == 100);
+
+		assertTrue(terreno.fin() == 200);
+
 	}
 
 }

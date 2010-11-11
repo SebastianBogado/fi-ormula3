@@ -1,24 +1,24 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Ripio;
+import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class RipioTest {
+public class RipioTest extends TestCase {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	private Ripio terreno;
 
 	@Test
-	public void testRipio() {
-		fail("Not yet implemented");
+	public void testRipio() throws ExcepcionLimitesIncorrectosEnElTerreno {
+
+		terreno = new Ripio(50, 100);
+
+		assertTrue(terreno.principio() == 50);
+
+		assertTrue(terreno.fin() == 100);
+
 	}
 
 }

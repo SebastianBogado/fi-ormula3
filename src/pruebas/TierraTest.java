@@ -1,24 +1,22 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Tierra;
+import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class TierraTest {
+public class TierraTest extends TestCase {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	private Tierra terreno;
 
 	@Test
-	public void testTierra() {
-		fail("Not yet implemented");
+	public void testTierra() throws ExcepcionLimitesIncorrectosEnElTerreno {
+		terreno = new Tierra(100, 200);
+
+		assertTrue(terreno.principio() == 100);
+
+		assertTrue(terreno.fin() == 200);
 	}
 
 }

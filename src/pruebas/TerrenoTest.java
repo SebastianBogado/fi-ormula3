@@ -1,34 +1,30 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Asfalto;
+import modelo.Terreno;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TerrenoTest {
+public class TerrenoTest extends TestCase {
 
+	private Terreno terreno;
+
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testTerreno() {
-		fail("Not yet implemented");
+		terreno = new Asfalto(10, 20);
 	}
 
 	@Test
 	public void testFin() {
-		fail("Not yet implemented");
+		assertTrue(terreno.fin() == 20);
 	}
 
 	@Test
 	public void testPrincipio() {
-		fail("Not yet implemented");
+		assertTrue(terreno.principio() == 10);
 	}
 
 }

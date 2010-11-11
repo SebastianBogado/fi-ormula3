@@ -6,7 +6,7 @@ public class Lin64 extends Motor{
 	 * Constructor; Se define la velocidad Maxima
 	 */
 	public Lin64(){
-		velocidadMaxima=120;
+		velocidadMaxima=120.0;
 	}
 	
 	//Metodo Sobreescrito

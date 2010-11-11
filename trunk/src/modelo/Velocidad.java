@@ -10,6 +10,10 @@ public class Velocidad extends Vector2D{
 		return new Posicion(vector.x * difTiempo, vector.y * difTiempo);
 	}
 	
+	public Posicion variacionDePosicionEnMetros(double difTiempo){
+		return this.variacionDePosicion(difTiempo * 1000);
+	}
+	
 	/*
 	 * devuelve el módulo de la velocidad
 	 */

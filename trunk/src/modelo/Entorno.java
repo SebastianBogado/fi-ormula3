@@ -5,23 +5,12 @@ import java.util.Observable;
 
 public class Entorno extends Observable {
 
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
-	}
-	
-	
-	  
-	private double posicionAutoRealEnY;
-	private double posicionAutoRealEnX;
 	private long posicionAutoDiscretaEnX;
 	private long posicionAutoDiscretaEnY;
 	
 	private double variacionPosicionDiscretaEnY;
-	private double DiferencialDeTiempo;
+	static private int diferencialDeTiempo = 36;
+	static private double diferencialDeTiempoEnHoras = 0.00001;
 	
 	private Automovil unAutomovil;
 	
@@ -35,10 +24,11 @@ public class Entorno extends Observable {
 	
 	
 	
-	public Entorno(){
-		
+	public Entorno(Automovil auto, Pista pista){
+		this.unAutomovil = auto;
 		this.pistaDeAutos= new Pista();
 		obstaculoSiguiente=this.pistaDeAutos.getObstaculoSiguiente();
+		
 		
 	}
 	
@@ -46,9 +36,15 @@ public class Entorno extends Observable {
 	
 	
 	private void actualizarPosicion(){
-		posicionAutoRealEnY=posicionAutoRealEnY+unAutomovil.getVelocidadInstantanea().rapidez()*DiferencialDeTiempo;
-		variacionPosicionDiscretaEnY=(Math.round(posicionAutoRealEnY)-posicionAutoDiscretaEnY);
-		posicionAutoDiscretaEnY=(Math.round(posicionAutoRealEnY));
+		unAutomovil.actualizarPosicion(diferencialDeTiempoEnHoras);
+		double auxPosicionX = unAutomovil.getPosicionReal().x();
+		this.posicionAutoDiscretaEnX = Math.round(auxPosicionX);
+		
+		double auxPosicionY = unAutomovil.getPosicionReal().y();
+		this.variacionPosicionDiscretaEnY=(Math.round(auxPosicionY) - posicionAutoDiscretaEnY);
+		this.posicionAutoDiscretaEnY=(Math.round(auxPosicionY));
+
+		
 		if (variacionPosicionDiscretaEnY == 1 ){ autoAvanzoUnMetro = true;}
 		else{ autoAvanzoUnMetro = false;}
 		
@@ -75,12 +71,7 @@ public class Entorno extends Observable {
 	
 	private void informarColision(Obstaculo obstaculoChocado){
 		if ((obstaculoChocado != null) && (obstaculoYaChocado != obstaculoChocado)){
-			try{
 			unAutomovil.desgastarPorObstaculo (obstaculoChocado);
-			}
-			catch (Exception e){
-				
-			};			
 			obstaculoYaChocado = obstaculoChocado;
 		}
 	}
@@ -88,14 +79,16 @@ public class Entorno extends Observable {
 	
 	private void informarTerreno(){
 		if (autoAvanzoUnMetro){
-			try{
 			unAutomovil.desgastarPorTerreno(pistaDeAutos.getTerreno(posicionAutoDiscretaEnY));
-			}
-			catch(Exception e){
-			}
 		}
 	}	
 		
+	/*
+	private boolean chequearFinDePista(){
+	 
+		return (this.posicionAutoDiscretaEnY == this.pistaDeAutos.getLargo());
+	}
+	 */
 }
 
 	

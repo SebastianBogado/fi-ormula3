@@ -1,29 +1,37 @@
 package pruebas;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import modelo.Mess10;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Mess10Test {
+public class Mess10Test extends TestCase {
+	private Mess10 neumaticos;
 
+	@Override
 	@Before
 	public void setUp() throws Exception {
-	}
 
-	@After
-	public void tearDown() throws Exception {
+		neumaticos = new Mess10();
 	}
 
 	@Test
 	public void testDesgastarPorTerreno() {
-		fail("Not yet implemented");
+
+		assertTrue(neumaticos.desgastePorAsfalto() == 0.0);
+		assertTrue(neumaticos.desgastePorRipio() == 1.0 / 100.0);
+		assertTrue(neumaticos.desgastePorTierra() == 1.0 / 70.0);
 	}
 
 	@Test
 	public void testDesgastarPorObstaculo() {
-		fail("Not yet implemented");
+		assertTrue(neumaticos.chocarConPozo() == 5.0);
+		assertTrue(neumaticos.chocarConLomaDeBurro() == 10);
+	}
+
+	public void testTipo() {
+		assertTrue(neumaticos.tipo().equals("Mess10"));
 	}
 
 }

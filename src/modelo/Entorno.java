@@ -1,9 +1,15 @@
 package modelo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 
+import javax.swing.Timer;
 
-public class Entorno extends Observable {
+import modelo.excepciones.ExcepcionPistaFinalizada;
+
+
+public class Entorno extends Observable implements ActionListener{
 
 	private long posicionAutoDiscretaEnX;
 	private long posicionAutoDiscretaEnY;
@@ -21,27 +27,45 @@ public class Entorno extends Observable {
 	
 	private Pista pistaDeAutos;
 	
+	private Timer cicloConstante;
 	
 	
+	/*
+	 * Para crearse, necesita el auto, en esta primer entrega
+	 * Más tarde, habrá para elegir entre pista aleatoria y una ubicación,
+	 * donde estará una pista interpretable en XML
+	 */
 	
 	public Entorno(Automovil auto, Pista pista){
 		this.unAutomovil = auto;
 		this.pistaDeAutos= new Pista();
 		obstaculoSiguiente=this.pistaDeAutos.getObstaculoSiguiente();
 		this.darTresSegundosPrevios();
+		
 		this.iniciarSecuencia();
 		
 	}
 	
 	
+	private void iniciarSecuencia(){
+		cicloConstante = new Timer(diferencialDeTiempo, this);
+		cicloConstante.setInitialDelay(0);
+		cicloConstante.start();
+	}
 	
-	private void iniciarSecuencia() {
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
 		this.actualizarPosicion();
 		this.chequearColisiones();
 		this.informarTerreno();
-		this.chequearFinDePista();		
+		try {
+			this.chequearFinDePista();
+		} catch (ExcepcionPistaFinalizada e) {
+			this.cicloConstante.stop();
+		}	
+		
 	}
-
 
 
 	/*
@@ -106,10 +130,21 @@ public class Entorno extends Observable {
 		}
 	}	
 		
-	private boolean chequearFinDePista(){
-	 
-		return (this.posicionAutoDiscretaEnY == this.pistaDeAutos.getLargo());
+	private void chequearFinDePista() throws ExcepcionPistaFinalizada{
+		if (this.posicionAutoDiscretaEnY == this.pistaDeAutos.getLargo()){
+			this.registrarTiempo();
+			throw new ExcepcionPistaFinalizada();
+		}
 	}
+
+	/*
+	 * Con este método se registra el tiempo que tardó en correr la pista
+	 */
+	private void registrarTiempo() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
 

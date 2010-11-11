@@ -48,6 +48,10 @@ public class Pista {
 		return this.LagroDeLaPista;
 	}
 	
+	/*
+	 * carga la lista de poszos con valores predeterminados
+	 */
+	
 	private void cargarListaEstaticaDePozos(int AnchoPista,int LargoPista,int CantidadDePozos){
 			
 		int posicionPozoX=0;
@@ -67,6 +71,9 @@ public class Pista {
 		
 	}
 	
+	/*
+	 * carga la lista de LomasDeBurro con valores predeterminados
+	 */
 	
 	private void cargarListaEstaticaDeLomasDeBurro(int AnchoPista,int LargoPista,int CantidadDeLomasDeBurro){
 		
@@ -82,6 +89,11 @@ public class Pista {
 			}		
 		
 	}
+	
+	/*
+	 * caraga la lista de terrenos con un terreno de cada tipo de longitud predeterminada
+	 */
+	
 	
 	private void cargarListaEstaticaTerrenos(){
 		
@@ -108,6 +120,10 @@ public class Pista {
 		catch (Exception e){}
 		
 	}
+	
+	/*
+	 * crea una pista estatica que es igual en todas las ejecucuiones
+	 */
 	
 	public void cargarPistaEstatica (){
 		int AnchoPista=6;
@@ -140,17 +156,25 @@ public class Pista {
 		return this.ListaDeTerrenos;
 	}
 	
+	/*
+	 * 
+	 */
 	private void ActualizarProximoPozo(){
 		if (IteradorListaDePozos.hasNext())
 			this.PoximoPozo= IteradorListaDePozos.next();		
 	}
 	
-	
+	/*
+	 * 
+	 */
 	private void ActualiarProximaLomaDeBurro(){
 		if(IteradorListaDeLomasDeBurro.hasNext())
 				this.ProximaLomaDeBurro=IteradorListaDeLomasDeBurro.next();			
 	}
 	
+	/*
+	 * devuelve el obstaculo mas proximo a colisionar con el auot
+	 */
 	
 	public Obstaculo getObstaculoSiguiente(){
 		
@@ -178,7 +202,9 @@ public class Pista {
 		
 	}
 	
-
+	/*
+	 * devuelve el Terreno actaul
+	 */
 	
 	
 	public  Terreno getTerreno (long posicionAutoDiscretaEnY){

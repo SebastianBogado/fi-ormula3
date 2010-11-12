@@ -9,10 +9,10 @@ package modelo;
 		
 		public boolean pasoElObstaculo(Obstaculo obstaculoSiguiente, Automovil unAutomovil){
 			
-			int posicionDiscretaEnX = (int) unAutomovil.getPosicionReal().x();
+			int posicionDiscretaEnX = (int) unAutomovil.getPosicionReal().y();
+			int posicionObstaculo = (int)obstaculoSiguiente.posicionEsquinaInferiorIzquierda().y() + (int) obstaculoSiguiente.getLargo();
 			
-			if (posicionDiscretaEnX > (int)obstaculoSiguiente.posicionEsquinaInferiorIzquierda().x()
-									+ (int) obstaculoSiguiente.getLargo())
+			if (posicionDiscretaEnX >posicionObstaculo )
 			return true;
 			else
 			return false;

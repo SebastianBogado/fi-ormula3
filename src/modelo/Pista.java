@@ -1,6 +1,6 @@
 package modelo;
 
-import java.util.ArrayList;
+
 
 import modelo.excepciones.ExcepcionDificultadInvalida;
 import java.util.LinkedList;
@@ -11,12 +11,15 @@ public class Pista {
 	private LinkedList<Pozo> ListaDePozos;
 	private LinkedList<LomaDeBurro> ListaDeLomasDeBurro;
 	private LinkedList<Terreno> ListaDeTerrenos;
-	private Iterator <Terreno> IteradorListaDeTerrenos;
+	
 	private Iterator <Pozo> IteradorListaDePozos;
 	private Iterator <LomaDeBurro> IteradorListaDeLomasDeBurro;
+	private Iterator <Terreno> IteradorListaDeTerrenos;
+	
 	private Pozo PoximoPozo;
 	private LomaDeBurro ProximaLomaDeBurro;
 	private Terreno TerrenoActual;
+	
 	private int PosicionDeCambioDeTerreno;
 	private int LagroDeLaPista;
 	
@@ -26,12 +29,15 @@ public class Pista {
 		ListaDeLomasDeBurro= new LinkedList<LomaDeBurro>();
 		ListaDeTerrenos = new LinkedList<Terreno>();
 		
+		this.cargarPistaEstatica();
+		
 		IteradorListaDePozos=ListaDePozos.iterator();
 		IteradorListaDeLomasDeBurro=ListaDeLomasDeBurro.iterator();
 		IteradorListaDeTerrenos=ListaDeTerrenos.iterator();
 		
-		this.cargarPistaEstatica();
-		this.ActualizarTerreno();		
+		this.ActualizarTerreno();
+		this.ActualizarProximoPozo();
+		this.ActualiarProximaLomaDeBurro();
 		
 	}
 	
@@ -59,7 +65,7 @@ public class Pista {
 		Pozo unPozo;
 		
 		if (posicionPozoY<LargoPista){
-			for (int i=1;i<=CantidadDePozos;i++){			
+			for (int i=0;i<CantidadDePozos;i++){			
 				if(posicionPozoX==AnchoPista)
 					posicionPozoX=0;
 				posicionPozoX++;
@@ -82,8 +88,8 @@ public class Pista {
 		LomaDeBurro unaLomaDeBurro;
 		
 		if (posicionLomaDeBurroEnY<LargoPista)
-			for(int i=1;i<=CantidadDeLomasDeBurro;i++){
-				posicionLomaDeBurroEnY=+1000;
+			for(int i=0;i<CantidadDeLomasDeBurro;i++){
+				posicionLomaDeBurroEnY+=1000;
 				unaLomaDeBurro= new LomaDeBurro (posicionLomaDeBurroEnX,posicionLomaDeBurroEnY,AnchoPista);
 				ListaDeLomasDeBurro.add(i,unaLomaDeBurro);
 			}		
@@ -101,21 +107,21 @@ public class Pista {
 				
 		try{
 			unTerreno= new Asfalto(0,4000);	
-			this.ListaDeTerrenos.add(1,unTerreno);
+			this.ListaDeTerrenos.add(0,unTerreno);
 		}
 		catch (Exception e){}
 		
 		
 		try{
 			unTerreno= new Ripio(4001,7000);
-			this.ListaDeTerrenos.add(2,unTerreno);
+			this.ListaDeTerrenos.add(1,unTerreno);
 		}
 		catch (Exception e){}
 		
 		
 		try{
 			unTerreno= new Ripio(7001,10000);
-			this.ListaDeTerrenos.add(3,unTerreno);
+			this.ListaDeTerrenos.add(2,unTerreno);
 		}
 		catch (Exception e){}
 		
@@ -196,10 +202,9 @@ public class Pista {
 	
 	private void ActualizarTerreno(){
 		if(IteradorListaDeTerrenos.hasNext()){
-			TerrenoActual=IteradorListaDeTerrenos.next();
+			this.TerrenoActual=this.IteradorListaDeTerrenos.next();
 			this.PosicionDeCambioDeTerreno=TerrenoActual.fin();
 		}
-		
 	}
 	
 	/*

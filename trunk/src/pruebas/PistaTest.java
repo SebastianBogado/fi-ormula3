@@ -2,12 +2,8 @@ package pruebas;
 
 import static org.junit.Assert.*;
 
-
-import java.util.Iterator;
-
 import modelo.Pista;
-import modelo.Pozo;
-import modelo.LomaDeBurro;
+import modelo.Obstaculo;
 import modelo.Terreno;
 
 import org.junit.After;
@@ -29,61 +25,45 @@ public class PistaTest {
 	public void tearDown() throws Exception {
 	}
 
+	
+	
+	
 	@Test
-	public void testCargarListaEstaticaDePozos(){
-		Iterator <Pozo> IteradorListaDePozos= unaPista.getListaDePozos().iterator(); 
-		this.unaPista.cargarPistaEstatica();
+	public void testGetObstaculoSiguiente(){
 		
-		if (IteradorListaDePozos.hasNext())
-			assertTrue("Pozo".equals(IteradorListaDePozos.next()));
-				
+		Obstaculo unObstaculo; ;
+		unObstaculo= unaPista.getObstaculoSiguiente();
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==1);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==1000);
+		unObstaculo= unaPista.getObstaculoSiguiente();
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==1);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==1200);
 	}
 	
 	@Test
-	public void testCargarListaEstaticaDeLomasDeBurro(){
-		Iterator <LomaDeBurro> IteradorListaDeLomasDeBurro= unaPista.getListaDeLomasDeBurro().iterator(); 
-		this.unaPista.cargarPistaEstatica();
+	public void TestGetTerreno(){
 		
-		if (IteradorListaDeLomasDeBurro.hasNext())
-			assertTrue("LomaDeBurro".equals(IteradorListaDeLomasDeBurro.next()));
-	}
-	
-	@Test
-	
-	public void testCargarListaEstaticaTerrenos(){
-		Iterator<Terreno> IteradorListaDeTerrenos=unaPista.getListaDeTerrenos().iterator();
-		this.unaPista.cargarPistaEstatica();
-		
-		while(IteradorListaDeTerrenos.hasNext()){
-			assertTrue("Asfalto".equals(IteradorListaDeTerrenos.next()));
-			assertTrue("Ripio".equals(IteradorListaDeTerrenos.next()));
-			assertTrue("Tierra".equals(IteradorListaDeTerrenos.next()));
-		}
-		
+		Terreno unTerreno;
+		unTerreno=this.unaPista.getTerreno(0);
+		assertTrue(unTerreno.principio()==0);
+		assertTrue(unTerreno.fin()==4000);
+		unTerreno=this.unaPista.getTerreno(4001);
+		assertTrue(unTerreno.principio()==4001);
+		assertTrue(unTerreno.fin()==7000);
+		unTerreno=this.unaPista.getTerreno(7001);
+		assertTrue(unTerreno.principio()==7001);
+		assertTrue(unTerreno.fin()==10000);
 		
 	}
 	
 	
-
-	
-	@Test
-	public void testCargarPista() {
-		fail("Not yet implemented");
-	}
+/*
 
 	@Test
 	public void testAleatoria() {
 		fail("Not yet implemented");
 	}
+*/
 
-	@Test
-	public void testGetTerreno() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetObstaculos() {
-		fail("Not yet implemented");
-	}
 
 }

@@ -3,6 +3,7 @@ package pruebas;
 import junit.framework.TestCase;
 import modelo.Colisionador;
 import modelo.Pozo;
+import modelo.Automovil;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,14 +20,18 @@ public class ColisionadorTest extends TestCase {
 
 	@Test
 	public void testPasoElObstaculo() {
-		Pozo pozo = new Pozo(1, 1);
-		assertTrue(colisionador.pasoElObstaculo(pozo, 3.0));
+		Pozo pozo = new Pozo(1,1);
+		Automovil unAutomovil = new Automovil(1,1);
+		unAutomovil.acelerar(0.1);
+		unAutomovil.actualizarPosicion(0.001);
+		assertTrue(colisionador.pasoElObstaculo(pozo, unAutomovil));
 	}
 
 	@Test
 	public void testCoinciden() {
-		Pozo pozo = new Pozo(1, 1);
-		assertTrue(colisionador.coinciden(pozo, 1, 1));
+		Pozo pozo = new Pozo(0, 0);
+		Automovil unAutomovil = new Automovil(1,1);
+		assertTrue(colisionador.coinciden(pozo, unAutomovil));
 	}
 
 }

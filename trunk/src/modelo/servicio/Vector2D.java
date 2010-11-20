@@ -1,4 +1,4 @@
-package modelo;
+package modelo.servicio;
 
 import java.awt.geom.Point2D;
 

@@ -1,4 +1,5 @@
-package modelo;
+package modelo.servicio;
+
 
 abstract public class CuerpoExtenso {
 	protected int ancho; // ancho es en x

@@ -7,6 +7,7 @@ import java.util.Observable;
 import javax.swing.Timer;
 
 import modelo.excepciones.ExcepcionPistaFinalizada;
+import modelo.servicio.Colisionador;
 
 
 public class Entorno extends Observable implements ActionListener{

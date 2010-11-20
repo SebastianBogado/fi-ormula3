@@ -1,4 +1,4 @@
-package modelo;
+package modelo.servicio;
 
 public class Posicion extends Vector2D{
 	public Posicion(double x, double y){

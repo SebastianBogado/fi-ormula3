@@ -1,8 +1,12 @@
 package modelo;
 
+import modelo.servicio.CuerpoExtenso;
+import modelo.servicio.Posicion;
+import modelo.servicio.Velocidad;
+
 public class Automovil extends CuerpoExtenso{
 	private Motor motor=null;
-	private Neumatico neumaticos=null;
+	private Neumaticos neumaticos=null;
 	private Velocidad velocidadInstantanea;
 	private static int ANCHO = 1;
 	private static int LARGO = 2;
@@ -14,13 +18,18 @@ public class Automovil extends CuerpoExtenso{
 	public Automovil(int tipoMotor,int tipoNeumatico){
 		
 		this.motor=Motor.NuevoMotorDeTipo(tipoMotor);
-		this.neumaticos=Neumatico.NuevoNeumatico(tipoNeumatico);
+		this.neumaticos=Neumaticos.NuevoNeumatico(tipoNeumatico);
 		this.velocidadInstantanea = new Velocidad(0, 0);
 		this.ancho = Automovil.ANCHO;
 		this.largo = Automovil.LARGO;
 		this.posicionEsquinaInferiorIzquierda = new Posicion(0,0);
 	}
 	
+	public Automovil(Motor motor, Neumaticos ruedas) {
+		this.motor = motor;
+		this.neumaticos = ruedas;
+	}
+
 	/* 
 	 * actualiza la posición en base a un diferencial de tiempo
 	 */

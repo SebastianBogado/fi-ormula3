@@ -1,6 +1,8 @@
 package modelo;
 
-public class Paler9 extends Neumatico {
+import modelo.servicio.Velocidad;
+
+public class Paler9 extends Neumaticos {
 
 	@Override
 	public void desgastarPorTerreno(Terreno terreno,

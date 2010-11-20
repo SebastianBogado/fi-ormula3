@@ -1,7 +1,7 @@
 package pruebas;
 
 import junit.framework.TestCase;
-import modelo.Posicion;
+import modelo.servicio.Posicion;
 
 import org.junit.Before;
 import org.junit.Test;

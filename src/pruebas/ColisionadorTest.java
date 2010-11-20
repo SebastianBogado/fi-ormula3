@@ -1,9 +1,9 @@
 package pruebas;
 
 import junit.framework.TestCase;
-import modelo.Colisionador;
 import modelo.Pozo;
 import modelo.Automovil;
+import modelo.servicio.Colisionador;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 import modelo.Neumatico;
 import modelo.Pozo;
 import modelo.Ripio;
-import modelo.Velocidad;
 import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
+import modelo.servicio.Velocidad;
 
 import org.junit.After;
 import org.junit.Before;

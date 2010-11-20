@@ -1,8 +1,8 @@
 package pruebas;
 
 import static org.junit.Assert.assertTrue;
-import modelo.CuerpoExtenso;
 import modelo.Pozo;
+import modelo.servicio.CuerpoExtenso;
 
 import org.junit.Before;
 import org.junit.Test;

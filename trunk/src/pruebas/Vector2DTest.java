@@ -1,7 +1,7 @@
 package pruebas;
 
 import junit.framework.TestCase;
-import modelo.Vector2D;
+import modelo.servicio.Vector2D;
 
 import org.junit.Before;
 import org.junit.Test;

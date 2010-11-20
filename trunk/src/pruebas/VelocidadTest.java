@@ -1,8 +1,8 @@
 package pruebas;
 
 import static org.junit.Assert.assertTrue;
-import modelo.Posicion;
-import modelo.Velocidad;
+import modelo.servicio.Posicion;
+import modelo.servicio.Velocidad;
 
 import org.junit.After;
 import org.junit.Before;

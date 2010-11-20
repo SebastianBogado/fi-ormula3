@@ -1,6 +1,6 @@
 package modelo;
 
-public class Mess10 extends Neumatico {
+public class Mess10 extends Neumaticos {
 
 	@Override
 	public double chocarConLomaDeBurro() {

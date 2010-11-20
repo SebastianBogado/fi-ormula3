@@ -24,5 +24,5 @@ public abstract class Terreno {
 		return this.principio;
 	}
 
-	public abstract double desgastar(Neumatico neumaticos);
+	public abstract double desgastar(Neumaticos neumaticos);
 }

@@ -1,6 +1,9 @@
 package modelo;
 
-abstract public class Neumatico {
+import modelo.servicio.Autoparte;
+import modelo.servicio.Velocidad;
+
+abstract public class Neumaticos implements Autoparte{
 
 	private double daño = 0;
 
@@ -21,9 +24,9 @@ abstract public class Neumatico {
 	 * Devuelve una instancia de alguna clase Derivada de Neumatico segun en el
 	 * parametro recibido
 	 */
-	public static Neumatico NuevoNeumatico(int tipoNeumatico) {
+	public static Neumaticos NuevoNeumatico(int tipoNeumatico) {
 
-		Neumatico cubiertas = null;
+		Neumaticos cubiertas = null;
 
 		switch (tipoNeumatico) {
 		case 1:

@@ -1,4 +1,4 @@
-package modelo;
+package modelo.servicio;
 
 public class Velocidad extends Vector2D{
 	

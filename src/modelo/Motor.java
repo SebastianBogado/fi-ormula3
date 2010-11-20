@@ -1,6 +1,8 @@
 package modelo;
 
-abstract public class Motor  {
+import modelo.servicio.Autoparte;
+
+abstract public class Motor implements Autoparte {
 	
 	protected double velocidadMaxima;
 		

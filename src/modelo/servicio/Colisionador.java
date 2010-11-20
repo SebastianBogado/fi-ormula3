@@ -1,4 +1,7 @@
-package modelo;
+package modelo.servicio;
+
+import modelo.Automovil;
+import modelo.Obstaculo;
 
 	public class Colisionador{
 		

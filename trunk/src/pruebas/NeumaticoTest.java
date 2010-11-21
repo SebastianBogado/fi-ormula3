@@ -1,10 +1,11 @@
 package pruebas;
 
 import static org.junit.Assert.assertTrue;
-import modelo.Neumatico;
+import modelo.Neumaticos;
 import modelo.Pozo;
 import modelo.Ripio;
 import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
+import modelo.servicio.FabricaAbstractaDeNeumaticos;
 import modelo.servicio.Velocidad;
 
 import org.junit.After;
@@ -13,11 +14,13 @@ import org.junit.Test;
 
 public class NeumaticoTest {
 
-	private Neumatico neumaticos;
+	private Neumaticos neumaticos;
+	private FabricaAbstractaDeNeumaticos fabrica;
 
 	@Before
 	public void setUp() throws Exception {
-		neumaticos = Neumatico.NuevoNeumatico(1);
+		fabrica = new FabricaAbstractaDeNeumaticos();
+		neumaticos = fabrica.instanciarRuedas("Mess10");
 	}
 
 	@After
@@ -31,14 +34,11 @@ public class NeumaticoTest {
 
 	@Test
 	public void testNuevoNeumatico() {
-		Neumatico n1 = Neumatico.NuevoNeumatico(1);
-		Neumatico n2 = Neumatico.NuevoNeumatico(2);
-		Neumatico n3 = Neumatico.NuevoNeumatico(5);
+		Neumaticos n1 = fabrica.instanciarRuedas("Mess10");
+		Neumaticos n2 = fabrica.instanciarRuedas("Paler9");
 
 		assertTrue(n1.tipo().equals("Mess10"));
 		assertTrue(n2.tipo().equals("Paler9"));
-		assertTrue(n3.tipo().equals("Mess10"));
-
 	}
 
 	@Test

@@ -2,7 +2,7 @@ package pruebas;
 
 import junit.framework.TestCase;
 import modelo.LomaDeBurro;
-import modelo.Neumatico;
+import modelo.Mess10;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class LomaDeBurroTest extends TestCase {
 	@Test
 	public void testLomaDeBurro() {
 		double daño = 0;
-		daño = loma.chocarCon(Neumatico.NuevoNeumatico(1));
+		daño = loma.chocarCon(new Mess10());
 		assertTrue(daño > 0);
 	}
 

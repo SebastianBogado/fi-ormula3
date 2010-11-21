@@ -13,7 +13,7 @@ public class LomaDeBurro extends Obstaculo {
 	}
 
 	@Override
-	public double chocarCon(Neumatico neumaticos) {
+	public double chocarCon(Neumaticos neumaticos) {
 		return neumaticos.chocarConLomaDeBurro();
 	}
 

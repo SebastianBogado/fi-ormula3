@@ -8,7 +8,7 @@ public class Pozo extends Obstaculo {
 	}
 
 	@Override
-	public double chocarCon(Neumatico neumaticos) {
+	public double chocarCon(Neumaticos neumaticos) {
 		return neumaticos.chocarConPozo();
 	}
 

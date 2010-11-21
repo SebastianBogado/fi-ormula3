@@ -11,23 +11,13 @@ public class Automovil extends CuerpoExtenso{
 	private static int ANCHO = 1;
 	private static int LARGO = 2;
 	
-	/*
-	 * Constructor; Son recibidos como parametros los tipos Motor y Neumaticos que
-	 * que debe tener el auto
-	 */	
-	public Automovil(int tipoMotor,int tipoNeumatico){
-		
-		this.motor=Motor.NuevoMotorDeTipo(tipoMotor);
-		this.neumaticos=Neumaticos.NuevoNeumatico(tipoNeumatico);
+	public Automovil(Motor motor, Neumaticos ruedas) {
+		this.motor = motor;
+		this.neumaticos = ruedas;
 		this.velocidadInstantanea = new Velocidad(0, 0);
 		this.ancho = Automovil.ANCHO;
 		this.largo = Automovil.LARGO;
 		this.posicionEsquinaInferiorIzquierda = new Posicion(0,0);
-	}
-	
-	public Automovil(Motor motor, Neumaticos ruedas) {
-		this.motor = motor;
-		this.neumaticos = ruedas;
 	}
 
 	/* 

@@ -53,28 +53,6 @@ abstract public class Motor implements Autoparte {
 	 * Devuelve el tipo de motor en un String
 	 */	
 	abstract public String motor();
-	
-	/*
-	 * Devuelve una instancia de algun tipo de motor recibido como paramtro
-	 */	
-	public static Motor NuevoMotorDeTipo(int tipoMotor) {
 
-		Motor motor=null;
-		
-		switch (tipoMotor){
-		case 1: motor=new Lin64(); break;
-		case 2: motor=new Win32(); break;
-		case 3: motor=new MacX(); break;
-		
-		default: motor =new Lin64(); 
-		 
-		}
-			
-		return motor;
-	}  
-	
-	
-	
-	
 
 }

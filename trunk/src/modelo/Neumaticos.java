@@ -21,31 +21,8 @@ abstract public class Neumaticos implements Autoparte{
 	}
 
 	/*
-	 * Devuelve una instancia de alguna clase Derivada de Neumatico segun en el
-	 * parametro recibido
-	 */
-	public static Neumaticos NuevoNeumatico(int tipoNeumatico) {
-
-		Neumaticos cubiertas = null;
-
-		switch (tipoNeumatico) {
-		case 1:
-			cubiertas = new Mess10();
-			break;
-		case 2:
-			cubiertas = new Paler9();
-			break;
-		default:
-			cubiertas = new Mess10();
-
-		}
-
-		return cubiertas;
-	}
-
-	/*
-	 * Cálculo del desgaste POR METRO. Depende de velocidad *
-	 * constanteDeDesgasteDelTerreno
+	 * Cálculo del desgaste POR METRO. 
+	 * Depende de velocidad * constanteDeDesgasteDelTerreno
 	 */
 	public void desgastarPorTerreno(Terreno terreno,
 			Velocidad velocidadInstantanea) {

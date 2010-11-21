@@ -2,8 +2,7 @@ package Vista;
 
 import javax.swing.*;
 
-import src.Vista.MenuPrincipal.ManejadorDeEventos;
-
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 

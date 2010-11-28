@@ -12,4 +12,5 @@ abstract public class CuerpoExtenso {
 	public Posicion posicionEsquinaInferiorIzquierda(){
 		return this.posicionEsquinaInferiorIzquierda;
 	}
+	
 }

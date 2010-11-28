@@ -1,6 +1,11 @@
 package modelo.servicio;
 
 public class Posicion extends Vector2D{
+	
+	public Posicion(){
+		
+	}
+	
 	public Posicion(double x, double y){
 		super(x,y);
 	}
@@ -9,5 +14,4 @@ public class Posicion extends Vector2D{
 		this.vector.x += variacionDePosicion.x();
 		this.vector.y += variacionDePosicion.y();		
 	}
-	
 }

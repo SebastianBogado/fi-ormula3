@@ -19,6 +19,7 @@ public class MenuPrincipal extends JDialog{
 	private String NivelSeleccionado=null;
 	private String MotorSeleccionado=null;
 	private String RuedasSeleccionadas=null;
+	private static String[] pistas = null;
 	private boolean Seguir;
 
 	public MenuPrincipal(){
@@ -111,8 +112,8 @@ public class MenuPrincipal extends JDialog{
 			this.BotonAceptar.setActionCommand("Aceptar");
 			this.BotonAceptar.setEnabled(false);
 				
-			ManejadorDeEventoSeleccionPista manejadorEventosSeleccionPista = new ManejadorDeEventoSeleccionPista();
-			ManejadorDeOpciones manejadoropciones = new ManejadorDeOpciones();
+			ManejadorDeEventosSeleccionPista manejadorEventosSeleccionPista = new ManejadorDeEventosSeleccionPista();
+			ManejadorDeOpcionesPista manejadoropciones = new ManejadorDeOpcionesPista();
 		
 			this.ConjuntoPistas.addItemListener(manejadoropciones);
 			this.BotonAceptar.addActionListener(manejadorEventosSeleccionPista);
@@ -157,7 +158,7 @@ public class MenuPrincipal extends JDialog{
 			this.BotonAceptar.setActionCommand("Aceptar");
 			this.BotonAceptar.setEnabled(false);
 					
-			ManejadorDeEventoSeleccionMotor manejadorEventosMotor = new ManejadorDeEventoSeleccionMotor();
+			ManejadorDeEventosSeleccionMotor manejadorEventosMotor = new ManejadorDeEventosSeleccionMotor();
 				
 			this.BotonWin32.addActionListener(manejadorEventosMotor);
 			this.BotonMacX.addActionListener(manejadorEventosMotor);
@@ -203,7 +204,7 @@ public class MenuPrincipal extends JDialog{
 				this.BotonAceptar.setActionCommand("Aceptar");
 				this.BotonAceptar.setEnabled(false);
 						
-				ManejadorDeEventoSeleccionRuedas manejadorEventosRuedas = new ManejadorDeEventoSeleccionRuedas();
+				ManejadorDeEventosSeleccionRuedas manejadorEventosRuedas = new ManejadorDeEventosSeleccionRuedas();
 						
 				this.BotonPaler9.addActionListener(manejadorEventosRuedas);
 				this.BotonMess10.addActionListener(manejadorEventosRuedas);
@@ -273,7 +274,7 @@ public class MenuPrincipal extends JDialog{
 
 	/** Clase que maneja el evento correspondiente los botones de la ventana seleccion de motor **/
 	
-	private class ManejadorDeEventoSeleccionMotor implements ActionListener{
+	private class ManejadorDeEventosSeleccionMotor implements ActionListener{
 		private static final long serialVersionUID = 1L;
 
 		public void actionPerformed(ActionEvent e){
@@ -292,30 +293,30 @@ public class MenuPrincipal extends JDialog{
 					
 			if (e.getActionCommand().equals("Win32")){
 				MotorSeleccionado = "Win32";
-				BotonAceptar.setEnabled(true);
+				//BotonAceptar.setEnabled(true);
 				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
 					BotonSeguir.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("MacX")){
 				MotorSeleccionado = "MacX";
-				BotonAceptar.setEnabled(true);
+				//BotonAceptar.setEnabled(true);
 				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
 					BotonSeguir.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("Lin64")){
 				MotorSeleccionado = "Lin64";
-				BotonAceptar.setEnabled(true);
+				//BotonAceptar.setEnabled(true);
 				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
 					BotonSeguir.setEnabled(true);
 			}
 		
 		}
 	}
-	
+		
 	/** Clase que maneja el evento correspondiente al botones de la ventana seleccion de ruedas **/
-	private class ManejadorDeEventoSeleccionRuedas implements ActionListener{
+	private class ManejadorDeEventosSeleccionRuedas implements ActionListener{
 		private static final long serialVersionUID = 1L;
 
 		public void actionPerformed(ActionEvent e){
@@ -334,17 +335,44 @@ public class MenuPrincipal extends JDialog{
 					
 			if (e.getActionCommand().equals("Paler9")){
 				RuedasSeleccionadas = "Paler9";
-				BotonAceptar.setEnabled(true);
+				//BotonAceptar.setEnabled(true);
 				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
 					BotonSeguir.setEnabled(true);
 			}
 					
 			if (e.getActionCommand().equals("Mess10")){
 				RuedasSeleccionadas = "Mess10";
-				BotonAceptar.setEnabled(true);
+				//BotonAceptar.setEnabled(true);
 				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
 					BotonSeguir.setEnabled(true);
 			}
 		}			
 	}	
+	
+	private class ManejadorDeEventosSeleccionPista implements ActionListener{
+		
+		private static final long serialVersionUID = 1L;
+		public void actionPerformed(ActionEvent e){
+				
+			if (e.getActionCommand().equals("Aceptar")){
+					setVisible(false);				
+			}
+			
+			if (e.getActionCommand().equals("Salir")){
+				int opcion = JOptionPane.showConfirmDialog(null, " ¿Desea Salir?");
+				if (opcion == 0) {
+					Seguir = false;
+					System.exit(0);
+				}
+			}
+		}
+	}
+	
+	private class ManejadorDeOpcionesPista implements ItemListener{
+		public void itemStateChanged(ItemEvent e){
+			//BotonAceptar.setEnabled(true);
+			//if (e.getStateChange() == ItemEvent.SELECTED)			
+				//PistaSeleccionada = pistas[ConjuntoPistas.getSelectedIndex()] + ".xml";
+		}
+	}
 }

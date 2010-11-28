@@ -8,7 +8,8 @@ public final class Win32 extends Motor {
 	public Win32() {
 		velocidadMaxima = 100.0;
 	}
-
+		
+	
 	// Metodo Sobreescrito
 	@Override
 	protected double calcularTiempo(double velocidadInstantanea) {

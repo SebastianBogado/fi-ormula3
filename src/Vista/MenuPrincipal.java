@@ -1,17 +1,10 @@
 package Vista;
 
 import javax.swing.*;
-
-import javax.swing.*;
-
-import MenuPrincipal.VentanaOpciones;
-import MenuPrincipal.VentanaOpciones.ManejadorDeEvento;
-import MenuPrincipal.VentanaOpciones.ManejadorDeOpciones;
-
 import java.awt.*;
 import java.awt.event.*;
 
-/* el menu principal, que carece de botones de maximizacion y minimizacion*/
+/** El menu principal, que carece de botones de maximizacion y minimizacion **/
 public class MenuPrincipal extends JDialog{
 	
 	private static final long serialVersionUID = 1L;
@@ -35,7 +28,7 @@ public class MenuPrincipal extends JDialog{
 		this.setVisible(true);
 		this.setLayout(new FlowLayout());
 		
-		/* crea los botones Nivel, Motor, Ruedas, Pista, Salir y Seguir*/
+		/** Crea los botones Nivel, Motor, Ruedas, Pista, Salir y Seguir **/
 		
 		this.BotonPista = new JButton("Elegir Pista");
 		this.BotonPista.setActionCommand("Pista");
@@ -58,14 +51,14 @@ public class MenuPrincipal extends JDialog{
 		
 		ManejadorDeEventosMenuPpal manejadorMenuPpal = new ManejadorDeEventosMenuPpal();
 		
-		/* Establece para cada boton cual va a ser su detector de eventos*/
+		/** Establece para cada boton cual va a ser su detector de eventos **/
 		this.BotonPista.addActionListener(manejadorMenuPpal);
 		this.BotonMotor.addActionListener(manejadorMenuPpal);
 		this.BotonRuedas.addActionListener(manejadorMenuPpal);
 		this.BotonSalir.addActionListener(manejadorMenuPpal);
 		this.BotonSeguir.addActionListener(manejadorMenuPpal);
 		
-		/* Agrego los botones recientemente creados*/
+		/** Agrego los botones recientemente creados **/
 		this.add(this.BotonPista);
 		this.add(this.BotonMotor);
 		this.add(this.BotonRuedas);
@@ -93,7 +86,7 @@ public class MenuPrincipal extends JDialog{
 		return this.Seguir;
 	}
 
-	/* Clase privada que representa la ventana de opciones para elegir la pista	 */
+	/** Clase privada que representa la ventana de opciones para elegir la pista	**/
 	private class VentanaSeleccionPista extends JFrame{
 			
 		private static final long serialVersionUID = 1L;
@@ -118,12 +111,12 @@ public class MenuPrincipal extends JDialog{
 			this.BotonAceptar.setActionCommand("Aceptar");
 			this.BotonAceptar.setEnabled(false);
 				
-			ManejadorDeEvento manejadoreventos = new ManejadorDeEvento();
+			ManejadorDeEventoSeleccionPista manejadorEventosSeleccionPista = new ManejadorDeEventoSeleccionPista();
 			ManejadorDeOpciones manejadoropciones = new ManejadorDeOpciones();
 		
 			this.ConjuntoPistas.addItemListener(manejadoropciones);
-			this.BotonAceptar.addActionListener(manejadoreventos);
-			this.BotonSalir.addActionListener(manejadoreventos);
+			this.BotonAceptar.addActionListener(manejadorEventosSeleccionPista);
+			this.BotonSalir.addActionListener(manejadorEventosSeleccionPista);
 			
 			this.add(this.ConjuntoPistas);
 			this.add(this.BotonAceptar);	
@@ -164,9 +157,8 @@ public class MenuPrincipal extends JDialog{
 			this.BotonAceptar.setActionCommand("Aceptar");
 			this.BotonAceptar.setEnabled(false);
 					
-			ManejadorDeEventosSeleccionMotor manejadorEventosMotor = new ManejadorDeEventosSeleccionMotor();
+			ManejadorDeEventoSeleccionMotor manejadorEventosMotor = new ManejadorDeEventoSeleccionMotor();
 				
-			
 			this.BotonWin32.addActionListener(manejadorEventosMotor);
 			this.BotonMacX.addActionListener(manejadorEventosMotor);
 			this.BotonLin64.addActionListener(manejadorEventosMotor);
@@ -181,7 +173,7 @@ public class MenuPrincipal extends JDialog{
 		}
 	}
 		
-	/* Clase privada que representa la ventana de opciones para elegir el motor */
+	/** Clase privada que representa la ventana de opciones para elegir el motor **/
 	private class VentanaSeleccionRuedas extends JFrame{
 					
 		private static final long serialVersionUID = 1L;
@@ -279,7 +271,8 @@ public class MenuPrincipal extends JDialog{
 		} 
 	}
 
-	/* Clase que maneja el evento correspondiente los botones de la ventana seleccion de motor */
+	/** Clase que maneja el evento correspondiente los botones de la ventana seleccion de motor **/
+	
 	private class ManejadorDeEventoSeleccionMotor implements ActionListener{
 		private static final long serialVersionUID = 1L;
 
@@ -321,7 +314,7 @@ public class MenuPrincipal extends JDialog{
 		}
 	}
 	
-	/* Clase que maneja el evento correspondiente al botones de la ventana seleccion de ruedas */
+	/** Clase que maneja el evento correspondiente al botones de la ventana seleccion de ruedas **/
 	private class ManejadorDeEventoSeleccionRuedas implements ActionListener{
 		private static final long serialVersionUID = 1L;
 

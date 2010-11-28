@@ -56,7 +56,19 @@ public class PistaTest {
 		
 	}
 	
+	@Test
+	public void testGuardarEnXML(){
+			
+		this.unaPista.guardarEnXML();
+	}
 	
+	@Test
+	public void testCargarDesdeXML(){
+	
+		String unaString ="Default.xml";
+		
+		Pista unaPista =new Pista(unaString);
+	}
 /*
 
 	@Test

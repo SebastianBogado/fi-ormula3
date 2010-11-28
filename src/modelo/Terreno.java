@@ -1,11 +1,17 @@
 package modelo;
 
+import org.jdom.Element;
+
 import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
 public abstract class Terreno {
-	private int principio;
-	private int fin;
+	protected int principio;
+	protected int fin;
 	
+	
+	public Terreno(){
+		
+	}
 	/*
 	 * @param principio: línea donde empieza el terreno
 	 * @param fin: línea donde termina el terreno
@@ -25,4 +31,6 @@ public abstract class Terreno {
 	}
 
 	public abstract double desgastar(Neumaticos neumaticos);
+
+	public abstract Element serializarXML();
 }

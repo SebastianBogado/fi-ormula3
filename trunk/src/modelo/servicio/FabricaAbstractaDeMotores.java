@@ -3,9 +3,9 @@ package modelo.servicio;
 import modelo.Motor;
 
 public class FabricaAbstractaDeMotores extends FabricaAbstracta {
-	private static final String LIN64 = "Lin64";
-	private static final String MACX = "MacX";
-	private static final String WIN32 = "Win32";
+	public static final String LIN64 = "Lin64";
+	public static final String MACX = "MacX";
+	public static final String WIN32 = "Win32";
 
 	public FabricaAbstractaDeMotores() {
 		super();
@@ -16,5 +16,6 @@ public class FabricaAbstractaDeMotores extends FabricaAbstracta {
 
 	public Motor instanciarMotor(String motor) {
 		return (Motor) this.mapa.get(motor).instanciar();
+
 	}
 }

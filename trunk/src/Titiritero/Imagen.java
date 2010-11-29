@@ -6,10 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import ar.uba.fi.algo3.titiritero.Dibujable;
-import ar.uba.fi.algo3.titiritero.Posicionable;
-import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageDecoder;
 
@@ -17,7 +13,7 @@ import com.sun.image.codec.jpeg.JPEGImageDecoder;
  * Esta clase representa una imagen JPG abstrayendo al usuario de los detalles de Java2D
  * Simplemente requiere de una referencia al nombre del archivo JPG
  */
-public class Imagen implements Dibujable {
+public class Imagen implements Dibujable, MouseClickObservador {
 
 	public Imagen() {
 
@@ -63,7 +59,13 @@ public class Imagen implements Dibujable {
 	}
 
 	private String nombreArchivoImagen;
-	private BufferedImage imagen;
-	private Posicionable posicionable;
+	protected BufferedImage imagen;
+	protected Posicionable posicionable;
+
+	@Override
+	public void MouseClick(int x, int y) {
+		System.out.println("Click;" + x + "," + y);
+
+	}
 
 }

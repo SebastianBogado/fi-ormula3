@@ -1,13 +1,10 @@
 package pruebas;
 
-import junit.framework.TestCase;
-import modelo.Lin64;
-import modelo.MacX;
-import modelo.Motor;
-import modelo.Win32;
-import modelo.servicio.FabricaAbstractaDeMotores;
-
 import org.junit.Test;
+
+import junit.framework.TestCase;
+import modelo.Motor;
+import modelo.servicio.FabricaAbstractaDeMotores;
 
 public class MotorTest extends TestCase {
 	Motor motor;

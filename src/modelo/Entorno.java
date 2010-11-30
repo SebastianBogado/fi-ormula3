@@ -1,15 +1,14 @@
 package modelo;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
 
 import javax.swing.Timer;
 
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
+import Titiritero.ObjetoVivo;
 
-public class Entorno extends Observable implements ActionListener {
+public class Entorno extends Observable implements ObjetoVivo {
 
 	private long posicionAutoDiscretaEnX;
 	private long posicionAutoDiscretaEnY;
@@ -18,14 +17,14 @@ public class Entorno extends Observable implements ActionListener {
 	static private int diferencialDeTiempo = 36;
 	static private double diferencialDeTiempoEnHoras = 0.00001;
 
-	private Automovil unAutomovil;
+	private final Automovil unAutomovil;
 
 	private boolean autoAvanzoUnMetro;
 
 	private Obstaculo obstaculoYaChocado;
 	private Obstaculo obstaculoSiguiente;
 
-	private Pista pistaDeAutos;
+	private final Pista pistaDeAutos;
 
 	private Timer cicloConstante;
 
@@ -49,19 +48,6 @@ public class Entorno extends Observable implements ActionListener {
 		cicloConstante = new Timer(diferencialDeTiempo, this);
 		cicloConstante.setInitialDelay(0);
 		cicloConstante.start();
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		this.actualizarPosicion();
-		this.chequearColisiones();
-		this.informarTerreno();
-		try {
-			this.chequearFinDePista();
-		} catch (ExcepcionPistaFinalizada e) {
-			this.cicloConstante.stop();
-		}
-
 	}
 
 	/*
@@ -143,6 +129,18 @@ public class Entorno extends Observable implements ActionListener {
 
 	public long getPosicionAutoDiscretaEnX() {
 		return posicionAutoDiscretaEnX;
+	}
+
+	public void vivir() {
+		this.actualizarPosicion();
+		this.chequearColisiones();
+		this.informarTerreno();
+		try {
+			this.chequearFinDePista();
+		} catch (ExcepcionPistaFinalizada e) {
+			this.cicloConstante.stop();
+		}
+
 	}
 
 }

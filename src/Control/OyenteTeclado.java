@@ -4,20 +4,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import modelo.Automovil;
-import Titiritero.Ventana;
 
 public class OyenteTeclado implements KeyListener {
 
 	private final Automovil auto;
 	private long tiempo = 0;
-	private final Ventana vent;
 
-	public OyenteTeclado(Automovil automovil, Ventana ventana) {
+	public OyenteTeclado(Automovil automovil) {
 		this.auto = automovil;
-		this.vent = ventana;
 	}
 
-	@Override
 	public void keyPressed(KeyEvent e) {
 
 		long diferenciaDeTiempo = 0;
@@ -40,8 +36,6 @@ public class OyenteTeclado implements KeyListener {
 			this.doblarIzquierda();
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			this.doblarDerecha();
-
-		vent.setTitle(Math.ceil(auto.getVelocidadInstantanea().y()) + "km/h");
 
 	}
 
@@ -68,12 +62,10 @@ public class OyenteTeclado implements KeyListener {
 
 	}
 
-	@Override
 	public void keyReleased(KeyEvent arg0) {
 		tiempo = 0;
 	}
 
-	@Override
 	public void keyTyped(KeyEvent arg0) {
 
 	}

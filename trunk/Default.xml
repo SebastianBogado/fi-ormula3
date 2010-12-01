@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pista NombreDeLaPista="Default" LargoDeLaPista="10000" AnchoDeLaPista="6">
+  <ListaDePozos CantidadDePozos="10">
+    <Pozo posicionX="1" posicionY="1000" />
+    <Pozo posicionX="2" posicionY="2000" />
+    <Pozo posicionX="3" posicionY="3000" />
+    <Pozo posicionX="4" posicionY="4000" />
+    <Pozo posicionX="5" posicionY="5000" />
+    <Pozo posicionX="6" posicionY="6000" />
+    <Pozo posicionX="1" posicionY="7000" />
+    <Pozo posicionX="2" posicionY="8000" />
+    <Pozo posicionX="3" posicionY="9000" />
+    <Pozo posicionX="4" posicionY="10000" />
+  </ListaDePozos>
+  <ListaDeLomasDeBurro CantidadDeLomasDeBurro="10">
+    <LomaDeBurro posicionX="1.0" posicionY="1200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="2200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="3200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="4200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="5200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="6200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="7200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="8200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="9200.0" />
+    <LomaDeBurro posicionX="1.0" posicionY="10200.0" />
+  </ListaDeLomasDeBurro>
+  <ListaDeTerrenos CantidadDeTerrenos="3">
+    <Asfalto principio="0" fin="4000" />
+    <Tierra principio="4001" fin="7000" />
+    <Ripio principio="7001" fin="10000" />
+  </ListaDeTerrenos>
+</Pista>
+

@@ -6,6 +6,7 @@ import javax.swing.Timer;
 
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
+import modelo.servicio.Posicion;
 import Titiritero.ObjetoVivo;
 
 public class Entorno extends Observable implements ObjetoVivo {
@@ -45,9 +46,9 @@ public class Entorno extends Observable implements ObjetoVivo {
 	}
 
 	private void iniciarSecuencia() {
-		cicloConstante = new Timer(diferencialDeTiempo, this);
-		cicloConstante.setInitialDelay(0);
-		cicloConstante.start();
+		// cicloConstante = new Timer(diferencialDeTiempo);
+		// cicloConstante.setInitialDelay(0);
+		// cicloConstante.start();
 	}
 
 	/*
@@ -141,6 +142,11 @@ public class Entorno extends Observable implements ObjetoVivo {
 			this.cicloConstante.stop();
 		}
 
+	}
+
+	public Posicion getPosicionAuto() {
+
+		return this.unAutomovil.posicionEsquinaInferiorIzquierda();
 	}
 
 }

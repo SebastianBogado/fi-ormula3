@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1" ?> 
-<project name="Fi-ormula 3" default="ayuda" basedir=".">
+<project name="fi-ormula3" default="ayuda" basedir="..">
   
   	<property name="build.dir" value="bin/" /> 
   	<property name="src.dir" value="src/" /> 
@@ -7,6 +7,10 @@
   	<property name="doc.dir" value="documentacion/javadoc" />
   	<property name="zip.name" value="Entrega.zip" />
 	
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
 	<target name="limpiar">
 		<delete dir = "${build.dir}" />
 		<delete dir = "${doc.dir}" />
@@ -15,14 +19,14 @@
 	
 	<target name="compilar" depends="limpiar">
   		<mkdir dir="${build.dir}" /> 
-		<javac srcdir="${src.dir}" classpath="${lib.dir}" destdir="${build.dir}" />
+		<javac srcdir="${src.dir}" classpathref="classpath" destdir="${build.dir}" />
  	</target>
 
 	<target name="correr" depends="compilar">
-		<java fork="yes" classname="algo3.Principal">
+		<java fork="yes" classname="Programa.Fiormula3">
 			<classpath>	
 				<pathelement path="${build.dir}" />
-				<fileset dir="lib">
+				<fileset dir="${lib.dir}">
 					<include name="**/*.jar"/>
 				</fileset>
 			</classpath>
@@ -33,7 +37,7 @@
 		<junit>
 			<classpath>	
 				<pathelement path="${build.dir}" />
-				<fileset dir="lib">
+				<fileset dir="${lib.dir}">
 					<include name="**/*.jar"/>
 				</fileset>
 			</classpath>
@@ -52,8 +56,8 @@
 	           author="true"
 	           version="true"
 	           use="true"
-	           windowtitle="Proyecto Base Algo3">
-	    <doctitle><![CDATA[<h1>Proyecto Base Algo3</h1>]]></doctitle>
+	           windowtitle="Fi-ormula 3">
+	    <doctitle><![CDATA[<h1>Fi-ormula 3</h1>]]></doctitle>
 	  </javadoc>
 	</target>
 	

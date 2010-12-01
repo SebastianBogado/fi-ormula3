@@ -6,6 +6,7 @@ import modelo.servicio.Velocidad;
 abstract public class Neumaticos implements Autoparte{
 
 	private double daño = 0;
+	private static int velocidadParaQueNoSeDañen = 30;
 
 	protected void aumentarDaño(double difDaño) {
 		if (this.daño <= 100 && difDaño <= 100) {
@@ -37,7 +38,7 @@ abstract public class Neumaticos implements Autoparte{
 	 */
 	public void desgastarPorObstaculo(Obstaculo obstaculo,
 			Velocidad velocidadInstantanea) {
-		if (velocidadInstantanea.rapidez() > 30) {
+		if (velocidadInstantanea.rapidez() > velocidadParaQueNoSeDañen) {
 			double difDaño = obstaculo.chocarCon(this);
 			this.aumentarDaño(difDaño);
 		}

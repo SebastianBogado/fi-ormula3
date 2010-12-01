@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.servicio.NombresDeFabricables;
+
 public class MacX extends Motor{
 
 	/*
@@ -57,7 +59,7 @@ public class MacX extends Motor{
 	//Metodo Sobreescrito
 	public String motor() {
 		
-		return "MacX";
+		return NombresDeFabricables.MACX;
 	}
 
 }

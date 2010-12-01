@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.servicio.NombresDeFabricables;
+
 public final class Win32 extends Motor {
 
 	/*
@@ -35,7 +37,7 @@ public final class Win32 extends Motor {
 	// Metodo Sobreescrito
 	@Override
 	public String motor() {
-		return "Win32";
+		return NombresDeFabricables.WIN32;
 	}
 
 }

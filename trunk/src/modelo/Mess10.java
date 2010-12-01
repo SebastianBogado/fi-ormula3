@@ -1,34 +1,43 @@
 package modelo;
 
+import modelo.servicio.NombresDeFabricables;
+
 public class Mess10 extends Neumaticos {
+	private static class Desgaste{
+		public static double lomaDeBurro = 10.0;
+		public static double pozo = 5.0;
+		public static double tierra = 1.0 / 70.0;
+		public static double ripio = 1.0 / 100.0;
+		public static double asfalto = 0;
+	}
 
 	@Override
 	public double chocarConLomaDeBurro() {
-		return 10.0;
+		return Desgaste.lomaDeBurro;
 	}
 
 	@Override
 	public double chocarConPozo() {
-		return 5.0;
+		return Desgaste.pozo;
 	}
 
 	@Override
 	public double desgastePorTierra() {
-		return 1.0 / 70.0;
+		return Desgaste.tierra;
 	}
 
 	@Override
 	public double desgastePorRipio() {
-		return 1.0 / 100.0;
+		return Desgaste.ripio;
 	}
 
 	@Override
 	public double desgastePorAsfalto() {
-		return 0;
+		return Desgaste.asfalto;
 	}
 
 	@Override
 	public String tipo() {
-		return "Mess10";
+		return NombresDeFabricables.MESS10;
 	}
 }

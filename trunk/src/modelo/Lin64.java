@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.servicio.NombresDeFabricables;
+
 public class Lin64 extends Motor{
 
 	/*
@@ -30,7 +32,7 @@ public class Lin64 extends Motor{
 	
 	//Metodo Sobreescrito
 	public String motor() {
-		return "Lin64";
+		return NombresDeFabricables.LIN64;
 	}
 	
 

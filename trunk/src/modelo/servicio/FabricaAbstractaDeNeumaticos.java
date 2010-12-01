@@ -4,13 +4,10 @@ import modelo.Neumaticos;
 
 public class FabricaAbstractaDeNeumaticos extends FabricaAbstracta {
 
-	public static final String MESS10 = "Mess10";
-	public static final String PALER9 = "Paler9";
-
 	public FabricaAbstractaDeNeumaticos() {
 		super();
-		this.mapa.put(MESS10, new FabricaDeMess10());
-		this.mapa.put(PALER9, new FabricaDePaler9());
+		this.mapa.put(NombresDeFabricables.MESS10, new FabricaDeMess10());
+		this.mapa.put(NombresDeFabricables.PALER9, new FabricaDePaler9());
 	}
 
 	public Neumaticos instanciarRuedas(String ruedas) {

@@ -1,45 +1,50 @@
 package modelo;
 
+import modelo.servicio.NombresDeFabricables;
 import modelo.servicio.Velocidad;
 
 public class Paler9 extends Neumaticos {
+	private static class Desgaste{
+		public static double obstaculo = 6.0;
+		public static double terreno = 2.0 / 3000.0;
+	}
 
 	@Override
 	public void desgastarPorTerreno(Terreno terreno,
 			Velocidad velocidadInstantanea) {
 		// daño: 2% cada 3km
-		double difDaño = (2.0 / 3000.0);
+		double difDaño = (Desgaste.terreno);
 		this.aumentarDaño(difDaño);
 	}
 
 	@Override
 	public double chocarConLomaDeBurro() {
-		return 6.0;
+		return Desgaste.obstaculo;
 	}
 
 	@Override
 	public double chocarConPozo() {
-		return 6.0;
+		return Desgaste.obstaculo;
 	}
 
 	@Override
 	public double desgastePorTierra() {
-		return 2.0 / 3000.0;
+		return Desgaste.terreno;
 	}
 
 	@Override
 	public double desgastePorRipio() {
-		return 2.0 / 3000.0;
+		return Desgaste.terreno;
 	}
 
 	@Override
 	public double desgastePorAsfalto() {
-		return 2.0 / 3000.0;
+		return Desgaste.terreno;
 	}
 
 	@Override
 	public String tipo() {
-		return "Paler9";
+		return NombresDeFabricables.PALER9;
 	}
 
 }

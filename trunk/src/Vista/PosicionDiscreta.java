@@ -12,12 +12,14 @@ public class PosicionDiscreta implements Posicionable {
 
 	}
 
-	@Override
+	public PosicionDiscreta() {
+
+	}
+
 	public int getX() {
 		return x;
 	}
 
-	@Override
 	public int getY() {
 		return y;
 	}

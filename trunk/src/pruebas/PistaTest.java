@@ -2,9 +2,13 @@ package pruebas;
 
 import static org.junit.Assert.*;
 
+import modelo.Asfalto;
+import modelo.LomaDeBurro;
 import modelo.Pista;
 import modelo.Obstaculo;
+import modelo.Pozo;
 import modelo.Terreno;
+import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
 import org.junit.After;
 import org.junit.Before;
@@ -56,6 +60,8 @@ public class PistaTest {
 		
 	}
 	
+	
+	
 	@Test
 	public void testGuardarEnXML(){
 			
@@ -65,10 +71,41 @@ public class PistaTest {
 	@Test
 	public void testCargarDesdeXML(){
 	
-		String unaString ="Default.xml";
+		String unaString ="\\pistas\\Default.xml";
 		
 		Pista unaPista =new Pista(unaString);
+		
+		assertTrue(unaPista!=null);
 	}
+	
+	@Test
+	public void testGetLargo(){
+		
+		assertTrue(unaPista.getLargo()==10000);
+	}
+	
+	@Test
+	public void testGetListaDePozos(){
+		unaPista.getListaDePozos().getFirst().equals(new Pozo(1,1000));
+		
+	}
+	@Test
+	public void testGetListaDeLomasDeBurro(){
+		unaPista.getListaDeLomasDeBurro().getFirst().equals(new LomaDeBurro(1,1200,6));
+		
+	}
+	
+	@Test
+	public void testGetListaDeTerrenos(){
+		try {
+			unaPista.getListaDeTerrenos().getFirst().equals(new Asfalto(0,4000));
+		} catch (ExcepcionLimitesIncorrectosEnElTerreno e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 /*
 
 	@Test

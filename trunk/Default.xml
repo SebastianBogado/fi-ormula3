@@ -13,16 +13,16 @@
     <Pozo posicionX="4" posicionY="10000" />
   </ListaDePozos>
   <ListaDeLomasDeBurro CantidadDeLomasDeBurro="10">
-    <LomaDeBurro posicionX="1.0" posicionY="1200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="2200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="3200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="4200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="5200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="6200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="7200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="8200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="9200.0" />
-    <LomaDeBurro posicionX="1.0" posicionY="10200.0" />
+    <LomaDeBurro posicionX="1" posicionY="1200" />
+    <LomaDeBurro posicionX="1" posicionY="2200" />
+    <LomaDeBurro posicionX="1" posicionY="3200" />
+    <LomaDeBurro posicionX="1" posicionY="4200" />
+    <LomaDeBurro posicionX="1" posicionY="5200" />
+    <LomaDeBurro posicionX="1" posicionY="6200" />
+    <LomaDeBurro posicionX="1" posicionY="7200" />
+    <LomaDeBurro posicionX="1" posicionY="8200" />
+    <LomaDeBurro posicionX="1" posicionY="9200" />
+    <LomaDeBurro posicionX="1" posicionY="10200" />
   </ListaDeLomasDeBurro>
   <ListaDeTerrenos CantidadDeTerrenos="3">
     <Asfalto principio="0" fin="4000" />

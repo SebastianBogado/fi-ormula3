@@ -38,10 +38,10 @@ public class LomaDeBurro extends Obstaculo {
 
 		Element element = new Element("LomaDeBurro");
 
-		Attribute posicionX = new Attribute("posicionX", String.valueOf(this
-				.posicionEsquinaInferiorIzquierda().x()));
-		Attribute posicionY = new Attribute("posicionY", String.valueOf(this
-				.posicionEsquinaInferiorIzquierda().y()));
+		Attribute posicionX = new Attribute("posicionX", String.valueOf(Math
+				.round(this.posicionEsquinaInferiorIzquierda().x())));
+		Attribute posicionY = new Attribute("posicionY", String.valueOf(Math
+				.round(this.posicionEsquinaInferiorIzquierda().y())));
 
 		element.getAttributes().add(posicionX);
 		element.getAttributes().add(posicionY);

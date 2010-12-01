@@ -1,8 +1,11 @@
 package Vista;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 /** El menu principal, que carece de botones de maximizacion y minimizacion **/
 public class MenuPrincipal extends JDialog{
@@ -14,14 +17,14 @@ public class MenuPrincipal extends JDialog{
 	private JButton BotonMotor;
 	private JButton BotonRuedas;
 	private JButton BotonSalir;
-	private JButton BotonSeguir;
-	private String PistaSeleccionada=null;
-	private String NivelSeleccionado=null;
-	private String MotorSeleccionado=null;
-	private String RuedasSeleccionadas=null;
-	private static String[] pistas = null;
-	private boolean Seguir;
-
+	private JButton BotonComenzar;
+	private String PistaSeleccionada = null;
+	private String NivelSeleccionado = null;
+	private String MotorSeleccionado = null;
+	private String RuedasSeleccionadas = null;
+	private VentanaSeleccionMotor ventanaMotor = null ;
+	private VentanaSeleccionRuedas ventanaRuedas = null;
+	
 	public MenuPrincipal(){
 		
 		this.setTitle("Fi-ormula3");
@@ -30,7 +33,6 @@ public class MenuPrincipal extends JDialog{
 		this.setLayout(new FlowLayout());
 		
 		/** Crea los botones Nivel, Motor, Ruedas, Pista, Salir y Seguir **/
-		
 		this.BotonPista = new JButton("Elegir Pista");
 		this.BotonPista.setActionCommand("Pista");
 				
@@ -46,85 +48,53 @@ public class MenuPrincipal extends JDialog{
 		this.BotonSalir = new JButton("Salir");
 		this.BotonSalir.setActionCommand("Salir");
 		
-		this.BotonSeguir = new JButton("Comenzar");
-		this.BotonSeguir.setActionCommand("Comenzar");
-		this.BotonSeguir.setEnabled(false);
+		this.BotonComenzar = new JButton("Comenzar");
+		this.BotonComenzar.setActionCommand("Comenzar");
+		this.BotonComenzar.setEnabled(false);
 		
 		ManejadorDeEventosMenuPpal manejadorMenuPpal = new ManejadorDeEventosMenuPpal();
 		
-		/** Establece para cada boton cual va a ser su detector de eventos **/
+		/** Establece el detector de eventos para cada boton **/
 		this.BotonPista.addActionListener(manejadorMenuPpal);
 		this.BotonMotor.addActionListener(manejadorMenuPpal);
 		this.BotonRuedas.addActionListener(manejadorMenuPpal);
 		this.BotonSalir.addActionListener(manejadorMenuPpal);
-		this.BotonSeguir.addActionListener(manejadorMenuPpal);
+		this.BotonComenzar.addActionListener(manejadorMenuPpal);
+		this.BotonNivel.addActionListener(manejadorMenuPpal);
 		
 		/** Agrego los botones recientemente creados **/
-		this.add(this.BotonPista);
 		this.add(this.BotonMotor);
 		this.add(this.BotonRuedas);
+		this.add(this.BotonPista);
+		this.add(this.BotonNivel);
 		this.add(this.BotonSalir);
-		this.add(this.BotonSeguir);
-	}
+		this.add(this.BotonComenzar);
 	
-	public String getNivelSeleccionado(){
-		return this.NivelSeleccionado;
+		/** Creo las ventanas de seleccion **/
+		ventanaMotor = new VentanaSeleccionMotor();
+		ventanaRuedas = new VentanaSeleccionRuedas();
 	}
-	
-	public String getMotorSeleccionado(){
-		return this.MotorSeleccionado;
-	}
-	
-	public String getRuedasSeleccionadas(){
-		return this.RuedasSeleccionadas;
-	}
-	
-	public String getPistaSeleccionada(){
-		return this.PistaSeleccionada;
-	}
-	
-	public boolean getSeguir(){
-		return this.Seguir;
-	}
-
-	/** Clase privada que representa la ventana de opciones para elegir la pista	**/
+  
+	/** Clase privada que representa la ventana de seleccion de la pista **/
 	private class VentanaSeleccionPista extends JFrame{
 			
 		private static final long serialVersionUID = 1L;
 			
-		private JComboBox ConjuntoPistas;	
-		private JButton BotonAceptar;
-		private JButton BotonSalir;
-		
 		public VentanaSeleccionPista(){
-			
-			this.setTitle("Pista");
-			this.setSize(300,150);
-			this.setVisible(true);
-			this.setLayout(new FlowLayout());
-				
-			this.ConjuntoPistas = new JComboBox(pistas);
-			
-			this.BotonSalir = new JButton ("Salir");
-			this.BotonSalir.setActionCommand("Salir");
-			
-			this.BotonAceptar = new JButton("Aceptar");
-			this.BotonAceptar.setActionCommand("Aceptar");
-			this.BotonAceptar.setEnabled(false);
-				
-			ManejadorDeEventosSeleccionPista manejadorEventosSeleccionPista = new ManejadorDeEventosSeleccionPista();
-			ManejadorDeOpcionesPista manejadoropciones = new ManejadorDeOpcionesPista();
-		
-			this.ConjuntoPistas.addItemListener(manejadoropciones);
-			this.BotonAceptar.addActionListener(manejadorEventosSeleccionPista);
-			this.BotonSalir.addActionListener(manejadorEventosSeleccionPista);
-			
-			this.add(this.ConjuntoPistas);
-			this.add(this.BotonAceptar);	
+			/** Se crea un file browser **/
+			JFileChooser ventanaSelectora = new JFileChooser();
+			FileFilter filtroExtension = new FileNameExtensionFilter("Pistas en xml", "xml");
+			ventanaSelectora.addChoosableFileFilter(filtroExtension);
+			int returnVal = ventanaSelectora.showOpenDialog(this);
+			/** Si se puede abrir se guarda la ruta **/
+			if(returnVal == JFileChooser.APPROVE_OPTION){
+				File pista = ventanaSelectora.getSelectedFile();
+				PistaSeleccionada = pista.getAbsolutePath();
+			}			
 		}
 	}
 		
-	/* Clase privada que representa la ventana de opciones para elegir el motor	 */
+	/** Clase privada que representa la ventana de seleccion del motor **/
 	private class VentanaSeleccionMotor extends JFrame{
 				
 		private static final long serialVersionUID = 1L;
@@ -137,7 +107,7 @@ public class MenuPrincipal extends JDialog{
 		
 		public VentanaSeleccionMotor(){
 				
-			this.setTitle("Motor");
+			this.setTitle("Seleccion de Motor");
 			this.setSize(300,150);
 			this.setVisible(true);
 			this.setLayout(new FlowLayout());
@@ -174,7 +144,7 @@ public class MenuPrincipal extends JDialog{
 		}
 	}
 		
-	/** Clase privada que representa la ventana de opciones para elegir el motor **/
+	/** Clase privada que representa la ventana de seleccion de las ruedas **/
 	private class VentanaSeleccionRuedas extends JFrame{
 					
 		private static final long serialVersionUID = 1L;
@@ -184,40 +154,42 @@ public class MenuPrincipal extends JDialog{
 		private JButton BotonAceptar;
 		private JButton BotonSalir;
 		
-			public VentanaSeleccionRuedas(){
+		public VentanaSeleccionRuedas(){
 					
-				this.setTitle("Motor");
-				this.setSize(300,150);
-				this.setVisible(true);
-				this.setLayout(new FlowLayout());
+			this.setTitle("Seleccion de Ruedas");
+			this.setSize(200,150);
+			this.setVisible(true);
+			this.setLayout(new FlowLayout());
+	
+			/** Crea los botones Paler9, Mess10, aceptar y Salir **/
+			this.BotonPaler9 = new JButton("Paler9");
+			this.BotonPaler9.setActionCommand("Paler9");
 		
-				this.BotonPaler9 = new JButton("Paler9");
-				this.BotonPaler9.setActionCommand("Paler9");
+			this.BotonMess10 = new JButton("Mess10");
+			this.BotonMess10.setActionCommand("Mess10");
 		
-				this.BotonMess10 = new JButton("Mess10");
-				this.BotonMess10.setActionCommand("Mess10");
-		
-				this.BotonSalir = new JButton ("Salir");
-				this.BotonSalir.setActionCommand("Salir");
+			this.BotonSalir = new JButton ("Salir");
+			this.BotonSalir.setActionCommand("Salir");
 				
-				this.BotonAceptar = new JButton("Aceptar");
-				this.BotonAceptar.setActionCommand("Aceptar");
-				this.BotonAceptar.setEnabled(false);
-						
-				ManejadorDeEventosSeleccionRuedas manejadorEventosRuedas = new ManejadorDeEventosSeleccionRuedas();
-						
-				this.BotonPaler9.addActionListener(manejadorEventosRuedas);
-				this.BotonMess10.addActionListener(manejadorEventosRuedas);
-				this.BotonSalir.addActionListener(manejadorEventosRuedas);
-				this.BotonAceptar.addActionListener(manejadorEventosRuedas);
-		
-				this.add(this.BotonPaler9);
-				this.add(this.BotonMess10);
-				this.add(this.BotonSalir);
-				this.add(this.BotonAceptar);
+			this.BotonAceptar = new JButton("Aceptar");
+			this.BotonAceptar.setActionCommand("Aceptar");
+			this.BotonAceptar.setEnabled(false);
 				
-					
-				}
+			ManejadorDeEventosSeleccionRuedas manejadorEventosRuedas = new ManejadorDeEventosSeleccionRuedas();
+
+			/** Establece el detector de eventos para cada boton **/
+			this.BotonPaler9.addActionListener(manejadorEventosRuedas);
+			this.BotonMess10.addActionListener(manejadorEventosRuedas);
+			this.BotonSalir.addActionListener(manejadorEventosRuedas);
+			this.BotonAceptar.addActionListener(manejadorEventosRuedas);
+		
+			/** Agrego los botones recientemente creados **/
+			this.add(this.BotonPaler9);
+			this.add(this.BotonMess10);
+			this.add(this.BotonAceptar);
+			this.add(this.BotonSalir);
+				
+		}
 	}
 	
 	private class ManejadorDeEventosMenuPpal implements ActionListener{
@@ -227,47 +199,47 @@ public class MenuPrincipal extends JDialog{
 		public void actionPerformed(ActionEvent e){
 			
 			if (e.getActionCommand().equals("Salir")){
-				int opcion = JOptionPane.showConfirmDialog(null, " ¿Desea Salir?");
-				if (opcion == 0) {
-					Seguir = false;
-					System.exit(0);
-				}
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Desea Salir?");
+				if (opcion == 0) 
+					System.exit(0);				
 			}
 			
 			if (e.getActionCommand().equals("Nivel")){
 				String nivelelegido = null;
 				boolean nivelValido = false;
-				while (nivelValido==false){
+				while (nivelValido == false){
 					nivelelegido = JOptionPane.showInputDialog("Seleccionar Nivel de dificultad (1-3) : ");
 					nivelValido = ((nivelelegido.equals("1")) || (nivelelegido.equals("2")) || (nivelelegido.equals("3")));
 				}
 				NivelSeleccionado = nivelelegido;
-				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				if (PistaSeleccionada != null && RuedasSeleccionadas != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("Pista")){
 				new VentanaSeleccionPista();
-				if (NivelSeleccionado!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				if (NivelSeleccionado != null && RuedasSeleccionadas != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("Motor")){
-				new VentanaSeleccionMotor();
-				if (NivelSeleccionado!=null && RuedasSeleccionadas!=null && PistaSeleccionada!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaMotor.setVisible(true);
+				if (NivelSeleccionado != null && RuedasSeleccionadas != null && PistaSeleccionada != null)
+					BotonComenzar.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("Ruedas")){
-				new VentanaSeleccionRuedas();
-				if (PistaSeleccionada!=null && NivelSeleccionado!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaRuedas.setVisible(true);
+				if (PistaSeleccionada != null && NivelSeleccionado != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("Comenzar")) {
-				Seguir = true;
+				System.out.println(PistaSeleccionada);
+				System.out.println(NivelSeleccionado);
+				System.out.println(MotorSeleccionado);
+				System.out.println(RuedasSeleccionadas);
 				setVisible(false);
-				
 			}
 		} 
 	}
@@ -280,38 +252,35 @@ public class MenuPrincipal extends JDialog{
 		public void actionPerformed(ActionEvent e){
 					
 			if (e.getActionCommand().equals("Salir")){
-				int opcion = JOptionPane.showConfirmDialog(null, " ¿Desea Salir?");
-				if (opcion == 0) {
-					Seguir = false;
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Desea Salir?");
+				if (opcion == 0) 
 					System.exit(0);
-				}
 			}
 				
 			if (e.getActionCommand().equals("Aceptar")){
-				setVisible(false);				
+				ventanaMotor.setVisible(false);
 			}
 					
 			if (e.getActionCommand().equals("Win32")){
 				MotorSeleccionado = "Win32";
-				//BotonAceptar.setEnabled(true);
-				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaMotor.BotonAceptar.setEnabled(true);
+				if (PistaSeleccionada !=null && RuedasSeleccionadas !=null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("MacX")){
 				MotorSeleccionado = "MacX";
-				//BotonAceptar.setEnabled(true);
-				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaMotor.BotonAceptar.setEnabled(true);
+				if (PistaSeleccionada != null && RuedasSeleccionadas != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 			
 			if (e.getActionCommand().equals("Lin64")){
 				MotorSeleccionado = "Lin64";
-				//BotonAceptar.setEnabled(true);
-				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaMotor.BotonAceptar.setEnabled(true);
+				if (PistaSeleccionada != null && RuedasSeleccionadas != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
-		
 		}
 	}
 		
@@ -322,57 +291,44 @@ public class MenuPrincipal extends JDialog{
 		public void actionPerformed(ActionEvent e){
 					
 			if (e.getActionCommand().equals("Salir")){
-				int opcion = JOptionPane.showConfirmDialog(null, " ¿Desea Salir?");
-				if (opcion == 0) {
-					Seguir = false;
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Desea Salir?");
+				if (opcion == 0) 
 					System.exit(0);
-				}
 			}
 				
 			if (e.getActionCommand().equals("Aceptar")){
-				setVisible(false);				
+				ventanaRuedas.setVisible(false);				
 			}
 					
 			if (e.getActionCommand().equals("Paler9")){
 				RuedasSeleccionadas = "Paler9";
-				//BotonAceptar.setEnabled(true);
-				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaRuedas.BotonAceptar.setEnabled(true);
+				if (PistaSeleccionada != null && RuedasSeleccionadas != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 					
 			if (e.getActionCommand().equals("Mess10")){
 				RuedasSeleccionadas = "Mess10";
-				//BotonAceptar.setEnabled(true);
-				if (PistaSeleccionada!=null && RuedasSeleccionadas!=null && MotorSeleccionado!= null)
-					BotonSeguir.setEnabled(true);
+				ventanaRuedas.BotonAceptar.setEnabled(true);
+				if (PistaSeleccionada != null && RuedasSeleccionadas != null && MotorSeleccionado != null)
+					BotonComenzar.setEnabled(true);
 			}
 		}			
 	}	
-	
-	private class ManejadorDeEventosSeleccionPista implements ActionListener{
-		
-		private static final long serialVersionUID = 1L;
-		public void actionPerformed(ActionEvent e){
-				
-			if (e.getActionCommand().equals("Aceptar")){
-					setVisible(false);				
-			}
-			
-			if (e.getActionCommand().equals("Salir")){
-				int opcion = JOptionPane.showConfirmDialog(null, " ¿Desea Salir?");
-				if (opcion == 0) {
-					Seguir = false;
-					System.exit(0);
-				}
-			}
-		}
+
+	public String getNivelSeleccionado(){
+		return this.NivelSeleccionado;
 	}
 	
-	private class ManejadorDeOpcionesPista implements ItemListener{
-		public void itemStateChanged(ItemEvent e){
-			//BotonAceptar.setEnabled(true);
-			//if (e.getStateChange() == ItemEvent.SELECTED)			
-				//PistaSeleccionada = pistas[ConjuntoPistas.getSelectedIndex()] + ".xml";
-		}
+	public String getMotorSeleccionado(){
+		return this.MotorSeleccionado;
 	}
-}
+	
+	public String getRuedasSeleccionadas(){
+		return this.RuedasSeleccionadas;
+	}
+	
+	public String getPistaSeleccionada(){
+		return this.PistaSeleccionada;
+	}
+}	

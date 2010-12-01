@@ -89,21 +89,36 @@ public class Pista {
 		this.ActualiarProximaLomaDeBurro();
 	}
 
-	/*
-	 * carga la pista desde el archivo XML pasado por parámetro
-	 */
-	public void cargarPista(String ubicacion) {
-		// @todo
-	}
 
 	public int getLargo() {
 		return this.LargoDeLaPista;
 	}
 
+	
+
+	/*
+	 * devulve la lista que contiene los pozos a lo largo de la pista
+	 */
+	public LinkedList<Pozo> getListaDePozos(){
+		return this.ListaDePozos;
+	}
+	
+	/*
+	 * devulve la lista que contiene las lomas de burro a lo largo de la pista
+	 */
+	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro(){
+		return this.ListaDeLomasDeBurro;
+	}
+	/*
+	 * devulve la lista que contiene los deistintos terrenos que componen la pista
+	 */
+	public LinkedList<Terreno> getListaDeTerrenos(){
+		return this.ListaDeTerrenos;
+	}
+	
 	/*
 	 * carga la lista de poszos con valores predeterminados
 	 */
-
 	private void cargarListaEstaticaDePozos(int AnchoPista, int LargoPista,
 			int CantidadDePozos) {
 
@@ -178,7 +193,7 @@ public class Pista {
 	 * crea una pista estatica que es igual en todas las ejecucuiones
 	 */
 
-	public void cargarPistaEstatica() {
+	private void cargarPistaEstatica() {
 
 		this.NombreDeLaPista = "Default";
 		this.LargoDeLaPista = 10000;
@@ -196,24 +211,7 @@ public class Pista {
 		this.cargarListaEstaticaTerrenos(this.LargoDeLaPista);
 	}
 
-	/*
-	 * devulve la lista que contiene los pozos a lo largo de la pista
-	 */
-	public LinkedList<Pozo> getListaDePozos() {
-		return this.ListaDePozos;
-	}
-
-	/*
-	 * devulve la lista que contiene las lomas de burro a lo largo de la pista
-	 */
-	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro() {
-		return this.ListaDeLomasDeBurro;
-	}
-
-	public LinkedList<Terreno> getListaDeTerrenos() {
-		return this.ListaDeTerrenos;
-	}
-
+	
 	/*
 	 * 
 	 */
@@ -276,7 +274,7 @@ public class Pista {
 	 * crea una pista aleatoria en base a la dificultad, hardcodeada en ints :D
 	 * fuera de joda: pensar cómo dejarlo más lindo
 	 */
-	public void aleatoria(int dificultad) throws ExcepcionDificultadInvalida {
+	private void aleatoria(int dificultad) throws ExcepcionDificultadInvalida {
 		switch (dificultad) {
 		case 1:
 			this.aleatoriaFacil();
@@ -428,7 +426,7 @@ public class Pista {
 			XMLOutputter outputter = new XMLOutputter();
 			outputter.setFormat(Format.getPrettyFormat());
 
-			FileWriter writer = new FileWriter(this.NombreDeLaPista + ".xml");
+			FileWriter writer = new FileWriter("pistas\\Default.xml");//"\\pistas\\"+this.NombreDeLaPista + ".xml");
 			outputter.output(document, writer);
 			writer.close();
 		} catch (Exception e) {

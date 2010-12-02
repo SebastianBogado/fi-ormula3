@@ -39,7 +39,7 @@ public class Mess10 extends Neumaticos {
 	}
 
 	@Override
-	public String tipo() {
+	public String neumaticos() {
 		return NombresDeFabricables.MESS10;
 	}
 }

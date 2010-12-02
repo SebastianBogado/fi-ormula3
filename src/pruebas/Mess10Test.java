@@ -31,7 +31,7 @@ public class Mess10Test extends TestCase {
 	}
 
 	public void testTipo() {
-		assertTrue(neumaticos.tipo().equals("Mess10"));
+		assertTrue(neumaticos.neumaticos().equals("Mess10"));
 	}
 
 }

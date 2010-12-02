@@ -38,8 +38,8 @@ public class NeumaticoTest {
 		Neumaticos n1 = fabrica.instanciarRuedas(NombresDeFabricables.MESS10);
 		Neumaticos n2 = fabrica.instanciarRuedas(NombresDeFabricables.PALER9);
 
-		assertTrue(n1.tipo().equals(NombresDeFabricables.MESS10));
-		assertTrue(n2.tipo().equals(NombresDeFabricables.PALER9));
+		assertTrue(n1.neumaticos().equals(NombresDeFabricables.MESS10));
+		assertTrue(n2.neumaticos().equals(NombresDeFabricables.PALER9));
 	}
 
 	@Test

@@ -5,11 +5,7 @@ import modelo.Motor;
 import modelo.Neumaticos;
 
 public class FabricaDeAutos {
-
-
-	private FabricaDeAutos(){super();}
 	
-	static private FabricaDeAutos instancia = new FabricaDeAutos();
 	private static FabricaAbstractaDeMotores fabricaDeMotores = new FabricaAbstractaDeMotores();
 	private static FabricaAbstractaDeNeumaticos fabricaDeRuedas = new FabricaAbstractaDeNeumaticos();
 	

@@ -130,7 +130,7 @@ public class Pista {
 				if (posicionPozoX == AnchoPista)
 					posicionPozoX = 0;
 				posicionPozoX++;
-				posicionPozoY += 1000;
+				posicionPozoY += 200;
 				unPozo = new Pozo(posicionPozoX, posicionPozoY);
 				ListaDePozos.add(i, unPozo);
 			}
@@ -151,7 +151,7 @@ public class Pista {
 
 		if (posicionLomaDeBurroEnY < LargoPista)
 			for (int i = 0; i < CantidadDeLomasDeBurro; i++) {
-				posicionLomaDeBurroEnY += 1000;
+				posicionLomaDeBurroEnY += 100;
 				unaLomaDeBurro = new LomaDeBurro(posicionLomaDeBurroEnX,
 						posicionLomaDeBurroEnY, AnchoPista);
 				ListaDeLomasDeBurro.add(i, unaLomaDeBurro);
@@ -425,8 +425,8 @@ public class Pista {
 			outputter.setFormat(Format.getPrettyFormat());
 
 			FileWriter writer = new FileWriter("pistas\\Default.xml");// "\\pistas\\"+this.NombreDeLaPista
-																		// +
-																		// ".xml");
+			// +
+			// ".xml");
 			outputter.output(document, writer);
 			writer.close();
 		} catch (Exception e) {

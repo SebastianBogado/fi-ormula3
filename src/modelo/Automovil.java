@@ -55,7 +55,7 @@ public class Automovil extends CuerpoExtenso{
 		if(velocidadInstantanea.y() < motor.VelocidadMaxima()){
 		
 			velocidadInstantanea.y(motor.acelerar(difTiempo,velocidadInstantanea.y())
-			-motor.VelocidadMaxima()*neumaticos.daño());
+			-motor.VelocidadMaxima()*neumaticos.dañoPorcentual());
 		
 		}
 		

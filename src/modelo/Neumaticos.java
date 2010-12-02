@@ -17,8 +17,12 @@ abstract public class Neumaticos implements Autoparte{
 	/*
 	 * Devuelve el daño en que se encuentra el neumatico porcentualmente (0-100)
 	 */
-	public double daño() {
+	public double dañoPorcentual() {
 		return daño / 100.0;
+	}
+	
+	public double dañoDiscreto(){
+		return Math.round(this.daño);
 	}
 
 	/*

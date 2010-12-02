@@ -26,6 +26,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	private final int distanciaRecorrida = 0;
 	private long tiempoAnterior = 0;
 	private final ControlDeObstaculos controlObstaculos;
+	private boolean finalDePista;
 
 	public VistaPista(Pista pista, Velocidad vel) {
 		super();
@@ -68,7 +69,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		if (controlTerreno.cambiarTerrno(this.cantFranjasPintadas))
 			this.cambiarTerreno();
 		// Todavia a que definir algunos valores
-		if (tiempoAnterior == 0 || true) {
+		if (tiempoAnterior == 0) {
 
 			this.desplazamiento += ((int) velocidad.y() / 8);
 
@@ -99,6 +100,8 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		 * desplazamiento, superficeDeDibujo);
 		 */
 
+		finalDePista = this.controlTerreno.finDePista(cantFranjasPintadas);
+
 	}
 
 	private void pintarPozos(SuperficieDeDibujo superficeDeDibujo) {
@@ -109,7 +112,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		Iterator<PosicionDiscreta> it = posiciones.iterator();
 
 		while (it.hasNext()) {
-			PosicionDiscreta posicion = null;
+			PosicionDiscreta posicion;
 			posicion = it.next();
 
 			this.vistaPozo.dibujarEn(posicion.getX(), posicion.getY(),
@@ -128,7 +131,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 			PosicionDiscreta posicion = null;
 			posicion = it.next();
 
-			this.vistaPozo.dibujarEn(posicion.getX(), posicion.getY(),
+			this.vistaLomaDeBurro.dibujarEn(posicion.getX(), posicion.getY(),
 					superficeDeDibujo);
 		}
 

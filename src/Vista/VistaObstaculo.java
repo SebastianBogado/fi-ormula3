@@ -10,7 +10,7 @@ import Titiritero.Ventana;
 public class VistaObstaculo extends Imagen {
 
 	protected BufferedImage imagenObstaculo;
-	protected static int X = 0, Y = 0;
+	protected int X = 0, Y = 0;
 
 	public VistaObstaculo() {
 

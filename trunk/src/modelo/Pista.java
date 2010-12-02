@@ -170,19 +170,19 @@ public class Pista {
 		Terreno unTerreno;
 
 		try {
-			unTerreno = new Asfalto(0, 4000);
+			unTerreno = new Asfalto(0, 500);
 			this.ListaDeTerrenos.add(0, unTerreno);
 		} catch (Exception e) {
 		}
 
 		try {
-			unTerreno = new Tierra(4001, 7000);
+			unTerreno = new Tierra(501, 800);
 			this.ListaDeTerrenos.add(1, unTerreno);
 		} catch (Exception e) {
 		}
 
 		try {
-			unTerreno = new Ripio(7001, LargoPista);
+			unTerreno = new Ripio(801, LargoPista);
 			this.ListaDeTerrenos.add(2, unTerreno);
 		} catch (Exception e) {
 		}
@@ -198,8 +198,8 @@ public class Pista {
 		this.NombreDeLaPista = "Default";
 		this.LargoDeLaPista = 10000;
 		this.AnchoDeLaPista = 6;
-		this.CantidadDePozos = 10;
-		this.CantidadDeLomasDeBurro = 10;
+		this.CantidadDePozos = 50;
+		this.CantidadDeLomasDeBurro = 60;
 		this.CantidadDeTerrenos = 3;
 
 		this.cargarListaEstaticaDePozos(this.AnchoDeLaPista,

@@ -16,7 +16,9 @@ public class VistaAutomovil extends Imagen {
 	private boolean iniciado = false;
 
 	public VistaAutomovil(Automovil auto) {
+
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenAutomovil);
+
 		posicion = new PosicionDiscreta(650, 500);
 		this.setPosicionable(posicion);
 		this.auto = auto;

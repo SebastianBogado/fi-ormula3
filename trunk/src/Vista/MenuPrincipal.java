@@ -33,13 +33,9 @@ public class MenuPrincipal extends JDialog{
 		
 		/** Crea los botones Nivel, Motor, Ruedas, Pista, Salir y Seguir **/
 		this.BotonPista = new JButton("Elegir Pista");
-		
 		this.BotonMotor = new JButton("Elegir Motor");
-			
 		this.BotonRuedas = new JButton("Elegir Ruedas");
-		
 		this.BotonSalir = new JButton("Salir");
-		
 		this.BotonComenzar = new JButton("Comenzar");
 		this.BotonComenzar.setEnabled(false);
 		

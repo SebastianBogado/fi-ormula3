@@ -6,6 +6,7 @@ import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
 import modelo.servicio.DiferencialDeTiempo;
 import modelo.servicio.Posicion;
+import Control.ControladorDeCarrera;
 import Programa.Fiormula3;
 import Titiritero.ObjetoVivo;
 
@@ -147,11 +148,11 @@ public class Entorno extends Observable implements ObjetoVivo {
 			tiempoFinal = System.currentTimeMillis();
 
 			long tiempoJugado = (tiempoFinal - tiempoIncial) / 1000;
-			Fiormula3.termianarCarrera(tiempoJugado, this.pistaDeAutos);
+			ControladorDeCarrera.terminarCarrera(tiempoJugado, this.pistaDeAutos);
 		}
 
 		if (unAutomovil.getNuematicos().dañoDiscreto() >= 100)
-			Fiormula3.carreraPerdida();
+			ControladorDeCarrera.carreraPerdida();
 
 	}
 

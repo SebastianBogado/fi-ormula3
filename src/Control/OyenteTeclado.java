@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import modelo.Automovil;
+import modelo.servicio.DiferencialDeTiempo;
 
 public class OyenteTeclado implements KeyListener {
 
@@ -19,7 +20,7 @@ public class OyenteTeclado implements KeyListener {
 		long diferenciaDeTiempo = 0, aux = 0;
 
 		if (tiempo == 0) {
-			diferenciaDeTiempo = 36;
+			diferenciaDeTiempo = DiferencialDeTiempo.ms;
 		} else {
 			aux = e.getWhen();
 			diferenciaDeTiempo = aux - tiempo;
@@ -44,13 +45,13 @@ public class OyenteTeclado implements KeyListener {
 
 	private void doblarDerecha() {
 		this.auto.doblarALaDerecha();
-		this.auto.actualizarPosicion(0.001);
+		this.auto.actualizarPosicion(DiferencialDeTiempo.horas);
 
 	}
 
 	private void doblarIzquierda() {
 		this.auto.doblarALaIzquierda();
-		this.auto.actualizarPosicion(0.001);
+		this.auto.actualizarPosicion(DiferencialDeTiempo.horas);
 
 	}
 

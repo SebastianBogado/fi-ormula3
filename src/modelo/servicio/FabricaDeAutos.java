@@ -4,12 +4,11 @@ import modelo.Automovil;
 import modelo.Motor;
 import modelo.Neumaticos;
 
-public class FabricaDeAutos {
+public class FabricaDeAutos{
 	
 	private static FabricaAbstractaDeMotores fabricaDeMotores = new FabricaAbstractaDeMotores();
 	private static FabricaAbstractaDeNeumaticos fabricaDeRuedas = new FabricaAbstractaDeNeumaticos();
-	
-		
+
 	static public Automovil instanciarAuto(MetadataAuto metaAuto){
 		Motor motor = fabricaDeMotores.instanciarMotor(metaAuto.getMotor());
 		Neumaticos ruedas = fabricaDeRuedas.instanciarRuedas(metaAuto.getRuedas());

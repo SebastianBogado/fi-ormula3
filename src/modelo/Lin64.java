@@ -4,7 +4,7 @@ import modelo.servicio.NombresDeFabricables;
 
 public class Lin64 extends Motor{
 	
-	private static String descripcion = "De 0 a 120km/h en 10 segundos";
+	private static final String descripcion = "De 0 a 120km/h en 10 segundos";
 	/*
 	 * Constructor; Se define la velocidad Maxima
 	 */

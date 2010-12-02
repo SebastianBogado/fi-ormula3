@@ -1,14 +1,11 @@
 package Vista;
 
 import java.awt.Dimension;
-import java.awt.event.MouseListener;
-import java.lang.reflect.Field;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Control.EscuchadorBotonSeleccionMotor;
-import Control.EscuchadorMouseBoton;
 
 
 import modelo.servicio.NombresDeFabricables;

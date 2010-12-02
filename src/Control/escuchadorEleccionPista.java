@@ -13,7 +13,7 @@ public class escuchadorEleccionPista implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		VentanaSeleccionPista v = new VentanaSeleccionPista(this.menu);
+		new VentanaSeleccionPista(this.menu);
 	}
 
 }

@@ -31,7 +31,7 @@ public class Fiormula3 {
 	private static VentanaDeInformacion ventanaInfo;
 
 	public static void main(String[] args) {
-		MenuPrincipal mp = new MenuPrincipal();
+		new MenuPrincipal();
 		
 //		MetadataAuto metaAuto = new MetadataAuto("Mess10",
 //				"Lin64");

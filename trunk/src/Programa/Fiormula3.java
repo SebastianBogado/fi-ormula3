@@ -15,6 +15,7 @@ import Control.CambioDeCoordenadas;
 import Control.OyenteTeclado;
 import Titiritero.ControladorJuego;
 import Titiritero.Ventana;
+import Vista.MenuPrincipal;
 import Vista.VentanaDeInformacion;
 import Vista.VistaAutomovil;
 import Vista.VistaPista;
@@ -30,12 +31,7 @@ public class Fiormula3 {
 	private static VentanaDeInformacion ventanaInfo;
 
 	public static void main(String[] args) {
-		MetadataAuto metaAuto = new MetadataAuto(NombresDeFabricables.PALER9,
-				NombresDeFabricables.LIN64);
-		Automovil auto = FabricaDeAutos.instanciarAuto(metaAuto);
-		Pista p = new Pista(
-				"C:/Users/seba/workspace/fi-ormula3/pistas/Pista1.xml");
-		iniciarCarrera(auto, p);
+		MenuPrincipal mp = new MenuPrincipal();
 	}
 
 	public static void iniciarCarrera(Automovil unAuto, Pista unaPista) {

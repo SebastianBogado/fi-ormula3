@@ -48,20 +48,7 @@
 		</junit>
   	</target>
 
-	<target name="generarjavadocs" depends="limpiar">	
-	  <javadoc packagenames="*"
-	           sourcepath="${src.dir}"
-	           defaultexcludes="yes"
-	           destdir="${doc.dir}"
-	           author="true"
-	           version="true"
-	           use="true"
-	           windowtitle="Fi-ormula 3">
-	    <doctitle><![CDATA[<h1>Fi-ormula 3</h1>]]></doctitle>
-	  </javadoc>
-	</target>
-	
-	<target name="generarentrega" depends="generarjavadocs">
+	<target name="generarentrega">
 		<zip destfile="${zip.name}" basedir="."/>
 		<echo>Archivo ${zip.name} generado.</echo>
 	</target>
@@ -70,7 +57,6 @@
 		<echo>ant compilar : compila el programa</echo>
 		<echo>ant corrertests : compila el programa y corre los tests</echo>
 		<echo>ant correr : compila el programa y ejecuta el programa</echo>
-		<echo>ant generarjavadocs : generar los javadocs</echo>
 		<echo>ant generarentrega : genera un zip listo para entregar</echo>
 	</target>
 

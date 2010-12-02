@@ -27,6 +27,11 @@ public class Ripio extends Terreno {
 	}
 
 	@Override
+	public String tipoTerreno() {
+		return Ripio;
+	}
+
+	@Override
 	public double desgastar(Neumaticos neumaticos) {
 		return neumaticos.desgastePorRipio();
 	}
@@ -45,10 +50,4 @@ public class Ripio extends Terreno {
 
 		return element;
 	}
-
-	@Override
-	public String tipoTerreno() {
-		return Ripio;
-	}
-
 }

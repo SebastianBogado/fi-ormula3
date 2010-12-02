@@ -16,14 +16,17 @@ public class OyenteTeclado implements KeyListener {
 
 	public void keyPressed(KeyEvent e) {
 
-		long diferenciaDeTiempo = 0;
+		long diferenciaDeTiempo = 0, aux = 0;
 
 		if (tiempo == 0) {
 			diferenciaDeTiempo = 36;
-		} else
-			diferenciaDeTiempo = e.getWhen() - tiempo;
-
-		tiempo = e.getWhen();
+		} else {
+			aux = e.getWhen();
+			diferenciaDeTiempo = aux - tiempo;
+			tiempo = aux;
+			if (diferenciaDeTiempo <= 0)
+				System.out.println("ERROR");
+		}
 
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 

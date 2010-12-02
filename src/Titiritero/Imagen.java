@@ -13,7 +13,12 @@ import com.sun.image.codec.jpeg.JPEGImageDecoder;
  * Esta clase representa una imagen JPG abstrayendo al usuario de los detalles de Java2D
  * Simplemente requiere de una referencia al nombre del archivo JPG
  */
-public class Imagen implements Dibujable, MouseClickObservador {
+public class Imagen implements Dibujable {
+
+	private String nombreArchivoImagen;
+
+	protected BufferedImage imagen;
+	private Posicionable posicionable;
 
 	public Imagen() {
 
@@ -58,11 +63,6 @@ public class Imagen implements Dibujable, MouseClickObservador {
 		this.posicionable = posicionable;
 	}
 
-	private String nombreArchivoImagen;
-	protected BufferedImage imagen;
-	protected Posicionable posicionable;
-
-	@Override
 	public void MouseClick(int x, int y) {
 		System.out.println("Click;" + x + "," + y);
 

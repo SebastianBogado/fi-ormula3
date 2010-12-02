@@ -28,11 +28,6 @@ public class Tierra extends Terreno {
 	}
 
 	@Override
-	public double desgastar(Neumaticos neumaticos) {
-		return neumaticos.desgastePorTierra();
-	}
-
-	@Override
 	public Element serializarXML() {
 
 		Element element = new Element("Tierra");
@@ -52,4 +47,8 @@ public class Tierra extends Terreno {
 		return Tierra;
 	}
 
+	@Override
+	public double desgastar(Neumaticos neumaticos) {
+		return neumaticos.desgastePorTierra();
+	}
 }

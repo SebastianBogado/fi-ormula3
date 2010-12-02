@@ -7,8 +7,8 @@ import org.jdom.Element;
 public abstract class Terreno {
 
 	public static String Ripio = "Ripio";
-	public static String Asfalto = "Ripio";
-	public static String Tierra = "Ripio";
+	public static String Asfalto = "Asfalto";
+	public static String Tierra = "Tierra";
 
 	protected int principio;
 	protected int fin;

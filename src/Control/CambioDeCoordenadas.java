@@ -19,7 +19,7 @@ public class CambioDeCoordenadas {
 
 		long nuevaPosicion = 0;
 
-		nuevaPosicion = y - ((long) posicionAuto.y()) + 645 / 10;// 645 es
+		nuevaPosicion = y - ((long) posicionAuto.y()) + 645;// 645 es
 		// el
 		// largo
 		// de la
@@ -31,13 +31,18 @@ public class CambioDeCoordenadas {
 
 	public static PosicionDiscreta realizarCambio(Posicion posicionObstaculo) {
 
-		PosicionDiscreta nuevaPosicion = new PosicionDiscreta();
-		nuevaPosicion.setY((int) ((long) posicionObstaculo.y() - posicionAuto
-				.y()) + 645);
+		if (posicionObstaculo != null) {
 
-		nuevaPosicion.setX((int) ((long) posicionObstaculo.x() - posicionAuto
-				.x()));
+			PosicionDiscreta nuevaPosicion = new PosicionDiscreta();
+			nuevaPosicion.setY((int) ((int) Math.ceil(posicionObstaculo.y())
+					- Math.ceil(posicionAuto.y()) + 645));
 
-		return nuevaPosicion;
+			nuevaPosicion
+					.setX((int) ((long) posicionObstaculo.x() - posicionAuto
+							.x()));
+
+			return nuevaPosicion;
+		} else
+			return null;
 	}
 }

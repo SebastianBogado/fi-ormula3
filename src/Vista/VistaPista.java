@@ -9,10 +9,11 @@ import modelo.Pista;
 import modelo.Terreno;
 import modelo.servicio.Velocidad;
 import Titiritero.Imagen;
+import Titiritero.MouseClickObservador;
 import Titiritero.SuperficieDeDibujo;
 import Titiritero.Ventana;
 
-public class VistaPista extends Imagen {
+public class VistaPista extends Imagen implements MouseClickObservador {
 
 	private final Velocidad velocidad;
 	private final Pista pista;
@@ -21,8 +22,9 @@ public class VistaPista extends Imagen {
 	private BufferedImage tierra, ripio, asfalto;
 	private VistaObstaculo vistaPozo = null, vistaLomaDeBurro = null;
 	private final ControlDeCambioDeTerreno controlTerreno;
-	private int desplazamiento = 0, cantFranjasPintadas = 0,
-			distanciaRecorrida = 0;
+	private int desplazamiento = 0, cantFranjasPintadas = 0;
+	private final int distanciaRecorrida = 0;
+	private long tiempoAnterior = 0;
 	private final ControlDeObstaculos controlObstaculos;
 
 	public VistaPista(Pista pista, Velocidad vel) {
@@ -42,17 +44,18 @@ public class VistaPista extends Imagen {
 		String tipoTerreno = controlTerreno.primerTerreno();
 
 		this.primerTerreno(tipoTerreno);
+		// this.primerTerreno("Asfalto");
 
 	}
 
 	private void primerTerreno(String tipoTerreno) {
 
 		if (tipoTerreno == Terreno.Ripio)
-			this.inferior = ripio;
+			this.inferior = this.ripio;
 		if (tipoTerreno == Terreno.Asfalto)
-			this.inferior = asfalto;
+			this.inferior = this.asfalto;
 		if (tipoTerreno == Terreno.Tierra)
-			this.inferior = tierra;
+			this.inferior = this.tierra;
 
 		this.superior = this.inferior;
 
@@ -64,16 +67,37 @@ public class VistaPista extends Imagen {
 
 		if (controlTerreno.cambiarTerrno(this.cantFranjasPintadas))
 			this.cambiarTerreno();
+		// Todavia a que definir algunos valores
+		if (tiempoAnterior == 0 || true) {
 
-		this.desplazamiento += ((int) velocidad.y() * 3);
+			this.desplazamiento += ((int) velocidad.y() / 8);
 
-		this.distanciaRecorrida += this.desplazamiento;
+			tiempoAnterior = System.currentTimeMillis();
+		} else {
+
+			long tiempoActual = System.currentTimeMillis();
+			long tiempo = ((tiempoActual - tiempoAnterior));
+
+			this.tiempoAnterior = tiempoActual;
+
+			System.out.println(tiempo);
+
+			this.desplazamiento += (int) velocidad.y() * tiempo / (3.6 * 100);
+
+		}
+
+		// this.distanciaRecorrida += this.desplazamiento;
 
 		this.pintarPista(grafico);
 
 		this.pintarPozos(superficeDeDibujo);
 
 		this.pintarLomasDeBurro(superficeDeDibujo);
+		/*
+		 * int y = 100; if (this.desplazamiento == 0) y = (int)
+		 * Math.ceil(Math.random() * 500.0); vistaLomaDeBurro.dibujarEn(y,
+		 * desplazamiento, superficeDeDibujo);
+		 */
 
 	}
 
@@ -112,12 +136,15 @@ public class VistaPista extends Imagen {
 
 	private void iniciarImagenesDeTerrenos() {
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenAsfalto);
+		System.out.println(UbicacionArchivo.ImagenAsfalto);
 		this.asfalto = this.imagen;
 
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenRipio);
+		System.out.println(UbicacionArchivo.ImagenRipio);
 		this.ripio = this.imagen;
 
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenTierra);
+		System.out.println(UbicacionArchivo.ImagenTierra);
 		this.tierra = this.imagen;
 
 	}

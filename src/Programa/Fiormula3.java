@@ -32,6 +32,13 @@ public class Fiormula3 {
 
 	public static void main(String[] args) {
 		MenuPrincipal mp = new MenuPrincipal();
+		
+//		MetadataAuto metaAuto = new MetadataAuto("Mess10",
+//				"Lin64");
+//		Automovil auto = FabricaDeAutos.instanciarAuto(metaAuto);
+//		Pista pista = new Pista("C:/Users/seba/workspace/fi-ormula3/pistas/Default.xml");
+//
+//		Fiormula3.iniciarCarrera(auto, pista);
 	}
 
 	public static void iniciarCarrera(Automovil unAuto, Pista unaPista) {

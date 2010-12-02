@@ -3,7 +3,7 @@ package modelo;
 import modelo.servicio.NombresDeFabricables;
 
 public final class Win32 extends Motor {
-	private static final String descripcion = "De 0 a 100km/h en 5 segundos";
+	public static final String descripcion = "De 0 a 100km/h en 5 segundos";
 	/*
 	 * Constructor; Se define la velocidad Maxima
 	 */

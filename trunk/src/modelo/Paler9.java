@@ -4,6 +4,8 @@ import modelo.servicio.NombresDeFabricables;
 import modelo.servicio.Velocidad;
 
 public class Paler9 extends Neumaticos {
+	private static String descripcion = "Desgaste: 2% cada 3km; 6% por obstáculo";
+	
 	private static class Desgaste{
 		public static double obstaculo = 6.0;
 		public static double terreno = 2.0 / 3000.0;

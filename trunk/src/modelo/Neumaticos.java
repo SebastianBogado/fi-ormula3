@@ -1,9 +1,10 @@
 package modelo;
 
 import modelo.servicio.Autoparte;
+import modelo.servicio.Describible;
 import modelo.servicio.Velocidad;
 
-abstract public class Neumaticos implements Autoparte{
+abstract public class Neumaticos extends Describible implements Autoparte{
 
 	private double daño = 0;
 	private static int velocidadParaQueNoSeDañen = 30;

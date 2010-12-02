@@ -3,6 +3,8 @@ package modelo;
 import modelo.servicio.NombresDeFabricables;
 
 public class Mess10 extends Neumaticos {
+	private static String descripcion = "Asfalto: no hay desgaste; ripio: velocidad/100; tierra: velocidad/70. Pozo daña 5%; loma de burro: 10%";
+	
 	private static class Desgaste{
 		public static double lomaDeBurro = 10.0;
 		public static double pozo = 5.0;

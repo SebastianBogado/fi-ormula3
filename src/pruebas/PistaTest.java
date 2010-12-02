@@ -50,12 +50,12 @@ public class PistaTest {
 		Terreno unTerreno;
 		unTerreno=this.unaPista.getTerreno(0);
 		assertTrue(unTerreno.principio()==0);
-		assertTrue(unTerreno.fin()==4000);
-		unTerreno=this.unaPista.getTerreno(4001);
-		assertTrue(unTerreno.principio()==4001);
-		assertTrue(unTerreno.fin()==7000);
-		unTerreno=this.unaPista.getTerreno(7001);
-		assertTrue(unTerreno.principio()==7001);
+		assertTrue(unTerreno.fin()==500);
+		unTerreno=this.unaPista.getTerreno(501);
+		assertTrue(unTerreno.principio()==501);
+		assertTrue(unTerreno.fin()==800);
+		unTerreno=this.unaPista.getTerreno(801);
+		assertTrue(unTerreno.principio()==801);
 		assertTrue(unTerreno.fin()==10000);
 		
 	}

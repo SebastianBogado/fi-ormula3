@@ -24,12 +24,12 @@ public class PosicionDiscreta implements Posicionable {
 		return y;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setX(int X) {
+		this.x = X;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public void setY(int Y) {
+		this.y = Y;
 	}
 
 }

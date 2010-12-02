@@ -18,7 +18,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	private final Velocidad velocidad;
 	private final Pista pista;
 
-	private BufferedImage superior, inferior;
+	private BufferedImage superior, inferior, bandera;
 	private BufferedImage tierra, ripio, asfalto;
 	private VistaObstaculo vistaPozo = null, vistaLomaDeBurro = null;
 	private final ControlDeCambioDeTerreno controlTerreno;
@@ -27,6 +27,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	private long tiempoAnterior = 0;
 	private final ControlDeObstaculos controlObstaculos;
 	private boolean finalDePista;
+	private boolean mostrarBanderaInicio = false;
 
 	public VistaPista(Pista pista, Velocidad vel) {
 		super();
@@ -69,9 +70,9 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		if (controlTerreno.cambiarTerrno(this.cantFranjasPintadas))
 			this.cambiarTerreno();
 		// Todavia a que definir algunos valores
-		if (tiempoAnterior == 0) {
+		if (tiempoAnterior == 0 || true) {
 
-			this.desplazamiento += ((int) velocidad.y() / 8);
+			this.desplazamiento += ((int) velocidad.y() / 7);
 
 			tiempoAnterior = System.currentTimeMillis();
 		} else {
@@ -139,16 +140,20 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 
 	private void iniciarImagenesDeTerrenos() {
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenAsfalto);
-		System.out.println(UbicacionArchivo.ImagenAsfalto);
+
 		this.asfalto = this.imagen;
 
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenRipio);
-		System.out.println(UbicacionArchivo.ImagenRipio);
+
 		this.ripio = this.imagen;
 
 		this.setNombreArchivoImagen(UbicacionArchivo.ImagenTierra);
-		System.out.println(UbicacionArchivo.ImagenTierra);
+
 		this.tierra = this.imagen;
+
+		this.setNombreArchivoImagen(UbicacionArchivo.ImagenBandera);
+
+		this.bandera = this.imagen;
 
 	}
 
@@ -175,6 +180,12 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		for (int i = -5; i < 15; i++) {
 			grafico.drawImage(this.superior, 0,
 					(i * 43 + desplazamiento - 645), null);
+		}
+
+		if (!mostrarBanderaInicio) {
+			grafico.drawImage(this.bandera, 0, 12 * 43 + desplazamiento, null);
+			if (this.desplazamiento > 200)
+				mostrarBanderaInicio = true;
 		}
 
 		if (desplazamiento >= 600) {

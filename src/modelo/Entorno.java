@@ -8,6 +8,7 @@ import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
 import modelo.servicio.DiferencialDeTiempo;
 import modelo.servicio.Posicion;
+import Programa.Fiormula3;
 import Titiritero.ObjetoVivo;
 
 public class Entorno extends Observable implements ObjetoVivo {
@@ -138,8 +139,11 @@ public class Entorno extends Observable implements ObjetoVivo {
 		try {
 			this.chequearFinDePista();
 		} catch (ExcepcionPistaFinalizada e) {
-			this.cicloConstante.stop();
+			Fiormula3.termianarCarrera();
 		}
+
+		if (unAutomovil.getNuematicos().dañoDiscreto() >= 100)
+			Fiormula3.carreraPerdida();
 
 	}
 

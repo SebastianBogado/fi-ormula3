@@ -82,7 +82,7 @@ public class VentanaDeInformacion extends Frame implements ObjetoVivo {
 
 		this.boton.setLabel("Velocidad: " + Math.ceil(velocidad.rapidez())
 				+ "km / h");
-		this.botonDistancia.setLabel("Distanacia: "
+		this.botonDistancia.setLabel("Distancia: "
 				+ Math.ceil(posicionAuto.y()) + " m ");
 
 		this.calcularTiempo();
@@ -90,9 +90,9 @@ public class VentanaDeInformacion extends Frame implements ObjetoVivo {
 				/ 1000.0 + " seg");
 
 		this.botonDaño.setLabel("Daño: "
-				+ Math.ceil(this.neumaticos.dañoPorcentual()) + " %");
+				+ this.neumaticos.dañoDiscreto() + " %");
 	}
-
+//Math.ceil(this.neumaticos.dañoDiscreto())
 	private void calcularTiempo() {
 
 		if (tiempoPre == 0) {

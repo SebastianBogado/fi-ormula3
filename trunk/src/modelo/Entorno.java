@@ -6,6 +6,7 @@ import javax.swing.Timer;
 
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
+import modelo.servicio.DiferencialDeTiempo;
 import modelo.servicio.Posicion;
 import Titiritero.ObjetoVivo;
 
@@ -15,8 +16,6 @@ public class Entorno extends Observable implements ObjetoVivo {
 	private long posicionAutoDiscretaEnY;
 
 	private double variacionPosicionDiscretaEnY;
-	static private int diferencialDeTiempo = 36;
-	static private double diferencialDeTiempoEnHoras = 0.00001;
 
 	private final Automovil unAutomovil;
 
@@ -61,7 +60,7 @@ public class Entorno extends Observable implements ObjetoVivo {
 	}
 
 	private void actualizarPosicion() {
-		unAutomovil.actualizarPosicion(diferencialDeTiempoEnHoras);
+		unAutomovil.actualizarPosicion(DiferencialDeTiempo.horas);
 		double auxPosicionX = unAutomovil.getPosicionReal().x();
 		this.posicionAutoDiscretaEnX = Math.round(auxPosicionX);
 

@@ -1,17 +1,19 @@
 package modelo;
 
 import modelo.servicio.Autoparte;
-import modelo.servicio.Describible;
 import modelo.servicio.Velocidad;
 
-abstract public class Neumaticos extends Describible implements Autoparte{
+abstract public class Neumaticos implements Autoparte{
 
 	private double daño = 0;
 	private static int velocidadParaQueNoSeDañen = 30;
 
 	protected void aumentarDaño(double difDaño) {
-		if (this.daño <= 100 && difDaño <= 100) {
+		if (this.daño <= 100) {
 			this.daño += difDaño;
+		}
+		if (this.daño > 100){
+			this.daño = 100;
 		}
 	}
 
@@ -23,7 +25,7 @@ abstract public class Neumaticos extends Describible implements Autoparte{
 	}
 	
 	public double dañoDiscreto(){
-		return Math.round(this.daño);
+		return this.daño;
 	}
 
 	/*

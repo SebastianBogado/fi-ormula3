@@ -3,7 +3,7 @@ package modelo;
 import modelo.servicio.NombresDeFabricables;
 
 public class MacX extends Motor{
-	private static String descripcion = "De 0 a 80km/h en 2 segundos, de 80 a 150 en 15";
+	private static final String descripcion = "De 0 a 80km/h en 2 segundos, de 80 a 150 en 15";
 
 	/*
 	 * Constructor; Se define la velocidad Maxima

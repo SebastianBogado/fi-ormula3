@@ -11,8 +11,8 @@ public class LomaDeBurro extends Obstaculo {
 	 * tomamos como posición más extrema 1, este hardcodeo sería posicionX = 2
 	 */
 	public LomaDeBurro(int posicionX, int posicionY, int anchoPista) {
-		super(1, posicionY);
-		this.ancho = anchoPista - 2;
+		super(posicionX, posicionY);
+		this.ancho = 1;
 	}
 
 	/*

@@ -30,6 +30,12 @@ public class Automovil extends CuerpoExtenso {
 		if (this.velocidadInstantanea.x() != 0) {
 			this.dejarDeDoblar();
 		}
+		double velocidadLimite = motor.VelocidadMaxima()
+				* (1 - neumaticos.dañoPorcentual());
+
+		if (velocidadInstantanea.y() > velocidadLimite) {
+			this.frenar(10.0 / 1000.);
+		}
 	}
 
 	private void dejarDeDoblar() {
@@ -56,11 +62,17 @@ public class Automovil extends CuerpoExtenso {
 	 */
 	public void acelerar(double difTiempo) {
 
-		if (velocidadInstantanea.y() < motor.VelocidadMaxima()) {
+		double nuevaVelocidad = 0;
+		double velocidadLimite = motor.VelocidadMaxima()
+				* (1 - neumaticos.dañoPorcentual());
+		if (velocidadInstantanea.y() < velocidadLimite) {
 
-			double aux = motor.acelerar(difTiempo, velocidadInstantanea.y());
+			nuevaVelocidad = motor
+					.acelerar(difTiempo, velocidadInstantanea.y());
+			velocidadInstantanea.y(nuevaVelocidad);
 
-			velocidadInstantanea.y(aux - aux * neumaticos.dañoPorcentual());
+		} else if (velocidadInstantanea.y() > velocidadLimite) {
+			this.frenar(36.0 / 1000.0);
 
 		}
 

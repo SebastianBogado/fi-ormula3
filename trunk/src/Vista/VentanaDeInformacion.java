@@ -89,8 +89,8 @@ public class VentanaDeInformacion extends Frame implements ObjetoVivo {
 		this.botonTiempo.setLabel("Tiempo: " + (tiempoPost - tiempoPre)
 				/ 1000.0 + " seg");
 
-		this.botonDaño.setLabel("Daño: " + Math.ceil(this.neumaticos.daño())
-				+ " %");
+		this.botonDaño.setLabel("Daño: "
+				+ Math.ceil(this.neumaticos.dañoPorcentual()) + " %");
 	}
 
 	private void calcularTiempo() {

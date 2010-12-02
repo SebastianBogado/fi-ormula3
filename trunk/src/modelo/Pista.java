@@ -89,33 +89,32 @@ public class Pista {
 		this.ActualiarProximaLomaDeBurro();
 	}
 
-
 	public int getLargo() {
 		return this.LargoDeLaPista;
 	}
 
-	
-
 	/*
 	 * devulve la lista que contiene los pozos a lo largo de la pista
 	 */
-	public LinkedList<Pozo> getListaDePozos(){
+	public LinkedList<Pozo> getListaDePozos() {
 		return this.ListaDePozos;
 	}
-	
+
 	/*
 	 * devulve la lista que contiene las lomas de burro a lo largo de la pista
 	 */
-	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro(){
+	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro() {
 		return this.ListaDeLomasDeBurro;
 	}
+
 	/*
-	 * devulve la lista que contiene los deistintos terrenos que componen la pista
+	 * devulve la lista que contiene los deistintos terrenos que componen la
+	 * pista
 	 */
-	public LinkedList<Terreno> getListaDeTerrenos(){
+	public LinkedList<Terreno> getListaDeTerrenos() {
 		return this.ListaDeTerrenos;
 	}
-	
+
 	/*
 	 * carga la lista de poszos con valores predeterminados
 	 */
@@ -193,7 +192,7 @@ public class Pista {
 	 * crea una pista estatica que es igual en todas las ejecucuiones
 	 */
 
-	private void cargarPistaEstatica() {
+	public void cargarPistaEstatica() {
 
 		this.NombreDeLaPista = "Default";
 		this.LargoDeLaPista = 10000;
@@ -211,7 +210,6 @@ public class Pista {
 		this.cargarListaEstaticaTerrenos(this.LargoDeLaPista);
 	}
 
-	
 	/*
 	 * 
 	 */
@@ -426,7 +424,9 @@ public class Pista {
 			XMLOutputter outputter = new XMLOutputter();
 			outputter.setFormat(Format.getPrettyFormat());
 
-			FileWriter writer = new FileWriter("pistas\\Default.xml");//"\\pistas\\"+this.NombreDeLaPista + ".xml");
+			FileWriter writer = new FileWriter("pistas\\Default.xml");// "\\pistas\\"+this.NombreDeLaPista
+																		// +
+																		// ".xml");
 			outputter.output(document, writer);
 			writer.close();
 		} catch (Exception e) {

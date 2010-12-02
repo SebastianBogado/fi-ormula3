@@ -49,7 +49,7 @@ abstract public class Neumaticos extends Describible implements Autoparte{
 		}
 	}
 
-	abstract public String tipo();
+	abstract public String neumaticos();
 
 	/*
 	 * los siguientes métodos devuelven el desgaste al chocar con lomas de burro

@@ -32,7 +32,7 @@ public class Paler9Test extends TestCase {
 	}
 
 	public void testTipo() {
-		assertTrue(neumaticos.tipo().equals("Paler9"));
+		assertTrue(neumaticos.neumaticos().equals("Paler9"));
 	}
 
 }

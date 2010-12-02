@@ -99,8 +99,13 @@ public class Automovil extends CuerpoExtenso {
 
 		return motor.motor();
 	}
-
+	
+	public String neumaticos(){
+		return neumaticos.neumaticos();
+	}
+	
 	public Velocidad getVelocidadInstantanea() {
+
 		return this.velocidadInstantanea;
 	}
 

@@ -1,10 +1,5 @@
 package Programa;
 
-import java.awt.Button;
-import java.awt.Frame;
-import java.awt.GridLayout;
-import java.awt.TextField;
-
 import modelo.Automovil;
 import modelo.Entorno;
 import modelo.Pista;
@@ -80,7 +75,7 @@ public class Fiormula3 {
 
 	}
 
-	public static void termianarCarrera() {
+	public static void termianarCarrera(long tiempoJugado, Pista pistaDeAutos) {
 
 		try {
 			Thread.sleep(3000);
@@ -89,26 +84,17 @@ public class Fiormula3 {
 			e.printStackTrace();
 		}
 		controlador.detener();
-		ventanaInfo.setVisible(false);
-		ventana.setVisible(false);
+		// ventanaInfo.setVisible(false);
+		// ventana.setVisible(false);
 
-		Frame ventanaRegistro = new Frame();
-		ventanaRegistro.setLayout(new GridLayout(2, 1));
-
-		ventanaRegistro.setLocation(300, 250);
-
-		ventanaRegistro.setTitle("Ingrese su Nombre");
-
-		ventanaRegistro.setSize(200, 150);
-
-		ventanaRegistro.add(new TextField());
-
-		ventanaRegistro.add(new Button("Aceptar"));
-		ventanaRegistro.setVisible(true);
+		VentanaDeRegistro ventanaRegistro = new VentanaDeRegistro();
 
 	}
 
 	public static void carreraPerdida() {
+		controlador.detener();
+
+		VentanaDeAviso ventanaAviso = new VentanaDeAviso("Has perdido");
 
 		try {
 			Thread.sleep(3000);
@@ -117,14 +103,5 @@ public class Fiormula3 {
 			e.printStackTrace();
 		}
 
-		controlador.detener();
-
-		Frame ventanaDeAviso = new Frame();
-
-		ventanaDeAviso.setTitle("Has Perdido....:C");
-		ventanaDeAviso.setSize(200, 100);
-		ventanaDeAviso.add(new Button("Aceptar"));
-		ventanaDeAviso.setLocation(300, 200);
-		ventanaDeAviso.setVisible(true);
 	}
 }

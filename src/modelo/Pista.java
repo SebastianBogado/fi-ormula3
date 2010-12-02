@@ -119,7 +119,7 @@ public class Pista {
 				if (posicionPozoX == AnchoPista)
 					posicionPozoX = 0;
 				posicionPozoX++;
-				posicionPozoY += 200;
+				posicionPozoY += 120;
 				unPozo = new Pozo(posicionPozoX, posicionPozoY);
 				ListaDePozos.add(i, unPozo);
 			}

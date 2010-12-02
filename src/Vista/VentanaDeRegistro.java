@@ -1,4 +1,4 @@
-package Programa;
+package Vista;
 
 import java.awt.Button;
 import java.awt.Frame;

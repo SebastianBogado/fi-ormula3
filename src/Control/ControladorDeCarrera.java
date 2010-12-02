@@ -3,11 +3,11 @@ package Control;
 import modelo.Automovil;
 import modelo.Entorno;
 import modelo.Pista;
-import Programa.VentanaDeAviso;
-import Programa.VentanaDeRegistro;
 import Titiritero.ControladorJuego;
 import Titiritero.Ventana;
+import Vista.VentanaDeAviso;
 import Vista.VentanaDeInformacion;
+import Vista.VentanaDeRegistro;
 import Vista.VistaAutomovil;
 import Vista.VistaPista;
 

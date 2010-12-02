@@ -29,7 +29,6 @@ public class MenuPrincipal extends JDialog{
 		
 		this.setTitle("Fi-ormula3");
 		this.setSize(400,200);
-		this.setVisible(true);
 		this.setLayout(new FlowLayout());
 		
 		/** Crea los botones Nivel, Motor, Ruedas, Pista, Salir y Seguir **/
@@ -63,6 +62,7 @@ public class MenuPrincipal extends JDialog{
 		this.add(this.BotonPista);
 		this.add(this.BotonSalir);
 		this.add(this.BotonComenzar);
+		this.setVisible(true);
 	}
 
 /** Devuelve el string del motor seleccionado **/

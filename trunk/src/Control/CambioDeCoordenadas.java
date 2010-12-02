@@ -34,12 +34,10 @@ public class CambioDeCoordenadas {
 		if (posicionObstaculo != null) {
 
 			PosicionDiscreta nuevaPosicion = new PosicionDiscreta();
-			nuevaPosicion.setY((int) ((int) Math.ceil(posicionObstaculo.y())
-					- Math.ceil(posicionAuto.y()) + 645));
+			nuevaPosicion.setY((int) ((int) ((int) -Math.ceil(posicionObstaculo
+					.y()) + Math.ceil(posicionAuto.y())) * 8.5 + 640));
 
-			nuevaPosicion
-					.setX((int) ((long) posicionObstaculo.x() - posicionAuto
-							.x()));
+			nuevaPosicion.setX((int) (((long) posicionObstaculo.x()) * 100));
 
 			return nuevaPosicion;
 		} else

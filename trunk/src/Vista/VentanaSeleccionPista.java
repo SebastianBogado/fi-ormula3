@@ -10,7 +10,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class VentanaSeleccionPista extends JFrame {
 	public VentanaSeleccionPista(MenuPrincipal menu){
 		/** Se crea un file browser **/
-		JFileChooser ventanaSelectora = new JFileChooser();
+		JFileChooser ventanaSelectora = new JFileChooser(UbicacionArchivo.Pistas);
 		FileFilter filtroExtension = new FileNameExtensionFilter("Pistas en xml", "xml");
 		ventanaSelectora.addChoosableFileFilter(filtroExtension);
 		int returnVal = ventanaSelectora.showOpenDialog(this);

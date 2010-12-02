@@ -25,8 +25,6 @@ public class OyenteTeclado implements KeyListener {
 			aux = e.getWhen();
 			diferenciaDeTiempo = aux - tiempo;
 			tiempo = aux;
-			if (diferenciaDeTiempo <= 0)
-				System.out.println("ERROR");
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -45,13 +43,11 @@ public class OyenteTeclado implements KeyListener {
 
 	private void doblarDerecha() {
 		this.auto.doblarALaDerecha();
-		this.auto.actualizarPosicion(DiferencialDeTiempo.horas);
 
 	}
 
 	private void doblarIzquierda() {
 		this.auto.doblarALaIzquierda();
-		this.auto.actualizarPosicion(DiferencialDeTiempo.horas);
 
 	}
 

@@ -195,7 +195,7 @@ public class Pista {
 	public void cargarPistaEstatica() {
 
 		this.NombreDeLaPista = "Default";
-		this.LargoDeLaPista = 10000;
+		this.LargoDeLaPista = 2000;
 		this.AnchoDeLaPista = 6;
 		this.CantidadDePozos = 50;
 		this.CantidadDeLomasDeBurro = 60;

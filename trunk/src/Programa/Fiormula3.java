@@ -1,9 +1,13 @@
 package Programa;
 
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.TextField;
+
 import modelo.Automovil;
 import modelo.Entorno;
 import modelo.Pista;
-import modelo.Terreno;
 import modelo.servicio.FabricaDeAutos;
 import modelo.servicio.MetadataAuto;
 import modelo.servicio.NombresDeFabricables;
@@ -20,10 +24,17 @@ public class Fiormula3 {
 	/**
 	 * @param args
 	 */
+
+	private static ControladorJuego controlador;
+	private static Ventana ventana;
+	private static VentanaDeInformacion ventanaInfo;
+
 	public static void main(String[] args) {
-		MetadataAuto metaAuto = new MetadataAuto(NombresDeFabricables.PALER9, NombresDeFabricables.LIN64);
+		MetadataAuto metaAuto = new MetadataAuto(NombresDeFabricables.PALER9,
+				NombresDeFabricables.LIN64);
 		Automovil auto = FabricaDeAutos.instanciarAuto(metaAuto);
-		Pista p = new Pista("C:/Users/seba/workspace/fi-ormula3/pistas/Pista1.xml");
+		Pista p = new Pista(
+				"C:/Users/seba/workspace/fi-ormula3/pistas/Pista1.xml");
 		iniciarCarrera(auto, p);
 	}
 
@@ -33,13 +44,13 @@ public class Fiormula3 {
 
 		System.out.println(unaPista.getListaDeTerrenos().get(1).tipoTerreno());
 
-		ControladorJuego controlador = new ControladorJuego();
+		controlador = new ControladorJuego();
 
 		controlador.setIntervaloSimulacion(20);
-		Ventana ventana = new Ventana(500, 650, controlador);
-		VentanaDeInformacion ventanaInfo = new VentanaDeInformacion(unAuto
-				.getVelocidadInstantanea(), unAuto.getPosicionReal(), unAuto
-				.getNuematicos());
+		ventana = new Ventana(500, 650, controlador);
+		ventanaInfo = new VentanaDeInformacion(
+				unAuto.getVelocidadInstantanea(), unAuto.getPosicionReal(),
+				unAuto.getNuematicos());
 
 		controlador.setSuperficieDeDibujo(ventana);
 
@@ -66,4 +77,51 @@ public class Fiormula3 {
 
 	}
 
+	public static void termianarCarrera() {
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		controlador.detener();
+		ventanaInfo.setVisible(false);
+		ventana.setVisible(false);
+
+		Frame ventanaRegistro = new Frame();
+		ventanaRegistro.setLayout(new GridLayout(2, 1));
+
+		ventanaRegistro.setLocation(300, 250);
+
+		ventanaRegistro.setTitle("Ingrese su Nombre");
+
+		ventanaRegistro.setSize(200, 150);
+
+		ventanaRegistro.add(new TextField());
+
+		ventanaRegistro.add(new Button("Aceptar"));
+		ventanaRegistro.setVisible(true);
+
+	}
+
+	public static void carreraPerdida() {
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		controlador.detener();
+
+		Frame ventanaDeAviso = new Frame();
+
+		ventanaDeAviso.setTitle("Has Perdido....:C");
+		ventanaDeAviso.setSize(200, 100);
+		ventanaDeAviso.add(new Button("Aceptar"));
+		ventanaDeAviso.setLocation(300, 200);
+		ventanaDeAviso.setVisible(true);
+	}
 }

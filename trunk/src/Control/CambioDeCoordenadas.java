@@ -7,7 +7,7 @@ import Vista.PosicionDiscreta;
 public class CambioDeCoordenadas {
 
 	private static Entorno entorno;
-	private static Posicion posicionAuto;
+	public static Posicion posicionAuto;
 
 	public static void setEntorno(Entorno ent) {
 		entorno = ent;
@@ -35,7 +35,7 @@ public class CambioDeCoordenadas {
 
 			PosicionDiscreta nuevaPosicion = new PosicionDiscreta();
 			nuevaPosicion.setY((int) ((int) ((int) -Math.ceil(posicionObstaculo
-					.y()) + Math.ceil(posicionAuto.y())) * 8.5 + 640));
+					.y()) + Math.ceil(posicionAuto.y())) * 13.2 + 640));
 
 			nuevaPosicion.setX((int) (((long) posicionObstaculo.x()) * 100));
 

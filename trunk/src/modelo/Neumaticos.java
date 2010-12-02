@@ -3,7 +3,7 @@ package modelo;
 import modelo.servicio.Autoparte;
 import modelo.servicio.Velocidad;
 
-abstract public class Neumaticos implements Autoparte{
+abstract public class Neumaticos implements Autoparte {
 
 	private double daño = 0;
 	private static int velocidadParaQueNoSeDañen = 30;
@@ -12,7 +12,7 @@ abstract public class Neumaticos implements Autoparte{
 		if (this.daño <= 100) {
 			this.daño += difDaño;
 		}
-		if (this.daño > 100){
+		if (this.daño > 100) {
 			this.daño = 100;
 		}
 	}
@@ -23,21 +23,26 @@ abstract public class Neumaticos implements Autoparte{
 	public double dañoPorcentual() {
 		return daño / 100.0;
 	}
-	
-	public double dañoDiscreto(){
+
+	public double dañoDiscreto() {
 		return this.daño;
 	}
 
 	/*
-	 * Cálculo del desgaste POR METRO. 
-	 * Depende de velocidad * constanteDeDesgasteDelTerreno
+	 * Cálculo del desgaste POR METRO. Depende de velocidad *
+	 * constanteDeDesgasteDelTerreno
 	 */
 	public void desgastarPorTerreno(Terreno terreno,
 			Velocidad velocidadInstantanea) {
+		if (daño >= 100) {
+			velocidadInstantanea.y(0);
+		}
+
 		double difDaño = velocidadInstantanea.rapidez() / 1000.0; // cálculo por
 		// metro
 		double constanteDeDesgasteDelTerreno = terreno.desgastar(this);
 		this.aumentarDaño(difDaño * constanteDeDesgasteDelTerreno);
+
 	}
 
 	/*

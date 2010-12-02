@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import modelo.Neumaticos;
 import modelo.servicio.Posicion;
@@ -26,6 +24,7 @@ public class VentanaDeInformacion extends Frame implements ObjetoVivo {
 	private final Button botonTiempo;
 	private final Posicion posicionAuto;
 	private final Button botonDaño;
+	private final Button x, y;
 	private final Neumaticos neumaticos;
 	private long tiempoPost = 0, tiempoPre = 0;
 
@@ -59,22 +58,16 @@ public class VentanaDeInformacion extends Frame implements ObjetoVivo {
 		botonDaño.setBackground(Color.red);
 		this.add(botonDaño);
 
+		x = new Button();
+		y = new Button();
+
+		// this.add(x);
+		// this.add(y);
+
 		this.setSize(new Dimension(200, 200));
 		this.setLocation(190, 40);
 
-		this.agregarListener();
-
 		this.setVisible(true);
-	}
-
-	private void agregarListener() {
-		this.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				dispose();
-				System.exit(0);
-			};
-		});
 	}
 
 	@Override
@@ -86,13 +79,17 @@ public class VentanaDeInformacion extends Frame implements ObjetoVivo {
 				+ Math.ceil(posicionAuto.y()) + " m ");
 
 		this.calcularTiempo();
-		this.botonTiempo.setLabel("Tiempo: " + (tiempoPost - tiempoPre)
-				/ 1000.0 + " seg");
+		this.botonTiempo.setLabel("Tiempo: "
+				+ Math.ceil((tiempoPost - tiempoPre) / 1000.0) + " seg");
 
 		this.botonDaño.setLabel("Daño: "
-				+ this.neumaticos.dañoDiscreto() + " %");
+				+ Math.ceil(this.neumaticos.dañoDiscreto()) + " %");
+
+		// this.x.setLabel("X: " + CambioDeCoordenadas.posicionAuto.x());
+		// this.y.setLabel("Y: " + CambioDeCoordenadas.posicionAuto.y());
 	}
-//Math.ceil(this.neumaticos.dañoDiscreto())
+
+	// Math.ceil(this.neumaticos.dañoDiscreto())
 	private void calcularTiempo() {
 
 		if (tiempoPre == 0) {

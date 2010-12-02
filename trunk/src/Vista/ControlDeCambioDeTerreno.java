@@ -69,4 +69,14 @@ public class ControlDeCambioDeTerreno {
 		return this.proximoTerreno;
 	}
 
+	public boolean finDePista(int cantDeFranjas) {
+
+		boolean resultado = false;
+		long largoDePista = pista.getLargo();
+
+		resultado = (cantDeFranjas + 1) * 645 >= largoDePista;
+
+		return resultado;
+	}
+
 }

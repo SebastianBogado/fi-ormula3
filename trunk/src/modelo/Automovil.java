@@ -83,15 +83,18 @@ public class Automovil extends CuerpoExtenso {
 	 * de doblar, se vuelve a cero la velocidad en X (desde otro método)
 	 */
 	public void doblarALaIzquierda() {
-		double velocidadX = -100.0;
+		double velocidadX = -calcularVelocidadParaDoblar();
 		this.velocidadInstantanea.x(velocidadX);
 	}
 
 	public void doblarALaDerecha() {
-		double velocidadX = 100.0;
+		double velocidadX = calcularVelocidadParaDoblar();
 		this.velocidadInstantanea.x(velocidadX);
 	}
-
+	
+	private double calcularVelocidadParaDoblar(){
+		return this.velocidadInstantanea.y()*100;
+	}
 	/*
 	 * Devuelve de que tipo es el motor
 	 */

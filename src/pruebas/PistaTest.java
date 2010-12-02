@@ -38,10 +38,10 @@ public class PistaTest {
 		Obstaculo unObstaculo; ;
 		unObstaculo= unaPista.getObstaculoSiguiente();
 		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==1);
-		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==1000);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==200);
 		unObstaculo= unaPista.getObstaculoSiguiente();
 		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==1);
-		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==1200);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==300);
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class PistaTest {
 		assertTrue(unTerreno.fin()==800);
 		unTerreno=this.unaPista.getTerreno(801);
 		assertTrue(unTerreno.principio()==801);
-		assertTrue(unTerreno.fin()==10000);
+		assertTrue(unTerreno.fin()== unaPista.getLargo());
 		
 	}
 	
@@ -81,7 +81,7 @@ public class PistaTest {
 	@Test
 	public void testGetLargo(){
 		
-		assertTrue(unaPista.getLargo()==10000);
+		assertTrue(unaPista.getLargo()==2000);
 	}
 	
 	@Test

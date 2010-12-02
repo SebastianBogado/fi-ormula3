@@ -32,7 +32,7 @@ public class ColisionadorTest extends TestCase {
 
 	@Test
 	public void testCoinciden() {
-		Pozo pozo = new Pozo(0, 0);
+		Pozo pozo = new Pozo(3, 0);
 		assertTrue(colisionador.coinciden(pozo, unAutomovil));
 	}
 

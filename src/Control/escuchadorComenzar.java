@@ -3,7 +3,6 @@ package Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import Programa.Fiormula3;
 import Vista.MenuPrincipal;
 
 import modelo.Automovil;
@@ -25,7 +24,7 @@ public class escuchadorComenzar implements ActionListener {
 		Pista pista = new Pista(this.menu.getPistaSeleccionada());
 		this.menu.setVisible(false);
 
-		Fiormula3.iniciarCarrera(auto, pista);
+		new ControladorDeCarrera(auto, pista);
 		
 	}
 

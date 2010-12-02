@@ -45,8 +45,8 @@
     <LomaDeBurro posicionX="1" posicionY="9600" />
   </ListaDeLomasDeBurro>
   <ListaDeTerrenos CantidadDeTerrenos="5">
-    <Asfalto principio="0" fin="2500" />
-    <Tierra principio="2501" fin="4500" />
+    <Tierra principio="0" fin="2500" />
+    <Asfalto principio="2501" fin="4500" />
     <Ripio principio="4501" fin="6000" />
     <Tierra principio="6001" fin="8100" />
     <Ripio principio="8101" fin="10000" />

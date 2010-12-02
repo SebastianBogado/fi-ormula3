@@ -46,7 +46,6 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		String tipoTerreno = controlTerreno.primerTerreno();
 
 		this.primerTerreno(tipoTerreno);
-		// this.primerTerreno("Asfalto");
 
 	}
 

@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.servicio.CuerpoExtenso;
+import modelo.servicio.DiferencialDeTiempo;
 import modelo.servicio.Posicion;
 import modelo.servicio.Velocidad;
 
@@ -17,7 +18,7 @@ public class Automovil extends CuerpoExtenso {
 		this.velocidadInstantanea = new Velocidad(0, 0);
 		this.ancho = Automovil.ANCHO;
 		this.largo = Automovil.LARGO;
-		this.posicionEsquinaInferiorIzquierda = new Posicion(0, 0);
+		this.posicionEsquinaInferiorIzquierda = new Posicion(300, 0);
 	}
 
 	/*
@@ -57,9 +58,9 @@ public class Automovil extends CuerpoExtenso {
 
 		if (velocidadInstantanea.y() < motor.VelocidadMaxima()) {
 
-			velocidadInstantanea.y(motor.acelerar(difTiempo,
-					velocidadInstantanea.y())
-					- motor.VelocidadMaxima() * neumaticos.dañoPorcentual());
+			double aux = motor.acelerar(difTiempo, velocidadInstantanea.y());
+
+			velocidadInstantanea.y(aux - aux * neumaticos.dañoPorcentual());
 
 		}
 
@@ -83,18 +84,29 @@ public class Automovil extends CuerpoExtenso {
 	 * de doblar, se vuelve a cero la velocidad en X (desde otro método)
 	 */
 	public void doblarALaIzquierda() {
-		double velocidadX = -calcularVelocidadParaDoblar();
+		double velocidadX = -10000.0;
 		this.velocidadInstantanea.x(velocidadX);
+		double aux = this.velocidadInstantanea.y();
+		this.velocidadInstantanea.y(0);
+		this.actualizarPosicion(DiferencialDeTiempo.horas);
+		this.velocidadInstantanea.y(aux);
+
+		if (this.posicionEsquinaInferiorIzquierda.x() < 0)
+			this.posicionEsquinaInferiorIzquierda.x(0);
 	}
 
 	public void doblarALaDerecha() {
-		double velocidadX = calcularVelocidadParaDoblar();
+		double velocidadX = 10000.0;
 		this.velocidadInstantanea.x(velocidadX);
+		double aux = this.velocidadInstantanea.y();
+		this.velocidadInstantanea.y(0);
+		this.actualizarPosicion(DiferencialDeTiempo.horas);
+		this.velocidadInstantanea.y(aux);
+
+		if (this.posicionEsquinaInferiorIzquierda.x() > 400)
+			this.posicionEsquinaInferiorIzquierda.x(400);
 	}
-	
-	private double calcularVelocidadParaDoblar(){
-		return this.velocidadInstantanea.y()*100;
-	}
+
 	/*
 	 * Devuelve de que tipo es el motor
 	 */
@@ -102,11 +114,11 @@ public class Automovil extends CuerpoExtenso {
 
 		return motor.motor();
 	}
-	
-	public String neumaticos(){
+
+	public String neumaticos() {
 		return neumaticos.neumaticos();
 	}
-	
+
 	public Velocidad getVelocidadInstantanea() {
 
 		return this.velocidadInstantanea;

@@ -27,7 +27,6 @@ public class Entorno extends Observable implements ObjetoVivo {
 
 	private final Pista pistaDeAutos;
 
-	private Timer cicloConstante;
 
 	/*
 	 * Para crearse, necesita el auto, en esta primer entrega Más tarde, habrá
@@ -39,26 +38,9 @@ public class Entorno extends Observable implements ObjetoVivo {
 		this.unAutomovil = auto;
 		this.pistaDeAutos = new Pista();
 		obstaculoSiguiente = this.pistaDeAutos.getObstaculoSiguiente();
-		this.darTresSegundosPrevios();
-
-		this.iniciarSecuencia();
 
 	}
 
-	private void iniciarSecuencia() {
-		// cicloConstante = new Timer(diferencialDeTiempo);
-		// cicloConstante.setInitialDelay(0);
-		// cicloConstante.start();
-	}
-
-	/*
-	 * GENTLEMEN, START YOUR ENGINES! 3...2...1..GO! es la idea de esto. No es
-	 * primordial
-	 */
-	private void darTresSegundosPrevios() {
-		// TODO Auto-generated method stub
-
-	}
 
 	private void actualizarPosicion() {
 		unAutomovil.actualizarPosicion(DiferencialDeTiempo.horas);

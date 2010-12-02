@@ -5,8 +5,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import modelo.excepciones.ExcepcionDificultadInvalida;
-
 import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -48,16 +46,7 @@ public class Pista {
 		this.inicializar();
 	}
 
-	/*
-	 * crea una pista aleatoria con la fificultad especificada (1-3)
-	 */
 
-	public Pista(int dificultad) throws ExcepcionDificultadInvalida {
-
-		this.crearListas();
-		this.aleatoria(dificultad);
-		this.inicializar();
-	}
 
 	/*
 	 * crea una pista a partir de un archivo xml
@@ -268,39 +257,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * crea una pista aleatoria en base a la dificultad, hardcodeada en ints :D
-	 * fuera de joda: pensar cómo dejarlo más lindo
-	 */
-	private void aleatoria(int dificultad) throws ExcepcionDificultadInvalida {
-		switch (dificultad) {
-		case 1:
-			this.aleatoriaFacil();
-			break;
-		case 2:
-			this.aleatoriaMedia();
-			break;
-		case 3:
-			this.aleatoriaDificil();
-		default:
-			throw new ExcepcionDificultadInvalida();
-		}
-	}
 
-	private void aleatoriaDificil() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void aleatoriaMedia() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void aleatoriaFacil() {
-		// TODO Auto-generated method stub
-
-	}
 
 	/*
 	 * retorna un elemento xml que conteiene la pista

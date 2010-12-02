@@ -2,8 +2,6 @@ package modelo;
 
 import java.util.Observable;
 
-import javax.swing.Timer;
-
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
 import modelo.servicio.DiferencialDeTiempo;

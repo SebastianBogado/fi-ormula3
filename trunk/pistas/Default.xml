@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Pista NombreDeLaPista="Default" LargoDeLaPista="10000" AnchoDeLaPista="6">
-  <ListaDePozos CantidadDePozos="10">
+  <ListaDePozos CantidadDePozos="50">
     <Pozo posicionX="1" posicionY="1000" />
     <Pozo posicionX="2" posicionY="2000" />
     <Pozo posicionX="3" posicionY="3000" />
@@ -11,8 +11,48 @@
     <Pozo posicionX="2" posicionY="8000" />
     <Pozo posicionX="3" posicionY="9000" />
     <Pozo posicionX="4" posicionY="10000" />
+    <Pozo posicionX="5" posicionY="11000" />
+    <Pozo posicionX="6" posicionY="12000" />
+    <Pozo posicionX="1" posicionY="13000" />
+    <Pozo posicionX="2" posicionY="14000" />
+    <Pozo posicionX="3" posicionY="15000" />
+    <Pozo posicionX="4" posicionY="16000" />
+    <Pozo posicionX="5" posicionY="17000" />
+    <Pozo posicionX="6" posicionY="18000" />
+    <Pozo posicionX="1" posicionY="19000" />
+    <Pozo posicionX="2" posicionY="20000" />
+    <Pozo posicionX="3" posicionY="21000" />
+    <Pozo posicionX="4" posicionY="22000" />
+    <Pozo posicionX="5" posicionY="23000" />
+    <Pozo posicionX="6" posicionY="24000" />
+    <Pozo posicionX="1" posicionY="25000" />
+    <Pozo posicionX="2" posicionY="26000" />
+    <Pozo posicionX="3" posicionY="27000" />
+    <Pozo posicionX="4" posicionY="28000" />
+    <Pozo posicionX="5" posicionY="29000" />
+    <Pozo posicionX="6" posicionY="30000" />
+    <Pozo posicionX="1" posicionY="31000" />
+    <Pozo posicionX="2" posicionY="32000" />
+    <Pozo posicionX="3" posicionY="33000" />
+    <Pozo posicionX="4" posicionY="34000" />
+    <Pozo posicionX="5" posicionY="35000" />
+    <Pozo posicionX="6" posicionY="36000" />
+    <Pozo posicionX="1" posicionY="37000" />
+    <Pozo posicionX="2" posicionY="38000" />
+    <Pozo posicionX="3" posicionY="39000" />
+    <Pozo posicionX="4" posicionY="40000" />
+    <Pozo posicionX="5" posicionY="41000" />
+    <Pozo posicionX="6" posicionY="42000" />
+    <Pozo posicionX="1" posicionY="43000" />
+    <Pozo posicionX="2" posicionY="44000" />
+    <Pozo posicionX="3" posicionY="45000" />
+    <Pozo posicionX="4" posicionY="46000" />
+    <Pozo posicionX="5" posicionY="47000" />
+    <Pozo posicionX="6" posicionY="48000" />
+    <Pozo posicionX="1" posicionY="49000" />
+    <Pozo posicionX="2" posicionY="50000" />
   </ListaDePozos>
-  <ListaDeLomasDeBurro CantidadDeLomasDeBurro="10">
+  <ListaDeLomasDeBurro CantidadDeLomasDeBurro="60">
     <LomaDeBurro posicionX="1" posicionY="1200" />
     <LomaDeBurro posicionX="1" posicionY="2200" />
     <LomaDeBurro posicionX="1" posicionY="3200" />
@@ -23,11 +63,61 @@
     <LomaDeBurro posicionX="1" posicionY="8200" />
     <LomaDeBurro posicionX="1" posicionY="9200" />
     <LomaDeBurro posicionX="1" posicionY="10200" />
+    <LomaDeBurro posicionX="1" posicionY="11200" />
+    <LomaDeBurro posicionX="1" posicionY="12200" />
+    <LomaDeBurro posicionX="1" posicionY="13200" />
+    <LomaDeBurro posicionX="1" posicionY="14200" />
+    <LomaDeBurro posicionX="1" posicionY="15200" />
+    <LomaDeBurro posicionX="1" posicionY="16200" />
+    <LomaDeBurro posicionX="1" posicionY="17200" />
+    <LomaDeBurro posicionX="1" posicionY="18200" />
+    <LomaDeBurro posicionX="1" posicionY="19200" />
+    <LomaDeBurro posicionX="1" posicionY="20200" />
+    <LomaDeBurro posicionX="1" posicionY="21200" />
+    <LomaDeBurro posicionX="1" posicionY="22200" />
+    <LomaDeBurro posicionX="1" posicionY="23200" />
+    <LomaDeBurro posicionX="1" posicionY="24200" />
+    <LomaDeBurro posicionX="1" posicionY="25200" />
+    <LomaDeBurro posicionX="1" posicionY="26200" />
+    <LomaDeBurro posicionX="1" posicionY="27200" />
+    <LomaDeBurro posicionX="1" posicionY="28200" />
+    <LomaDeBurro posicionX="1" posicionY="29200" />
+    <LomaDeBurro posicionX="1" posicionY="30200" />
+    <LomaDeBurro posicionX="1" posicionY="31200" />
+    <LomaDeBurro posicionX="1" posicionY="32200" />
+    <LomaDeBurro posicionX="1" posicionY="33200" />
+    <LomaDeBurro posicionX="1" posicionY="34200" />
+    <LomaDeBurro posicionX="1" posicionY="35200" />
+    <LomaDeBurro posicionX="1" posicionY="36200" />
+    <LomaDeBurro posicionX="1" posicionY="37200" />
+    <LomaDeBurro posicionX="1" posicionY="38200" />
+    <LomaDeBurro posicionX="1" posicionY="39200" />
+    <LomaDeBurro posicionX="1" posicionY="40200" />
+    <LomaDeBurro posicionX="1" posicionY="41200" />
+    <LomaDeBurro posicionX="1" posicionY="42200" />
+    <LomaDeBurro posicionX="1" posicionY="43200" />
+    <LomaDeBurro posicionX="1" posicionY="44200" />
+    <LomaDeBurro posicionX="1" posicionY="45200" />
+    <LomaDeBurro posicionX="1" posicionY="46200" />
+    <LomaDeBurro posicionX="1" posicionY="47200" />
+    <LomaDeBurro posicionX="1" posicionY="48200" />
+    <LomaDeBurro posicionX="1" posicionY="49200" />
+    <LomaDeBurro posicionX="1" posicionY="50200" />
+    <LomaDeBurro posicionX="1" posicionY="51200" />
+    <LomaDeBurro posicionX="1" posicionY="52200" />
+    <LomaDeBurro posicionX="1" posicionY="53200" />
+    <LomaDeBurro posicionX="1" posicionY="54200" />
+    <LomaDeBurro posicionX="1" posicionY="55200" />
+    <LomaDeBurro posicionX="1" posicionY="56200" />
+    <LomaDeBurro posicionX="1" posicionY="57200" />
+    <LomaDeBurro posicionX="1" posicionY="58200" />
+    <LomaDeBurro posicionX="1" posicionY="59200" />
+    <LomaDeBurro posicionX="1" posicionY="60200" />
   </ListaDeLomasDeBurro>
   <ListaDeTerrenos CantidadDeTerrenos="3">
-    <Asfalto principio="0" fin="4000" />
-    <Tierra principio="4001" fin="7000" />
-    <Ripio principio="7001" fin="10000" />
+    <Asfalto principio="0" fin="500" />
+    <Tierra principio="501" fin="800" />
+    <Ripio principio="801" fin="10000" />
   </ListaDeTerrenos>
 </Pista>
 

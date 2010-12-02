@@ -316,19 +316,24 @@ public class MenuPrincipal extends JDialog{
 		}			
 	}	
 
+	/** Devuelve un int con el nivel de dificultad seleccionado **/
 	public String getNivelSeleccionado(){
 		return this.NivelSeleccionado;
 	}
-	
+
+	/** Devuelve el string del motor seleccionado **/
 	public String getMotorSeleccionado(){
 		return this.MotorSeleccionado;
 	}
 	
+	/** Devuelve el string de las ruedas seleccionadas **/
 	public String getRuedasSeleccionadas(){
 		return this.RuedasSeleccionadas;
 	}
 	
+	/** Devuelve el string de la ruta de la pista **/
 	public String getPistaSeleccionada(){
 		return this.PistaSeleccionada;
 	}
 }	
+	

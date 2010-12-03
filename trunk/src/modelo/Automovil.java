@@ -21,15 +21,14 @@ public class Automovil extends CuerpoExtenso {
 		this.posicionEsquinaInferiorIzquierda = new Posicion(300, 0);
 	}
 
-	/*
-	 * actualiza la posición en base a un diferencial de tiempo
-	 */
+	/** Actualiza la posición en base a un diferencial de tiempo **/
 	public void actualizarPosicion(double difTiempoEnHoras) {
 		this.posicionEsquinaInferiorIzquierda.mover(this.velocidadInstantanea
 				.variacionDePosicionEnMetros(difTiempoEnHoras));
-		if (this.velocidadInstantanea.x() != 0) {
+		
+		if (this.velocidadInstantanea.x() != 0) 
 			this.dejarDeDoblar();
-		}
+		
 		double velocidadLimite = motor.VelocidadMaxima()
 				* (1 - neumaticos.dañoPorcentual());
 
@@ -56,10 +55,9 @@ public class Automovil extends CuerpoExtenso {
 				this.velocidadInstantanea);
 	}
 
-	/*
-	 * Produce una aumento de la velocidad en un diferencial de Tiempo (grande o
-	 * pequeño)
-	 */
+	/** Produce una aumento de la velocidad en un diferencial de Tiempo 
+	(grande o pequeño)**/
+	
 	public void acelerar(double difTiempo) {
 
 		double nuevaVelocidad = 0;
@@ -67,21 +65,16 @@ public class Automovil extends CuerpoExtenso {
 				* (1 - neumaticos.dañoPorcentual());
 		if (velocidadInstantanea.y() < velocidadLimite) {
 
-			nuevaVelocidad = motor
-					.acelerar(difTiempo, velocidadInstantanea.y());
+			nuevaVelocidad = motor.acelerar(difTiempo, velocidadInstantanea.y());
 			velocidadInstantanea.y(nuevaVelocidad);
 
 		} else if (velocidadInstantanea.y() > velocidadLimite) {
 			this.frenar(36.0 / 1000.0);
-
 		}
-
 	}
 
-	/*
-	 * Produce una disminucion de la velocidad en un diferencial de Tiempo
-	 * (grande o pequeño)
-	 */
+	/** Produce una disminucion de la velocidad en un diferencial de Tiempo
+	(grande o pequeño) **/
 	public void frenar(double difTiempo) {
 
 		velocidadInstantanea.y(velocidadInstantanea.y()
@@ -91,10 +84,8 @@ public class Automovil extends CuerpoExtenso {
 			velocidadInstantanea.y(0);
 	}
 
-	/*
-	 * 100km/h hacia la dirección a doblar para que doble en un dt = 36ms. Luego
-	 * de doblar, se vuelve a cero la velocidad en X (desde otro método)
-	 */
+	/** 100km/h hacia la dirección a doblar para que doble en un dt = 36ms. Luego
+	de doblar, se vuelve a cero la velocidad en X (desde otro método) **/
 	public void doblarALaIzquierda() {
 		double velocidadX = -10000.0;
 		this.velocidadInstantanea.x(velocidadX);
@@ -119,20 +110,17 @@ public class Automovil extends CuerpoExtenso {
 			this.posicionEsquinaInferiorIzquierda.x(400);
 	}
 
-	/*
-	 * Devuelve de que tipo es el motor
-	 */
+	/** Devuelve de que tipo es el motor **/
 	public String motor() {
-
 		return motor.motor();
 	}
 
+	/** Devuelve de que tipo son las ruedas **/
 	public String neumaticos() {
 		return neumaticos.neumaticos();
 	}
 
 	public Velocidad getVelocidadInstantanea() {
-
 		return this.velocidadInstantanea;
 	}
 

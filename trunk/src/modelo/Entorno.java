@@ -2,13 +2,15 @@ package modelo;
 
 import java.util.Observable;
 
+import pPrograma.Fiormula3;
+import tTitiritero.ObjetoVivo;
+
+import cControl.ControladorDeCarrera;
+
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
 import modelo.servicio.DiferencialDeTiempo;
 import modelo.servicio.Posicion;
-import Control.ControladorDeCarrera;
-import Programa.Fiormula3;
-import Titiritero.ObjetoVivo;
 
 public class Entorno extends Observable implements ObjetoVivo {
 

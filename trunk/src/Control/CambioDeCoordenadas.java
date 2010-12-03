@@ -38,8 +38,11 @@ public class CambioDeCoordenadas {
 			nuevaPosicion.setX((int) (((long) posicionObstaculo.x()) * 100));
 
 			return nuevaPosicion;
+		
 		} else
+		
 			return null;
+	
 	}
 
 }

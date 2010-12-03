@@ -21,5 +21,4 @@ public class VentanaSeleccionPista extends JFrame {
 			menu.setPistaSeleccionada (pistaSeleccionada);
 		}			
 	}
-
 }

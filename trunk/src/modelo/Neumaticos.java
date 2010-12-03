@@ -17,9 +17,7 @@ abstract public class Neumaticos implements Autoparte {
 		}
 	}
 
-	/*
-	 * Devuelve el daño en que se encuentra el neumatico porcentualmente (0-100)
-	 */
+	/** Devuelve el daño en que se encuentra el neumatico porcentualmente (0-100) **/
 	public double dañoPorcentual() {
 		return (daño / 100.0);
 	}
@@ -28,10 +26,8 @@ abstract public class Neumaticos implements Autoparte {
 		return this.daño;
 	}
 
-	/*
-	 * Cálculo del desgaste POR METRO. Depende de velocidad *
-	 * constanteDeDesgasteDelTerreno
-	 */
+	/** Cálculo del desgaste POR METRO. Depende de velocidad *
+	  constanteDeDesgasteDelTerreno **/
 	public void desgastarPorTerreno(Terreno terreno,
 			Velocidad velocidadInstantanea) {
 		if (daño >= 100) {
@@ -45,9 +41,7 @@ abstract public class Neumaticos implements Autoparte {
 
 	}
 
-	/*
-	 * Si pasamos por los obstaculos a 30km/h o menos no desgastan las ruedas
-	 */
+	/** Si pasamos por los obstaculos a 30km/h o menos no desgastan las ruedas **/
 	public void desgastarPorObstaculo(Obstaculo obstaculo,
 			Velocidad velocidadInstantanea) {
 		if (velocidadInstantanea.rapidez() > velocidadParaQueNoSeDañen) {
@@ -58,18 +52,14 @@ abstract public class Neumaticos implements Autoparte {
 
 	abstract public String neumaticos();
 
-	/*
-	 * los siguientes métodos devuelven el desgaste al chocar con lomas de burro
-	 * o pozos
-	 */
+	/** los siguientes métodos devuelven el desgaste al chocar con lomas de burro
+	 *  o pozos **/
 	public abstract double chocarConLomaDeBurro();
 
 	abstract public double chocarConPozo();
 
-	/*
-	 * los siguientes métodos devuelven el desgaste producido por los distintos
-	 * tipos de terrenos
-	 */
+	/** los siguientes métodos devuelven el desgaste producido por los distintos
+	tipos de terrenos **/
 	public abstract double desgastePorTierra();
 
 	public abstract double desgastePorRipio();

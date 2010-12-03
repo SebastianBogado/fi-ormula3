@@ -35,6 +35,8 @@ public class Pista {
 	private int CantidadDePozos;
 	private int CantidadDeLomasDeBurro;
 	private int CantidadDeTerrenos;
+	
+	private static String DirectorioPistas="pistas/"; 
 
 	/*
 	 * crea una pista por Default
@@ -381,9 +383,13 @@ public class Pista {
 			XMLOutputter outputter = new XMLOutputter();
 			outputter.setFormat(Format.getPrettyFormat());
 
-			FileWriter writer = new FileWriter("pistas\\Default.xml");// "\\pistas\\"+this.NombreDeLaPista
-			// +
-			// ".xml");
+			FileWriter writer = new FileWriter(
+					Pista.DirectorioPistas+
+					this.NombreDeLaPista+ 
+					".xml");
+			//"pistas\\Default.xml");
+			
+			// "pistas/"+this.NombreDeLaPista+".xml");
 			outputter.output(document, writer);
 			writer.close();
 		} catch (Exception e) {

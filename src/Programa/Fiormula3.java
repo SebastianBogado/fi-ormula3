@@ -19,7 +19,7 @@ public class Fiormula3 {
 		MetadataAuto metaAuto = new MetadataAuto("Mess10",
 				"Lin64");
 		Automovil auto = FabricaDeAutos.instanciarAuto(metaAuto);
-		Pista pista = new Pista("C:/Users/seba/workspace/fi-ormula3/pistas/Default.xml");
+		Pista pista = new Pista("\\pistas\\Default.xml");
 
 		new ControladorDeCarrera(auto, pista);
 	}

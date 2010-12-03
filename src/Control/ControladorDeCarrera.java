@@ -21,8 +21,8 @@ public class ControladorDeCarrera {
 		System.out.println(unaPista.getListaDeTerrenos().get(1).tipoTerreno());
 
 		controlador = new ControladorJuego();
-
 		controlador.setIntervaloSimulacion(20);
+
 		ventana = new Ventana(500, 650, controlador);
 		ventanaInfo = new VentanaDeInformacion(
 				unAuto.getVelocidadInstantanea(), unAuto.getPosicionReal(),
@@ -46,7 +46,6 @@ public class ControladorDeCarrera {
 		controlador.agregarMouseClickObservador(vistaPista);
 		controlador.agregarDibujable(new VistaAutomovil(unAuto));
 		controlador.agregarObjetoVivo(ventanaInfo);
-
 		controlador.agregarObjetoVivo(entorno);
 
 		controlador.comenzar();
@@ -79,7 +78,6 @@ public class ControladorDeCarrera {
 
 			e.printStackTrace();
 		}
-
 	}
 
 }

@@ -38,10 +38,10 @@ public class PistaTest {
 		Obstaculo unObstaculo; ;
 		unObstaculo= unaPista.getObstaculoSiguiente();
 		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==1);
-		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==200);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==120);
 		unObstaculo= unaPista.getObstaculoSiguiente();
-		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==1);
-		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==300);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x()==2);
+		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y()==240);
 	}
 	
 	@Test

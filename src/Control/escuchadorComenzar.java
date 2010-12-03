@@ -16,6 +16,7 @@ public class escuchadorComenzar implements ActionListener {
 	public escuchadorComenzar(MenuPrincipal menu){
 		this.menu = menu;
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		MetadataAuto metaAuto = new MetadataAuto(this.menu.getRuedasSeleccionadas(),

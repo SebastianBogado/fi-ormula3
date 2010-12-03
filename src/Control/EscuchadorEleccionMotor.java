@@ -7,12 +7,12 @@ import java.awt.event.ActionListener;
 import Vista.MenuPrincipal;
 import Vista.VentanaSeleccionMotor;
 
-public class escuchadorEleccionMotor implements ActionListener {
-	MenuPrincipal menu;
-	public escuchadorEleccionMotor(MenuPrincipal menu){
-		this.menu = menu;
+public class EscuchadorEleccionMotor extends EscuchadorMenu implements ActionListener {
+
+	public EscuchadorEleccionMotor(MenuPrincipal menu) {
+		super(menu);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		VentanaSeleccionMotor ventana = new VentanaSeleccionMotor("Selección del motor",

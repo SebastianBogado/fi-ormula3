@@ -1,10 +1,10 @@
 package Vista;
 
 import javax.swing.*;
-import Control.escuchadorComenzar;
-import Control.escuchadorEleccionMotor;
-import Control.escuchadorEleccionPista;
-import Control.escuchadorEleccionRuedas;
+import Control.EscuchadorComenzar;
+import Control.EscuchadorEleccionMotor;
+import Control.EscuchadorEleccionPista;
+import Control.EscuchadorEleccionRuedas;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -40,9 +40,9 @@ public class MenuPrincipal extends JDialog{
 		this.BotonComenzar.setEnabled(false);
 		
 		/** Establece los detectores de eventos para cada boton **/
-		this.BotonPista.addActionListener(new escuchadorEleccionPista(this));
-		this.BotonMotor.addActionListener(new escuchadorEleccionMotor(this));
-		this.BotonRuedas.addActionListener(new escuchadorEleccionRuedas(this));
+		this.BotonPista.addActionListener(new EscuchadorEleccionPista(this));
+		this.BotonMotor.addActionListener(new EscuchadorEleccionMotor(this));
+		this.BotonRuedas.addActionListener(new EscuchadorEleccionRuedas(this));
 		this.BotonSalir.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
@@ -50,7 +50,7 @@ public class MenuPrincipal extends JDialog{
 			}	
 		});
 		
-		this.BotonComenzar.addActionListener(new escuchadorComenzar(this));
+		this.BotonComenzar.addActionListener(new EscuchadorComenzar(this));
 		
 		/** Agrego los botones recientemente creados **/
 		this.add(this.BotonMotor);

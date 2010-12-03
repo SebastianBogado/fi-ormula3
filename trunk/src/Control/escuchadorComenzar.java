@@ -25,7 +25,6 @@ public class escuchadorComenzar implements ActionListener {
 		this.menu.setVisible(false);
 
 		new ControladorDeCarrera(auto, pista);
-		
 	}
 
 }

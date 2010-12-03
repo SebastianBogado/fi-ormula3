@@ -19,6 +19,7 @@ public class MenuPrincipal extends JDialog{
 	private JButton BotonRuedas;
 	private JButton BotonSalir;
 	private JButton BotonComenzar;
+	private 
 	private String PistaSeleccionada = null;
 	private String MotorSeleccionado = null;
 	private String RuedasSeleccionadas = null;
@@ -105,11 +106,11 @@ public class MenuPrincipal extends JDialog{
 	public VentanaSeleccionMotor ventanaSeleccionMotor(){ return this.ventanaMotor;}
 	public VentanaSeleccionRuedas ventanaSeleccionRuedas(){ return this.ventanaRuedas;}
 
-	public void setVentanaMotor(VentanaSeleccionMotor v) {
-		this.ventanaMotor = v;
+	public void setVentanaMotor(VentanaSeleccionMotor ventana) {
+		this.ventanaMotor = ventana;
 	}
-	public void setVentanaRuedas(VentanaSeleccionRuedas v) {
-		this.ventanaRuedas = v;
+	public void setVentanaRuedas(VentanaSeleccionRuedas ventana) {
+		this.ventanaRuedas = ventana;
 	}
 }	
 	

@@ -27,33 +27,29 @@ public class OyenteTeclado implements KeyListener {
 			tiempo = aux;
 		}
 
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-
+		if (e.getKeyCode() == KeyEvent.VK_UP) 
 			this.acelerarAutomovil(diferenciaDeTiempo);
-		}
-
+		
 		if (e.getKeyCode() == KeyEvent.VK_DOWN)
 			this.frenarAutomovil(diferenciaDeTiempo);
+		
 		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			this.doblarIzquierda();
+		
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			this.doblarDerecha();
-
 	}
 
 	private void doblarDerecha() {
 		this.auto.doblarALaDerecha();
-
 	}
 
 	private void doblarIzquierda() {
 		this.auto.doblarALaIzquierda();
-
 	}
 
 	private void frenarAutomovil(long diferenciaDeTiempo) {
 		auto.frenar(diferenciaDeTiempo / 1000.0);
-
 	}
 
 	private void acelerarAutomovil(long diferenciaDeTiempo) {
@@ -67,7 +63,6 @@ public class OyenteTeclado implements KeyListener {
 	}
 
 	public void keyTyped(KeyEvent arg0) {
-
 	}
 
 }

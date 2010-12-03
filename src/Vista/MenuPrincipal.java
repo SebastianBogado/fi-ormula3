@@ -19,7 +19,6 @@ public class MenuPrincipal extends JDialog{
 	private JButton BotonRuedas;
 	private JButton BotonSalir;
 	private JButton BotonComenzar;
-	private 
 	private String PistaSeleccionada = null;
 	private String MotorSeleccionado = null;
 	private String RuedasSeleccionadas = null;
@@ -62,7 +61,7 @@ public class MenuPrincipal extends JDialog{
 		this.setVisible(true);
 	}
 
-/** Devuelve el string del motor seleccionado **/
+	/** Devuelve el string del motor seleccionado **/
 	public String getMotorSeleccionado(){
 		return this.MotorSeleccionado;
 	}
@@ -76,25 +75,27 @@ public class MenuPrincipal extends JDialog{
 	public String getPistaSeleccionada(){
 		return this.PistaSeleccionada;
 	}
-
 	
+	/** Establece el string del motor seleccionado **/
 	public void setMotorElegido(String motor) {
 		this.MotorSeleccionado = motor;
 		this.habilitarComienzo();
 	}
 	
-
-
+	/** Establece el string de las ruedas seleccionadas **/
 	public void setRuedasElegidas(String ruedas) {
 		this.RuedasSeleccionadas = ruedas;	
 		this.habilitarComienzo();
 	}
-
+	
+	/** Establece el string de la pista seleccionada **/
 	public void setPistaSeleccionada(String pistaSelecc) {
 		this.PistaSeleccionada = pistaSelecc;
 		this.habilitarComienzo();
 		
 	}
+	
+	/** Habilita el boton de comienzo del juego **/
 	private void habilitarComienzo(){
 		if ((this.PistaSeleccionada != null) && 
 			(this.MotorSeleccionado != null) &&
@@ -103,14 +104,25 @@ public class MenuPrincipal extends JDialog{
 		}
 	}
 	
-	public VentanaSeleccionMotor ventanaSeleccionMotor(){ return this.ventanaMotor;}
-	public VentanaSeleccionRuedas ventanaSeleccionRuedas(){ return this.ventanaRuedas;}
+	/** Devuelve la referencia de la ventana de seleccion de motor **/
+	public VentanaSeleccionMotor ventanaSeleccionMotor(){
+		return this.ventanaMotor;
+	}
+	
+	/** Devuelve la referencia de la ventana de seleccion de ruedas **/
+	public VentanaSeleccionRuedas ventanaSeleccionRuedas(){
+		return this.ventanaRuedas;
+	}
 
-	public void setVentanaMotor(VentanaSeleccionMotor ventana) {
+	/** Establece una referencia hacia la ventana de seleccion de motor **/
+	public void setVentanaMotor(VentanaSeleccionMotor ventana){
 		this.ventanaMotor = ventana;
 	}
-	public void setVentanaRuedas(VentanaSeleccionRuedas ventana) {
+	
+	/** Establece una referencia hacia la ventana de seleccion de ruedas **/
+	public void setVentanaRuedas(VentanaSeleccionRuedas ventana){
 		this.ventanaRuedas = ventana;
 	}
+	
 }	
 	

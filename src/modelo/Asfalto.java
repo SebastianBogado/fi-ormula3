@@ -12,9 +12,7 @@ public class Asfalto extends Terreno {
 		super(principio, fin);
 	}
 
-	/*
-	 * crea un nueva instancia de asfalto a partir de un elemento xml
-	 */
+	/** crea un nueva instancia de asfalto a partir de un elemento xml **/
 	public Asfalto(Element element)
 			throws ExcepcionLimitesIncorrectosEnElTerreno {
 		String principio = element.getAttributeValue("principio");

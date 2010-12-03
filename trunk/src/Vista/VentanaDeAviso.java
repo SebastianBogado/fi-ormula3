@@ -62,7 +62,7 @@ public class VentanaDeAviso extends Frame {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
-		});
+		}
 	}
 
 	private class Cliqueador implements ActionListener {
@@ -77,7 +77,6 @@ public class VentanaDeAviso extends Frame {
 		public void actionPerformed(ActionEvent arg0) {
 
 			ventana.setVisible(false);
-
 		}
 
 	}

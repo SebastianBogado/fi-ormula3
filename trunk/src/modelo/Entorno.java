@@ -2,10 +2,11 @@ package modelo;
 
 import java.util.Observable;
 
-import pPrograma.Fiormula3;
-import tTitiritero.ObjetoVivo;
+import control.ControladorDeCarrera;
 
-import cControl.ControladorDeCarrera;
+import programa.Fiormula3;
+import titiritero.ObjetoVivo;
+
 
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;

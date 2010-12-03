@@ -15,9 +15,7 @@ public class LomaDeBurro extends Obstaculo {
 		this.ancho = 1;
 	}
 
-	/*
-	 * crea un nueva instancia de loma de burro a partir de un elemento xml
-	 */
+	/** Crea un nueva instancia de loma de burro a partir de un elemento xml **/
 	public LomaDeBurro(Element elementLomaDeBurro, int AnchoDeLaPista) {
 		super();
 		this.ancho = AnchoDeLaPista;

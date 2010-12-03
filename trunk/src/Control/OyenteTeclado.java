@@ -53,9 +53,7 @@ public class OyenteTeclado implements KeyListener {
 	}
 
 	private void acelerarAutomovil(long diferenciaDeTiempo) {
-
 		auto.acelerar(diferenciaDeTiempo / 1000.0);
-
 	}
 
 	public void keyReleased(KeyEvent arg0) {

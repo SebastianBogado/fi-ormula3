@@ -15,19 +15,23 @@ public class PosicionDiscreta implements Posicionable {
 	public PosicionDiscreta() {
 
 	}
-
+	
+	/** Devuelve la poscion en X **/
 	public int getX() {
 		return x;
 	}
-
+	
+	/** Devuelve la poscion en Y **/
 	public int getY() {
 		return y;
 	}
 
+	/** Establece la poscion en X **/
 	public void setX(int X) {
 		this.x = X;
 	}
 
+	/** Establece la poscion en Y **/
 	public void setY(int Y) {
 		this.y = Y;
 	}

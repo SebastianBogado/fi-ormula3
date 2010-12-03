@@ -15,9 +15,9 @@ public class escuchadorEleccionMotor implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		VentanaSeleccionMotor v = new VentanaSeleccionMotor("Selección del motor",
+		VentanaSeleccionMotor ventana = new VentanaSeleccionMotor("Selección del motor",
 				new Dimension(300,150), this.menu);
-		this.menu.setVentanaMotor(v);
+		this.menu.setVentanaMotor(ventana);
 	}
 
 }

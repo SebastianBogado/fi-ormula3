@@ -56,15 +56,14 @@ public class ControladorDeCarrera {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-
 			e.printStackTrace();
 		}
+
 		controlador.detener();
 		// ventanaInfo.setVisible(false);
 		// ventana.setVisible(false);
 
 		new VentanaDeRegistro();
-
 	}
 
 	public static void carreraPerdida() {

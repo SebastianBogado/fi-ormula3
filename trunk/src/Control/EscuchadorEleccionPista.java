@@ -6,12 +6,10 @@ import java.awt.event.ActionListener;
 import Vista.MenuPrincipal;
 import Vista.VentanaSeleccionPista;
 
-public class escuchadorEleccionPista implements ActionListener {
-	
-	MenuPrincipal menu;
+public class EscuchadorEleccionPista extends EscuchadorMenu implements ActionListener {
 
-	public escuchadorEleccionPista(MenuPrincipal menu){
-		this.menu = menu;
+	public EscuchadorEleccionPista(MenuPrincipal menu){
+		super(menu);
 	}
 	
 	@Override

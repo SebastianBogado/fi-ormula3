@@ -10,11 +10,10 @@ import modelo.Pista;
 import modelo.servicio.FabricaDeAutos;
 import modelo.servicio.MetadataAuto;
 
-public class escuchadorComenzar implements ActionListener {
-	MenuPrincipal menu;
-	
-	public escuchadorComenzar(MenuPrincipal menu){
-		this.menu = menu;
+public class EscuchadorComenzar extends EscuchadorMenu implements ActionListener {
+
+	public EscuchadorComenzar(MenuPrincipal menu){
+		super(menu);
 	}
 	
 	@Override

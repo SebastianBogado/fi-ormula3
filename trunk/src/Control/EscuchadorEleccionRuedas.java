@@ -7,11 +7,10 @@ import java.awt.event.ActionListener;
 import Vista.MenuPrincipal;
 import Vista.VentanaSeleccionRuedas;
 
-public class escuchadorEleccionRuedas implements ActionListener {
-	MenuPrincipal menu;
-	
-	public escuchadorEleccionRuedas(MenuPrincipal menu){
-		this.menu = menu;
+public class EscuchadorEleccionRuedas extends EscuchadorMenu implements ActionListener {
+
+	public EscuchadorEleccionRuedas(MenuPrincipal menu){
+		super(menu);
 	}
 	
 	@Override

@@ -20,13 +20,11 @@ public class CambioDeCoordenadas {
 		long nuevaPosicion = 0;
 
 		nuevaPosicion = y - ((long) posicionAuto.y()) + 645;// 645 es
-		// el
-		// largo
+		// el largo
 		// de la
 		// ventana
 
 		return nuevaPosicion;
-
 	}
 
 	public static PosicionDiscreta realizarCambio(Posicion posicionObstaculo) {
@@ -43,4 +41,5 @@ public class CambioDeCoordenadas {
 		} else
 			return null;
 	}
+
 }

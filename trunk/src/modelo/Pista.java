@@ -69,11 +69,14 @@ public class Pista {
 		IteradorListaDePozos = ListaDePozos.iterator();
 		IteradorListaDeLomasDeBurro = ListaDeLomasDeBurro.iterator();
 		IteradorListaDeTerrenos = ListaDeTerrenos.iterator();
-		IteradorListaDeMejoresTiempos = ListaDeMejoresTiempos.iterator();
+		
 
 		this.ActualizarTerreno();
 		this.ActualizarProximoPozo();
 		this.ActualiarProximaLomaDeBurro();
+		
+		this.llenarListaDeMejoresTiempos();
+		IteradorListaDeMejoresTiempos = ListaDeMejoresTiempos.iterator();
 	}
 
 	public int getLargo() {
@@ -94,6 +97,11 @@ public class Pista {
 	pista **/
 	public LinkedList<Terreno> getListaDeTerrenos() {
 		return this.ListaDeTerrenos;
+	}
+	
+	/** Devulve la lista que contiene los mejores tiempos logrados en esta pista**/
+	public LinkedList<Tiempo> getListaDeMejoresTiempos() {
+		return this.ListaDeMejoresTiempos;
 	}
 
 	/** Carga la lista de poszos con valores predeterminados **/
@@ -393,7 +401,7 @@ public class Pista {
 		this.deserializarListaDePozosXML(elementPista);
 		this.deserializarListaDeLomasDeBurroXML(elementPista);
 		this.deserializarListaDeTerrenosXML(elementPista);
-		//this.deserializarListaDeTiemposXML(elementPista);
+		this.deserializarListaDeTiemposXML(elementPista);
 
 	}
 
@@ -496,36 +504,39 @@ public class Pista {
 		}
 	}
 	
-	public void IntentarAgregarNuevoTiempo(Tiempo nuevoTiempo){
+	public void intentarAgregarNuevoTiempo(Tiempo nuevoTiempo){
 		
 		if(!this.ListaDeMejoresTiempos.isEmpty()){
 			if(nuevoTiempo.EsMejorQue(this.ListaDeMejoresTiempos.getLast()))
-				this.OrdenarListaDeMejoresTiempos(nuevoTiempo);
+				this.ordenarListaDeMejoresTiempos(nuevoTiempo);
 		}
 		else
 			this.ListaDeMejoresTiempos.add(nuevoTiempo);	
 	}
 	
-	private void OrdenarListaDeMejoresTiempos(Tiempo nuevoTiempo){
+	private void ordenarListaDeMejoresTiempos(Tiempo nuevoTiempo){
 		
 		Tiempo unTiempo;
 		LinkedList<Tiempo> NuevaListaDeMejoresTiempos = new LinkedList<Tiempo>();
 		boolean nuevoTiempoAgregado=false;
-		 
-		 while(this.IteradorListaDeMejoresTiempos.hasNext()){			
-			
+		
+		while(this.IteradorListaDeMejoresTiempos.hasNext()){			
+						
 			unTiempo=this.IteradorListaDeMejoresTiempos.next();
-			if(!nuevoTiempoAgregado)
+			if(!nuevoTiempoAgregado){
 				if(nuevoTiempo.EsMejorQue(unTiempo)){					
 					NuevaListaDeMejoresTiempos.add(nuevoTiempo);	
 					NuevaListaDeMejoresTiempos.add(unTiempo);
 					nuevoTiempoAgregado=true;
-				}		
-			NuevaListaDeMejoresTiempos.add(unTiempo);			
+				}
+			}
+			else
+				NuevaListaDeMejoresTiempos.add(unTiempo);			
 		}
-		 
+		NuevaListaDeMejoresTiempos.removeLast();
 		 this.ListaDeMejoresTiempos=NuevaListaDeMejoresTiempos;
 		 this.IteradorListaDeMejoresTiempos=this.ListaDeMejoresTiempos.iterator();
+	
 		
 	}
 	
@@ -535,17 +546,24 @@ public class Pista {
 
 		Element elementListaDeMejoresTiempos = new Element("ListaDeMejoresTiempos");
 		elementPista.getChildren().add(elementListaDeMejoresTiempos);
-
+/*
 		if(!this.ListaDeMejoresTiempos.isEmpty()){
 		unTiempo = this.ListaDeMejoresTiempos.getFirst();
 		elementListaDeMejoresTiempos.getChildren().add(unTiempo.serializarXML());
-		}
+		}*/
 		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
 			unTiempo = this.IteradorListaDeMejoresTiempos.next();
 			elementListaDeMejoresTiempos.getChildren().add(
 					unTiempo.serializarXML());
 		}
 		return elementListaDeMejoresTiempos;
+	}
+	
+	private void llenarListaDeMejoresTiempos(){		
+		for(int i=0;i<10;i++){
+			Tiempo unTiempo=new Tiempo("Vacio",0);
+			ListaDeMejoresTiempos.add(unTiempo);
+		}
 	}
 }
 

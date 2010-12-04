@@ -1,4 +1,4 @@
-package pruebas;
+package pruevas;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,7 @@ import modelo.Pista;
 import modelo.Obstaculo;
 import modelo.Pozo;
 import modelo.Terreno;
+import modelo.Tiempo;
 import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
 import org.junit.After;
@@ -60,11 +61,29 @@ public class PistaTest {
 		
 	}
 	
-	
+	@Test 
+	public void testIntentarAgregarNuevoTiempo(){
+		
+		Tiempo unTiempo= new Tiempo("Jugador1", 360);
+		Tiempo otroTiempo= new Tiempo("Jugador2", 60);
+		
+		this.unaPista.intentarAgregarNuevoTiempo(unTiempo);
+		this.unaPista.intentarAgregarNuevoTiempo(otroTiempo);
+		
+		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getNombre().equals("Jugador2"));
+		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getTiempo()==60);
+		assertTrue(unaPista.getListaDeMejoresTiempos().get(1).getNombre().equals("Jugador1"));
+		assertTrue(unaPista.getListaDeMejoresTiempos().get(1).getTiempo()==360);
+		
+	}
 	
 	@Test
 	public void testGuardarEnXML(){
 			
+		Tiempo unTiempo= new Tiempo("Jugador1", 370);
+		
+		this.unaPista.intentarAgregarNuevoTiempo(unTiempo);
+		
 		this.unaPista.guardarEnXML();
 	}
 	
@@ -76,6 +95,13 @@ public class PistaTest {
 		Pista unaPista =new Pista(unaString);
 		
 		assertTrue(unaPista!=null);
+		
+		assertTrue(unaPista.getListaDePozos().getFirst().posicionEsquinaInferiorIzquierda().x()==1);
+		assertTrue(unaPista.getListaDePozos().getFirst().posicionEsquinaInferiorIzquierda().y()==120);
+		assertTrue(unaPista.getListaDeLomasDeBurro().getFirst().posicionEsquinaInferiorIzquierda().x()==1);
+		assertTrue(unaPista.getListaDeLomasDeBurro().getFirst().posicionEsquinaInferiorIzquierda().y()==300);
+		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getNombre().equals("Jugador1"));
+		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getTiempo()==370);
 	}
 	
 	@Test
@@ -101,8 +127,24 @@ public class PistaTest {
 			unaPista.getListaDeTerrenos().getFirst().equals(new Asfalto(0,4000));
 		} catch (ExcepcionLimitesIncorrectosEnElTerreno e) {
 			e.printStackTrace();
-		}
+		}		
+	}
+	
+	@Test
+	public void	TestGetListaDeMejoresTiempos(){
+		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getNombre().equals("Vacio"));
+		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getTiempo()==0);
 		
 	}
+	
+	
+/*
+
+	@Test
+	public void testAleatoria() {
+		fail("Not yet implemented");
+	}
+*/
+
 
 }

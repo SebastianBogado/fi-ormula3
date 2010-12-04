@@ -21,11 +21,14 @@ public class Tiempo {
 	}
 	
 	public boolean EsMejorQue(Tiempo unTiempo){
-		return (unTiempo.tiempo>this.tiempo);
+		if(unTiempo.tiempo!=0)
+			return (unTiempo.tiempo>this.tiempo);
+		else
+			return true;
 	}
 
 	
-	public double getTimpo(){
+	public double getTiempo(){
 		return this.tiempo;
 	}
 	public String getNombre(){

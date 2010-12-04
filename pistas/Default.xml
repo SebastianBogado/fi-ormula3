@@ -119,6 +119,17 @@
     <Tierra principio="501" fin="800" />
     <Ripio principio="801" fin="2000" />
   </ListaDeTerrenos>
-  <ListaDeMejoresTiempos />
+  <ListaDeMejoresTiempos>
+    <Tiempo Nombre="Jugador1" Tiempo="370.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+  </ListaDeMejoresTiempos>
 </Pista>
 

@@ -6,6 +6,7 @@
   	<property name="lib.dir" value="lib/" />
   	<property name="doc.dir" value="documentacion/javadoc" />
   	<property name="zip.name" value="Entrega.zip" />
+	<property name=	"test.dir" value="test/pruebas" />
 	
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
@@ -37,13 +38,11 @@
 		<junit>
 			<classpath>	
 				<pathelement path="${build.dir}" />
-				<fileset dir="${lib.dir}">
-					<include name="**/*.jar"/>
-				</fileset>
+				<pathelement location="lib/junit.jar" />
 			</classpath>
 			<formatter type="brief" usefile="false" />
 			<batchtest>
-				<fileset dir="${build.dir}" includes="**/*Test.class" />
+				<fileset dir="${test.dir}" />
 			</batchtest>
 		</junit>
   	</target>

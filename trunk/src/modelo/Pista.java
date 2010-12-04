@@ -31,33 +31,24 @@ public class Pista {
 	private LomaDeBurro ProximaLomaDeBurro;
 	private Terreno TerrenoActual;
 	private int PosicionDeCambioDeTerreno;
-
 	private String NombreDeLaPista;
 	private int AnchoDeLaPista;
 	private int LargoDeLaPista;
 	private int CantidadDePozos;
 	private int CantidadDeLomasDeBurro;
 	private int CantidadDeTerrenos;
+	private static String DirectorioPistas = "pistas/"; 
 	
-	private static String DirectorioPistas="pistas/"; 
-	
 
 
-	/*
-	 * crea una pista por Default
-	 */
-
+	/** Crea una pista por Default **/
 	public Pista() {
 		this.crearListas();
 		this.cargarPistaEstatica();
 		this.inicializar();
 	}
 
-
-
-	/*
-	 * crea una pista a partir de un archivo xml
-	 */
+	/** Crea una pista a partir de un archivo xml **/
 	public Pista(String pathArchivo) {
 		this.crearListas();
 		this.cargarPistaDesdeXML(pathArchivo);
@@ -71,10 +62,8 @@ public class Pista {
 		ListaDeMejoresTiempos= new LinkedList<Tiempo>();
 	}
 
-	/*
-	 * asigna iteradores a las listas actualiza los elementos de la pista por
-	 * primera vez
-	 */
+	/** Asigna iteradores a las listas actualiza los elementos de la pista por
+	 primera vez **/
 	private void inicializar() {
 
 		IteradorListaDePozos = ListaDePozos.iterator();
@@ -91,31 +80,23 @@ public class Pista {
 		return this.LargoDeLaPista;
 	}
 
-	/*
-	 * devulve la lista que contiene los pozos a lo largo de la pista
-	 */
+	/** Devulve la lista que contiene los pozos a lo largo de la pista **/
 	public LinkedList<Pozo> getListaDePozos() {
 		return this.ListaDePozos;
 	}
 
-	/*
-	 * devulve la lista que contiene las lomas de burro a lo largo de la pista
-	 */
+	/** Devulve la lista que contiene las lomas de burro a lo largo de la pista**/
 	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro() {
 		return this.ListaDeLomasDeBurro;
 	}
 
-	/*
-	 * devulve la lista que contiene los deistintos terrenos que componen la
-	 * pista
-	 */
+	/** Devulve la lista que contiene los deistintos terrenos que componen la
+	pista **/
 	public LinkedList<Terreno> getListaDeTerrenos() {
 		return this.ListaDeTerrenos;
 	}
 
-	/*
-	 * carga la lista de poszos con valores predeterminados
-	 */
+	/** Carga la lista de poszos con valores predeterminados **/
 	private void cargarListaEstaticaDePozos(int AnchoPista, int LargoPista,
 			int CantidadDePozos) {
 
@@ -133,13 +114,9 @@ public class Pista {
 				ListaDePozos.add(i, unPozo);
 			}
 		}
-
 	}
 
-	/*
-	 * carga la lista de LomasDeBurro con valores predeterminados
-	 */
-
+	/** Carga la lista de LomasDeBurro con valores predeterminados **/
 	private void cargarListaEstaticaDeLomasDeBurro(int AnchoPista,
 			int LargoPista, int CantidadDeLomasDeBurro) {
 
@@ -154,14 +131,10 @@ public class Pista {
 						posicionLomaDeBurroEnY, AnchoPista);
 				ListaDeLomasDeBurro.add(i, unaLomaDeBurro);
 			}
-
 	}
 
-	/*
-	 * caraga la lista de terrenos con un terreno de cada tipo de longitud
-	 * predeterminada
-	 */
-
+	/** Caraga la lista de terrenos con un terreno de cada tipo de longitud
+	 predeterminada **/
 	private void cargarListaEstaticaTerrenos(int LargoPista) {
 
 		Terreno unTerreno;
@@ -169,27 +142,21 @@ public class Pista {
 		try {
 			unTerreno = new Asfalto(0, 500);
 			this.ListaDeTerrenos.add(0, unTerreno);
-		} catch (Exception e) {
-		}
+		} catch (Exception e) {}
 
 		try {
 			unTerreno = new Tierra(501, 800);
 			this.ListaDeTerrenos.add(1, unTerreno);
-		} catch (Exception e) {
-		}
+		} catch (Exception e) {}
 
 		try {
 			unTerreno = new Ripio(801, LargoPista);
 			this.ListaDeTerrenos.add(2, unTerreno);
-		} catch (Exception e) {
-		}
+		} catch (Exception e) {}
 
 	}
 
-	/*
-	 * crea una pista estatica que es igual en todas las ejecucuiones
-	 */
-
+	/** Crea una pista estatica que es igual en todas las ejecucuiones **/
 	public void cargarPistaEstatica() {
 
 		this.NombreDeLaPista = "Default";
@@ -208,26 +175,17 @@ public class Pista {
 		this.cargarListaEstaticaTerrenos(this.LargoDeLaPista);
 	}
 
-	/*
-	 * 
-	 */
 	private void ActualizarProximoPozo() {
 		if (IteradorListaDePozos.hasNext())
 			this.PoximoPozo = IteradorListaDePozos.next();
 	}
 
-	/*
-	 * 
-	 */
 	private void ActualiarProximaLomaDeBurro() {
 		if (IteradorListaDeLomasDeBurro.hasNext())
 			this.ProximaLomaDeBurro = IteradorListaDeLomasDeBurro.next();
 	}
 
-	/*
-	 * devuelve el obstaculo mas proximo a colisionar con el auot
-	 */
-
+	/** Devuelve el obstaculo mas proximo a colisionar con el auot **/
 	public Obstaculo getObstaculoSiguiente() {
 
 		double posicionProximoPozo = this.PoximoPozo
@@ -253,10 +211,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * devuelve el Terreno actaul
-	 */
-
+	/** Devuelve el Terreno actual **/
 	public Terreno getTerreno(long posicionAutoDiscretaEnY) {
 		if (posicionAutoDiscretaEnY < this.PosicionDeCambioDeTerreno)
 			return this.TerrenoActual;
@@ -266,11 +221,7 @@ public class Pista {
 		}
 	}
 
-
-
-	/*
-	 * retorna un elemento xml que conteiene la pista
-	 */
+	/** Retorna un elemento xml que conteiene la pista **/
 
 	public Element serializarXML() {
 		Element element = new Element("Pista");
@@ -299,9 +250,7 @@ public class Pista {
 		return element;
 	}
 
-	/*
-	 * retorna un elemento xml que contiene la lista de pozos
-	 */
+	/** Retorna un elemento xml que contiene la lista de pozos**/
 
 	private Element serializarListaDePozosXML(Element elementPista) {
 
@@ -320,14 +269,10 @@ public class Pista {
 			unPozo = this.IteradorListaDePozos.next();
 			ListaDePozos.getChildren().add(unPozo.serializarXML());
 		}
-		;
-
 		return ListaDePozos;
 	}
 
-	/*
-	 * retorna un elemento xml que contiene la lista de lomas de burro
-	 */
+	/** Retorna un elemento xml que contiene la lista de lomas de burro **/
 	private Element serializarListaDeLomasDeBurroXML(Element elementPista) {
 
 		LomaDeBurro unaLomaDeBurro;
@@ -347,15 +292,10 @@ public class Pista {
 			ListaDeLomasDeBurro.getChildren().add(
 					unaLomaDeBurro.serializarXML());
 		}
-		;
-
 		return ListaDeLomasDeBurro;
-
 	}
 
-	/*
-	 * retorna un elemento xml que contiene la lista de terrenos
-	 */
+	/** Retorna un elemento xml que contiene la lista de terrenos **/
 	private Element serializarListaDeTerrenosXML(Element elementPista) {
 
 		Terreno unTerreno;
@@ -373,17 +313,11 @@ public class Pista {
 			unTerreno = this.IteradorListaDeTerrenos.next();
 			ListaDeTerrenos.getChildren().add(unTerreno.serializarXML());
 		}
-		;
-
 		return ListaDeTerrenos;
-
 	}
 
 
-	/*
-	 * guarda la pista en un archivo xml con el mismo nombre de la pista
-	 */
-
+	/** Guarda la pista en un archivo xml con el mismo nombre de la pista **/
 	public void guardarEnXML() {
 
 		try {
@@ -408,9 +342,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * guarda la pista en un archivo xml con el nombre recivido
-	 */
+	/** Guarda la pista en un archivo xml con el nombre recivido**/
 
 	public void guardarComoEnXML(String pathArchivo) {
 
@@ -430,9 +362,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * extrae el elemento raiz de un archivo xml
-	 */
+	/** Extrae el elemento raiz de un archivo xml **/
 	private void cargarPistaDesdeXML(String pathArchivo) {
 		try {
 			SAXBuilder builder = new SAXBuilder();
@@ -446,9 +376,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * crea la pista a partir de un elemento raiz xml
-	 */
+	/** Crea la pista a partir de un elemento raiz xml **/
 
 	private void deserializarXML(Element elementPista) {
 
@@ -469,9 +397,7 @@ public class Pista {
 
 	}
 
-	/*
-	 * crea la lista de pozos a partir de un elemento xml
-	 */
+	/** crea la lista de pozos a partir de un elemento xml **/
 	private void deserializarListaDePozosXML(Element elementPista) {
 
 		Pozo unPozo;
@@ -492,9 +418,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * crea la lista de lomas de burro a partir de un elemento xml
-	 */
+	/** Crea la lista de lomas de burro a partir de un elemento xml **/
 	private void deserializarListaDeLomasDeBurroXML(Element elementPista) {
 
 		LomaDeBurro unaLomaDeBurro;
@@ -520,10 +444,7 @@ public class Pista {
 		}
 	}
 
-	/*
-	 * crea la lista de terrenos a partir de un elemento xml
-	 */
-
+	/** Crea la lista de terrenos a partir de un elemento xml **/
 	private void deserializarListaDeTerrenosXML(Element elementPista) {
 		Terreno unTerreno = null;
 		Element elementTerreno;
@@ -572,7 +493,6 @@ public class Pista {
 			elementTiempo= IteradorListaDeTiempos.next();
 			unTiempo= new Tiempo(elementTiempo);
 			this.ListaDeMejoresTiempos.add(unTiempo);
-			
 		}
 	}
 	
@@ -616,7 +536,6 @@ public class Pista {
 		Element elementListaDeMejoresTiempos = new Element("ListaDeMejoresTiempos");
 		elementPista.getChildren().add(elementListaDeMejoresTiempos);
 
-		
 		unTiempo = this.ListaDeMejoresTiempos.getFirst();
 		elementListaDeMejoresTiempos.getChildren().add(unTiempo.serializarXML());
 
@@ -625,7 +544,6 @@ public class Pista {
 			elementListaDeMejoresTiempos.getChildren().add(
 					unTiempo.serializarXML());
 		}
-		
 		return elementListaDeMejoresTiempos;
 	}
 }

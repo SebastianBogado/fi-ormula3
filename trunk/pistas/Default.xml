@@ -119,5 +119,6 @@
     <Tierra principio="501" fin="800" />
     <Ripio principio="801" fin="2000" />
   </ListaDeTerrenos>
+  <ListaDeMejoresTiempos />
 </Pista>
 

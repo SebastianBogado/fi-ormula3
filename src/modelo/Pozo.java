@@ -10,9 +10,7 @@ public class Pozo extends Obstaculo {
 		this.ancho = 1;
 	}
 
-	/*
-	 * crea un nueva instancia de pozo a partir de un elemento xml
-	 */
+	/** Crea un nueva instancia de pozo a partir de un elemento xml **/
 	public Pozo(Element element) {
 		super();
 		this.ancho = 1;

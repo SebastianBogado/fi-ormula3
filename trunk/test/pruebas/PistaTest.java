@@ -104,15 +104,5 @@ public class PistaTest {
 		}
 		
 	}
-	
-	
-/*
-
-	@Test
-	public void testAleatoria() {
-		fail("Not yet implemented");
-	}
-*/
-
 
 }

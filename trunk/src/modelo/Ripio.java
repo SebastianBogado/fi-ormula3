@@ -12,9 +12,7 @@ public class Ripio extends Terreno {
 		super(principio, fin);
 	}
 
-	/*
-	 * crea un nueva instancia de ripio a partir de un elemento xml
-	 */
+	/** Crea un nueva instancia de ripio a partir de un elemento xml **/
 	public Ripio(Element element) throws ExcepcionLimitesIncorrectosEnElTerreno {
 		String principio = element.getAttributeValue("principio");
 		String fin = element.getAttributeValue("fin");

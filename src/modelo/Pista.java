@@ -536,9 +536,10 @@ public class Pista {
 		Element elementListaDeMejoresTiempos = new Element("ListaDeMejoresTiempos");
 		elementPista.getChildren().add(elementListaDeMejoresTiempos);
 
+		if(!this.ListaDeMejoresTiempos.isEmpty()){
 		unTiempo = this.ListaDeMejoresTiempos.getFirst();
 		elementListaDeMejoresTiempos.getChildren().add(unTiempo.serializarXML());
-
+		}
 		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
 			unTiempo = this.IteradorListaDeMejoresTiempos.next();
 			elementListaDeMejoresTiempos.getChildren().add(

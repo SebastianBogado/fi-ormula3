@@ -17,11 +17,8 @@ public abstract class Terreno {
 
 	}
 
-	/*
-	 * @param principio: línea donde empieza el terreno
-	 * 
-	 * @param fin: línea donde termina el terreno
-	 */
+	/** @param principio: línea donde empieza el terreno
+	    @param fin: línea donde termina el terreno **/
 	public Terreno(int principio, int fin)
 			throws ExcepcionLimitesIncorrectosEnElTerreno {
 		if (fin < principio) {

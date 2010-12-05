@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -481,6 +483,10 @@ public class Pista {
 
 				this.ListaDeTerrenos.add(unTerreno);
 			} catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+				    "Error en un terreno de " + elementTerreno.getName(),
+				    "Límites incorrectos en el terreno",
+				    JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

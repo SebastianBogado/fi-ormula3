@@ -8,7 +8,7 @@ import modelo.Pista;
 import modelo.Obstaculo;
 import modelo.Pozo;
 import modelo.Terreno;
-import modelo.Tiempo;
+import modelo.servicio.Tiempo;
 import modelo.excepciones.ExcepcionLimitesIncorrectosEnElTerreno;
 
 import org.junit.After;
@@ -136,15 +136,4 @@ public class PistaTest {
 		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getTiempo()==0);
 		
 	}
-	
-	
-/*
-
-	@Test
-	public void testAleatoria() {
-		fail("Not yet implemented");
-	}
-*/
-
-
 }

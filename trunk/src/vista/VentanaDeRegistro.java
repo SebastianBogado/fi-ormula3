@@ -10,7 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import modelo.Pista;
-import modelo.Tiempo;
+import modelo.servicio.Tiempo;
 
 public class VentanaDeRegistro extends Frame {
 

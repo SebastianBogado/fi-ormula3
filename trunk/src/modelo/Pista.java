@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import modelo.servicio.Tiempo;
+
 import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;

@@ -1,4 +1,4 @@
-package modelo;
+package modelo.servicio;
 
 import org.jdom.Attribute;
 import org.jdom.Element;

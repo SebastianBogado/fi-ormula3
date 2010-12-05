@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 import modelo.Pista;
 import modelo.Terreno;
+import modelo.servicio.Posicion;
+import control.CambioDeCoordenadas;
 
 public class ControlDeCambioDeTerreno {
 
@@ -34,7 +36,7 @@ public class ControlDeCambioDeTerreno {
 				terrenoActual = terreno.tipoTerreno();
 			}
 		}
-		
+
 		System.out.println(terrenoActual);
 		return terrenoActual;
 	}
@@ -50,9 +52,9 @@ public class ControlDeCambioDeTerreno {
 		long recorrido = (cantFranjasPintadas) * 600 / 10;
 
 		while (it.hasNext() && !encontrado) {
-		
+
 			t = it.next();
-			
+
 			if (t.principio() <= recorrido && t.fin() >= recorrido) {
 				encontrado = true;
 				proximoTerreno = t.tipoTerreno();
@@ -65,13 +67,11 @@ public class ControlDeCambioDeTerreno {
 		return this.proximoTerreno;
 	}
 
-	public boolean finDePista(int cantDeFranjas) {
+	public boolean finDePista() {
 
-		boolean resultado = false;
 		long largoDePista = pista.getLargo();
+		Posicion posAuto = CambioDeCoordenadas.posicionAuto;
 
-		resultado = (cantDeFranjas + 1) * 645 >= largoDePista;
-
-		return resultado;
+		return (posAuto.y() >= largoDePista);
 	}
 }

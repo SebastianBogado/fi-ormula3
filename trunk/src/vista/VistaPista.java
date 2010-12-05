@@ -5,14 +5,14 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import modelo.Pista;
+import modelo.Terreno;
+import modelo.servicio.Velocidad;
 import titiritero.Imagen;
 import titiritero.MouseClickObservador;
 import titiritero.SuperficieDeDibujo;
 import titiritero.Ventana;
-
-import modelo.Pista;
-import modelo.Terreno;
-import modelo.servicio.Velocidad;
+import control.CambioDeCoordenadas;
 
 public class VistaPista extends Imagen implements MouseClickObservador {
 
@@ -75,17 +75,6 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 			this.desplazamiento += ((int) velocidad.y() / 7);
 
 			tiempoAnterior = System.currentTimeMillis();
-		} else {
-
-			long tiempoActual = System.currentTimeMillis();
-			long tiempo = ((tiempoActual - tiempoAnterior));
-
-			this.tiempoAnterior = tiempoActual;
-
-			System.out.println(tiempo);
-
-			this.desplazamiento += (int) velocidad.y() * tiempo / (3.6 * 100);
-
 		}
 
 		// this.distanciaRecorrida += this.desplazamiento;
@@ -101,7 +90,7 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		 * desplazamiento, superficeDeDibujo);
 		 */
 
-		finalDePista = this.controlTerreno.finDePista(cantFranjasPintadas);
+		finalDePista = this.controlTerreno.finDePista();
 
 	}
 
@@ -186,6 +175,12 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 			grafico.drawImage(this.bandera, 0, 12 * 43 + desplazamiento, null);
 			if (this.desplazamiento > 200)
 				mostrarBanderaInicio = true;
+		}
+
+		if (pista.getLargo() - CambioDeCoordenadas.posicionAuto.y() <= 60) {
+			grafico.drawImage(this.bandera, 0, (43 + desplazamiento - 645),
+					null);
+
 		}
 
 		if (desplazamiento >= 600) {

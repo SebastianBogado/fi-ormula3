@@ -3,16 +3,16 @@ package vista;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.GridLayout;
 
-import titiritero.ObjetoVivo;
+import javax.swing.JFrame;
 
 import modelo.Neumaticos;
 import modelo.servicio.Posicion;
 import modelo.servicio.Velocidad;
+import titiritero.ObjetoVivo;
 
-public class VentanaDeInformacion extends Frame implements ObjetoVivo {
+public class VentanaDeInformacion extends JFrame implements ObjetoVivo {
 
 	/**
 	 * 

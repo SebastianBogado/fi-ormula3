@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import vista.MenuPrincipal;
 import vista.VentanaSeleccionMotor;
 
-
-public class EscuchadorEleccionMotor extends EscuchadorMenu implements ActionListener {
+public class EscuchadorEleccionMotor extends EscuchadorMenu implements
+		ActionListener {
 
 	public EscuchadorEleccionMotor(MenuPrincipal menu) {
 		super(menu);
@@ -16,9 +16,14 @@ public class EscuchadorEleccionMotor extends EscuchadorMenu implements ActionLis
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		VentanaSeleccionMotor ventana = new VentanaSeleccionMotor("Selección del motor",
-				new Dimension(300,150), this.menu);
-		this.menu.setVentanaMotor(ventana);
+
+		if (this.menu.getVentanaMotor() == null) {
+			VentanaSeleccionMotor ventana = new VentanaSeleccionMotor(
+					"Selección del motor", new Dimension(300, 150), this.menu);
+			this.menu.setVentanaMotor(ventana);
+		} else {
+			this.menu.getVentanaMotor().setVisible(true);
+		}
 	}
 
 }

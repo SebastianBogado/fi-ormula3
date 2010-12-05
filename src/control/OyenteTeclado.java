@@ -5,14 +5,18 @@ import java.awt.event.KeyListener;
 
 import modelo.Automovil;
 import modelo.servicio.DiferencialDeTiempo;
+import titiritero.ControladorJuego;
+import vista.VentanaPausa;
 
 public class OyenteTeclado implements KeyListener {
 
 	private final Automovil auto;
 	private long tiempo = 0;
+	private final ControladorJuego controlador;
 
-	public OyenteTeclado(Automovil automovil) {
+	public OyenteTeclado(Automovil automovil, ControladorJuego controlador) {
 		this.auto = automovil;
+		this.controlador = controlador;
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -27,17 +31,28 @@ public class OyenteTeclado implements KeyListener {
 			tiempo = aux;
 		}
 
-		if (e.getKeyCode() == KeyEvent.VK_UP) 
+		if (e.getKeyCode() == KeyEvent.VK_UP)
 			this.acelerarAutomovil(diferenciaDeTiempo);
-		
+
 		if (e.getKeyCode() == KeyEvent.VK_DOWN)
 			this.frenarAutomovil(diferenciaDeTiempo);
-		
+
 		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			this.doblarIzquierda();
-		
+
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			this.doblarDerecha();
+
+		if (e.getKeyCode() == KeyEvent.VK_ENTER)
+			this.pausar();
+
+	}
+
+	private void pausar() {
+
+		controlador.parar();
+		new VentanaPausa(controlador);
+
 	}
 
 	private void doblarDerecha() {

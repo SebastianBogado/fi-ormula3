@@ -1,5 +1,8 @@
 package control;
 
+import modelo.Automovil;
+import modelo.Entorno;
+import modelo.Pista;
 import titiritero.ControladorJuego;
 import titiritero.Ventana;
 import vista.VentanaDeAviso;
@@ -7,16 +10,13 @@ import vista.VentanaDeInformacion;
 import vista.VentanaDeRegistro;
 import vista.VistaAutomovil;
 import vista.VistaPista;
-import modelo.Automovil;
-import modelo.Entorno;
-import modelo.Pista;
 
 public class ControladorDeCarrera {
 	private static ControladorJuego controlador;
-	private static Ventana ventana;
+	public static Ventana ventana;
 	private static VentanaDeInformacion ventanaInfo;
-	public ControladorDeCarrera(Automovil unAuto, Pista unaPista){
 
+	public ControladorDeCarrera(Automovil unAuto, Pista unaPista) {
 
 		System.out.println(unaPista.getListaDeTerrenos().get(1).tipoTerreno());
 
@@ -34,7 +34,7 @@ public class ControladorDeCarrera {
 		ventana.setTitle("Fi-ormula 3...");
 		ventana.setResizable(false);
 
-		OyenteTeclado oyenteTeclado = new OyenteTeclado(unAuto);
+		OyenteTeclado oyenteTeclado = new OyenteTeclado(unAuto, controlador);
 		ventana.addKeyListener(oyenteTeclado);
 
 		Entorno entorno = new Entorno(unAuto, unaPista);
@@ -50,7 +50,7 @@ public class ControladorDeCarrera {
 
 		controlador.comenzar();
 	}
-	
+
 	public static void terminarCarrera(long tiempoJugado, Pista pistaDeAutos) {
 
 		try {

@@ -7,18 +7,22 @@ import java.awt.event.ActionListener;
 import vista.MenuPrincipal;
 import vista.VentanaSeleccionRuedas;
 
+public class EscuchadorEleccionRuedas extends EscuchadorMenu implements
+		ActionListener {
 
-public class EscuchadorEleccionRuedas extends EscuchadorMenu implements ActionListener {
-
-	public EscuchadorEleccionRuedas(MenuPrincipal menu){
+	public EscuchadorEleccionRuedas(MenuPrincipal menu) {
 		super(menu);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		VentanaSeleccionRuedas ventana = new VentanaSeleccionRuedas("Selección del ruedas",
-				new Dimension(200,150), this.menu);
-		this.menu.setVentanaRuedas(ventana);
+		if (this.menu.getVentanaRuedas() == null) {
+			VentanaSeleccionRuedas ventana = new VentanaSeleccionRuedas(
+					"Selección del ruedas", new Dimension(200, 150), this.menu);
+			this.menu.setVentanaRuedas(ventana);
+		} else {
+			this.menu.getVentanaRuedas().setVisible(true);
+		}
 	}
 
 }

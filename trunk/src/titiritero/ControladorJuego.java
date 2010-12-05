@@ -11,6 +11,8 @@ import java.util.List;
  */
 public class ControladorJuego {
 
+	private boolean parado = false;
+
 	public ControladorJuego() {
 		this.objetosVivos = new ArrayList<ObjetoVivo>();
 		this.dibujables = new ArrayList<Dibujable>();
@@ -24,9 +26,15 @@ public class ControladorJuego {
 				simular();
 				dibujar();
 				Thread.sleep(intervaloSimulacion);
+
+				while (parado) {
+					Thread.sleep(1000);
+				}
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("No se pudo simular");
 		}
 	}
 
@@ -107,6 +115,15 @@ public class ControladorJuego {
 	public void removerMouseClickObservador(
 			MouseClickObservador unMouseClickObservador) {
 		this.mouseClickObservadores.remove(unMouseClickObservador);
+	}
+
+	public void parar() {
+		parado = true;
+
+	}
+
+	public void seguir() {
+		parado = false;
 	}
 
 	private long intervaloSimulacion;

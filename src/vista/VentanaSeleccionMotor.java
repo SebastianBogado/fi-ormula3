@@ -26,7 +26,6 @@ public class VentanaSeleccionMotor extends VentanaSeleccion {
 		panelNorte.add(BotonLin64);
 		this.add("Center", panelNorte);
 		this.setLocation(480, 250);
-		this.setSize(230, 100);
 		this.setVisible(true);
 
 	}

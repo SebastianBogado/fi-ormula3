@@ -24,8 +24,6 @@ public class VentanaSeleccionRuedas extends VentanaSeleccion {
 
 		this.add("Center", panelNorte);
 		this.setResizable(false);
-
-		this.setSize(200, 100);
 		this.setLocation(480, 250);
 
 		this.setVisible(true);

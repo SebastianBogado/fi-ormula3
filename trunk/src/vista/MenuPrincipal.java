@@ -9,6 +9,7 @@ import javax.swing.JDialog;
 
 import modelo.Automovil;
 import modelo.Pista;
+import control.EscuchadorBotonSalir;
 import control.EscuchadorComenzar;
 import control.EscuchadorEleccionMotor;
 import control.EscuchadorEleccionPista;
@@ -51,13 +52,7 @@ public class MenuPrincipal extends JDialog {
 		this.BotonPista.addActionListener(new EscuchadorEleccionPista(this));
 		this.BotonMotor.addActionListener(new EscuchadorEleccionMotor(this));
 		this.BotonRuedas.addActionListener(new EscuchadorEleccionRuedas(this));
-		this.BotonSalir.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-
-				System.exit(0);
-			}
-		});
+		this.BotonSalir.addActionListener(new EscuchadorBotonSalir());
 
 		this.BotonComenzar.addActionListener(new EscuchadorComenzar(this));
 

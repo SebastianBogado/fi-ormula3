@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ abstract public class VentanaSeleccion extends JFrame {
 	protected JPanel panelSur;
 	protected JPanel panelNorte;
 	protected MenuPrincipal menu;
+	protected JButton BotonVolver;
 
 	public VentanaSeleccion(String titulo, Dimension tamaño, MenuPrincipal menu) {
 		this.setTitle(titulo);
@@ -24,11 +26,13 @@ abstract public class VentanaSeleccion extends JFrame {
 		this.menu = menu;
 
 		this.BotonSalir = new JButton("Salir");
+		this.BotonVolver = new JButton("Volver");
 		this.BotonAceptar = new JButton("Aceptar");
 		this.BotonAceptar.setEnabled(false);
 
 		panelSur = new JPanel();
 		panelSur.add(BotonAceptar);
+		panelSur.add(BotonVolver);
 		panelSur.add(BotonSalir);
 		this.add("South", panelSur);
 		this.agregarControladores();
@@ -37,6 +41,7 @@ abstract public class VentanaSeleccion extends JFrame {
 
 	private void agregarControladores() {
 		this.BotonSalir.addActionListener(new EscuchadorBotonSalir());
+		this.BotonVolver.addActionListener(new EscuchadorBotonAceptar(this));
 		this.BotonAceptar.addActionListener(new EscuchadorBotonAceptar(this));
 	}
 

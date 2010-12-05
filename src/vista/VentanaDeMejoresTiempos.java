@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import modelo.Tiempo;
+import modelo.servicio.Tiempo;
 
 public class VentanaDeMejoresTiempos extends JFrame {
 

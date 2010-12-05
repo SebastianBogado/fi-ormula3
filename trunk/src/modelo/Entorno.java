@@ -2,16 +2,12 @@ package modelo;
 
 import java.util.Observable;
 
-import control.ControladorDeCarrera;
-
-import programa.Fiormula3;
-import titiritero.ObjetoVivo;
-
-
 import modelo.excepciones.ExcepcionPistaFinalizada;
 import modelo.servicio.Colisionador;
 import modelo.servicio.DiferencialDeTiempo;
 import modelo.servicio.Posicion;
+import titiritero.ObjetoVivo;
+import control.ControladorDeCarrera;
 
 public class Entorno extends Observable implements ObjetoVivo {
 
@@ -40,7 +36,7 @@ public class Entorno extends Observable implements ObjetoVivo {
 
 	public Entorno(Automovil auto, Pista pista) {
 		this.unAutomovil = auto;
-		this.pistaDeAutos = new Pista();
+		this.pistaDeAutos = pista;
 		obstaculoSiguiente = this.pistaDeAutos.getObstaculoSiguiente();
 		this.darTresSegundosPrevios();
 
@@ -113,7 +109,8 @@ public class Entorno extends Observable implements ObjetoVivo {
 	}
 
 	private void chequearFinDePista() throws ExcepcionPistaFinalizada {
-		if (this.posicionAutoDiscretaEnY == this.pistaDeAutos.getLargo()) {
+
+		if (this.posicionAutoDiscretaEnY >= this.pistaDeAutos.getLargo()) {
 			this.registrarTiempo();
 			throw new ExcepcionPistaFinalizada();
 		}
@@ -151,7 +148,8 @@ public class Entorno extends Observable implements ObjetoVivo {
 			tiempoFinal = System.currentTimeMillis();
 
 			long tiempoJugado = (tiempoFinal - tiempoIncial) / 1000;
-			ControladorDeCarrera.terminarCarrera(tiempoJugado, this.pistaDeAutos);
+			ControladorDeCarrera.terminarCarrera(tiempoJugado,
+					this.pistaDeAutos);
 		}
 
 		if (unAutomovil.getNuematicos().dañoDiscreto() >= 100)

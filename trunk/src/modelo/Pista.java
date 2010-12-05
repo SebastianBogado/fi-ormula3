@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -16,7 +15,7 @@ import org.jdom.output.XMLOutputter;
 public class Pista {
 
 	private static final long serialVersionUID = 1L;
-
+	public static Pista instancia;
 	private LinkedList<Pozo> ListaDePozos;
 	private LinkedList<LomaDeBurro> ListaDeLomasDeBurro;
 	private LinkedList<Terreno> ListaDeTerrenos;
@@ -37,9 +36,7 @@ public class Pista {
 	private int CantidadDePozos;
 	private int CantidadDeLomasDeBurro;
 	private int CantidadDeTerrenos;
-	private static String DirectorioPistas = "pistas/"; 
-	
-
+	private static String DirectorioPistas = "pistas/";
 
 	/** Crea una pista por Default **/
 	public Pista() {
@@ -53,28 +50,30 @@ public class Pista {
 		this.crearListas();
 		this.cargarPistaDesdeXML(pathArchivo);
 		this.inicializar();
+		instancia = this;
 	}
 
 	private void crearListas() {
 		ListaDePozos = new LinkedList<Pozo>();
 		ListaDeLomasDeBurro = new LinkedList<LomaDeBurro>();
 		ListaDeTerrenos = new LinkedList<Terreno>();
-		ListaDeMejoresTiempos= new LinkedList<Tiempo>();
+		ListaDeMejoresTiempos = new LinkedList<Tiempo>();
 	}
 
-	/** Asigna iteradores a las listas actualiza los elementos de la pista por
-	 primera vez **/
+	/**
+	 * Asigna iteradores a las listas actualiza los elementos de la pista por
+	 * primera vez
+	 **/
 	private void inicializar() {
 
 		IteradorListaDePozos = ListaDePozos.iterator();
 		IteradorListaDeLomasDeBurro = ListaDeLomasDeBurro.iterator();
 		IteradorListaDeTerrenos = ListaDeTerrenos.iterator();
-		
 
 		this.ActualizarTerreno();
 		this.ActualizarProximoPozo();
 		this.ActualiarProximaLomaDeBurro();
-		
+
 		this.llenarListaDeMejoresTiempos();
 		IteradorListaDeMejoresTiempos = ListaDeMejoresTiempos.iterator();
 	}
@@ -88,18 +87,20 @@ public class Pista {
 		return this.ListaDePozos;
 	}
 
-	/** Devulve la lista que contiene las lomas de burro a lo largo de la pista**/
+	/** Devulve la lista que contiene las lomas de burro a lo largo de la pista **/
 	public LinkedList<LomaDeBurro> getListaDeLomasDeBurro() {
 		return this.ListaDeLomasDeBurro;
 	}
 
-	/** Devulve la lista que contiene los deistintos terrenos que componen la
-	pista **/
+	/**
+	 * Devulve la lista que contiene los deistintos terrenos que componen la
+	 * pista
+	 **/
 	public LinkedList<Terreno> getListaDeTerrenos() {
 		return this.ListaDeTerrenos;
 	}
-	
-	/** Devulve la lista que contiene los mejores tiempos logrados en esta pista**/
+
+	/** Devulve la lista que contiene los mejores tiempos logrados en esta pista **/
 	public LinkedList<Tiempo> getListaDeMejoresTiempos() {
 		return this.ListaDeMejoresTiempos;
 	}
@@ -141,8 +142,10 @@ public class Pista {
 			}
 	}
 
-	/** Caraga la lista de terrenos con un terreno de cada tipo de longitud
-	 predeterminada **/
+	/**
+	 * Caraga la lista de terrenos con un terreno de cada tipo de longitud
+	 * predeterminada
+	 **/
 	private void cargarListaEstaticaTerrenos(int LargoPista) {
 
 		Terreno unTerreno;
@@ -150,17 +153,20 @@ public class Pista {
 		try {
 			unTerreno = new Asfalto(0, 500);
 			this.ListaDeTerrenos.add(0, unTerreno);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 
 		try {
 			unTerreno = new Tierra(501, 800);
 			this.ListaDeTerrenos.add(1, unTerreno);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 
 		try {
 			unTerreno = new Ripio(801, LargoPista);
 			this.ListaDeTerrenos.add(2, unTerreno);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 
 	}
 
@@ -168,7 +174,7 @@ public class Pista {
 	public void cargarPistaEstatica() {
 
 		this.NombreDeLaPista = "Default";
-		this.LargoDeLaPista = 2000;
+		this.LargoDeLaPista = 500;
 		this.AnchoDeLaPista = 6;
 		this.CantidadDePozos = 50;
 		this.CantidadDeLomasDeBurro = 60;
@@ -250,15 +256,14 @@ public class Pista {
 
 		this.serializarListaDeLomasDeBurroXML(element);
 
-		this.serializarListaDeTerrenosXML(element);	
-		
-		this.serializarListaDeMejoresTiemposXML(element);	
+		this.serializarListaDeTerrenosXML(element);
 
-		
+		this.serializarListaDeMejoresTiemposXML(element);
+
 		return element;
 	}
 
-	/** Retorna un elemento xml que contiene la lista de pozos**/
+	/** Retorna un elemento xml que contiene la lista de pozos **/
 
 	private Element serializarListaDePozosXML(Element elementPista) {
 
@@ -324,7 +329,6 @@ public class Pista {
 		return ListaDeTerrenos;
 	}
 
-
 	/** Guarda la pista en un archivo xml con el mismo nombre de la pista **/
 	public void guardarEnXML() {
 
@@ -336,12 +340,10 @@ public class Pista {
 			XMLOutputter outputter = new XMLOutputter();
 			outputter.setFormat(Format.getPrettyFormat());
 
-			FileWriter writer = new FileWriter(
-					Pista.DirectorioPistas+
-					this.NombreDeLaPista+ 
-					".xml");
-			//"pistas\\Default.xml");
-			
+			FileWriter writer = new FileWriter(Pista.DirectorioPistas
+					+ this.NombreDeLaPista + ".xml");
+			// "pistas\\Default.xml");
+
 			// "pistas/"+this.NombreDeLaPista+".xml");
 			outputter.output(document, writer);
 			writer.close();
@@ -350,7 +352,7 @@ public class Pista {
 		}
 	}
 
-	/** Guarda la pista en un archivo xml con el nombre recivido**/
+	/** Guarda la pista en un archivo xml con el nombre recivido **/
 
 	public void guardarComoEnXML(String pathArchivo) {
 
@@ -482,7 +484,7 @@ public class Pista {
 			}
 		}
 	}
-	
+
 	private void deserializarListaDeTiemposXML(Element elementPista) {
 
 		Tiempo unTiempo;
@@ -490,67 +492,67 @@ public class Pista {
 
 		Element elementListaDeTiempos = elementPista
 				.getChild("ListaDeMejoresTiempos");
-		
 
 		List<Element> ListaDeTiempos = elementListaDeTiempos
 				.getChildren("Tiempo");
-		Iterator<Element> IteradorListaDeTiempos = ListaDeTiempos
-				.iterator();
+		Iterator<Element> IteradorListaDeTiempos = ListaDeTiempos.iterator();
 
 		while (IteradorListaDeTiempos.hasNext()) {
-			elementTiempo= IteradorListaDeTiempos.next();
-			unTiempo= new Tiempo(elementTiempo);
+			elementTiempo = IteradorListaDeTiempos.next();
+			unTiempo = new Tiempo(elementTiempo);
 			this.ListaDeMejoresTiempos.add(unTiempo);
 		}
 	}
-	
-	public void intentarAgregarNuevoTiempo(Tiempo nuevoTiempo){
-		
-		if(!this.ListaDeMejoresTiempos.isEmpty()){
-			if(nuevoTiempo.EsMejorQue(this.ListaDeMejoresTiempos.getLast()))
+
+	public void intentarAgregarNuevoTiempo(Tiempo nuevoTiempo) {
+
+		if (!this.ListaDeMejoresTiempos.isEmpty()) {
+			if (nuevoTiempo.EsMejorQue(this.ListaDeMejoresTiempos.getLast()))
 				this.ordenarListaDeMejoresTiempos(nuevoTiempo);
-		}
-		else
-			this.ListaDeMejoresTiempos.add(nuevoTiempo);	
+		} else
+			this.ListaDeMejoresTiempos.add(nuevoTiempo);
 	}
-	
-	private void ordenarListaDeMejoresTiempos(Tiempo nuevoTiempo){
-		
+
+	private void ordenarListaDeMejoresTiempos(Tiempo nuevoTiempo) {
+
 		Tiempo unTiempo;
 		LinkedList<Tiempo> NuevaListaDeMejoresTiempos = new LinkedList<Tiempo>();
-		boolean nuevoTiempoAgregado=false;
-		
-		while(this.IteradorListaDeMejoresTiempos.hasNext()){			
-						
-			unTiempo=this.IteradorListaDeMejoresTiempos.next();
-			if(!nuevoTiempoAgregado){
-				if(nuevoTiempo.EsMejorQue(unTiempo)){					
-					NuevaListaDeMejoresTiempos.add(nuevoTiempo);	
+		boolean nuevoTiempoAgregado = false;
+
+		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
+
+			unTiempo = this.IteradorListaDeMejoresTiempos.next();
+			if (!nuevoTiempoAgregado) {
+				if (nuevoTiempo.EsMejorQue(unTiempo)) {
+					NuevaListaDeMejoresTiempos.add(nuevoTiempo);
 					NuevaListaDeMejoresTiempos.add(unTiempo);
-					nuevoTiempoAgregado=true;
+					nuevoTiempoAgregado = true;
 				}
+			} else {
+				NuevaListaDeMejoresTiempos.add(unTiempo);
 			}
-			else
-				NuevaListaDeMejoresTiempos.add(unTiempo);			
 		}
+
 		NuevaListaDeMejoresTiempos.removeLast();
-		 this.ListaDeMejoresTiempos=NuevaListaDeMejoresTiempos;
-		 this.IteradorListaDeMejoresTiempos=this.ListaDeMejoresTiempos.iterator();
-	
-		
+		this.ListaDeMejoresTiempos = NuevaListaDeMejoresTiempos;
+		this.IteradorListaDeMejoresTiempos = this.ListaDeMejoresTiempos
+				.iterator();
+
 	}
-	
+
 	private Element serializarListaDeMejoresTiemposXML(Element elementPista) {
 
 		Tiempo unTiempo;
 
-		Element elementListaDeMejoresTiempos = new Element("ListaDeMejoresTiempos");
+		Element elementListaDeMejoresTiempos = new Element(
+				"ListaDeMejoresTiempos");
 		elementPista.getChildren().add(elementListaDeMejoresTiempos);
-/*
-		if(!this.ListaDeMejoresTiempos.isEmpty()){
-		unTiempo = this.ListaDeMejoresTiempos.getFirst();
-		elementListaDeMejoresTiempos.getChildren().add(unTiempo.serializarXML());
-		}*/
+		/*
+		 * if(!this.ListaDeMejoresTiempos.isEmpty()){ unTiempo =
+		 * this.ListaDeMejoresTiempos.getFirst();
+		 * elementListaDeMejoresTiempos.getChildren
+		 * ().add(unTiempo.serializarXML()); }
+		 */
 		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
 			unTiempo = this.IteradorListaDeMejoresTiempos.next();
 			elementListaDeMejoresTiempos.getChildren().add(
@@ -558,12 +560,11 @@ public class Pista {
 		}
 		return elementListaDeMejoresTiempos;
 	}
-	
-	private void llenarListaDeMejoresTiempos(){		
-		for(int i=0;i<10;i++){
-			Tiempo unTiempo=new Tiempo("Vacio",0);
+
+	private void llenarListaDeMejoresTiempos() {
+		for (int i = 0; i < 10; i++) {
+			Tiempo unTiempo = new Tiempo("Vacio", 0);
 			ListaDeMejoresTiempos.add(unTiempo);
 		}
 	}
 }
-

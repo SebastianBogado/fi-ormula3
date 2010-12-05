@@ -28,13 +28,13 @@ public class ControladorJuego {
 				Thread.sleep(intervaloSimulacion);
 
 				while (parado) {
-					Thread.sleep(1000);
+					Thread.sleep(100);
 				}
 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("No se pudo simular");
+
 		}
 	}
 

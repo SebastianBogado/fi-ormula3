@@ -5,17 +5,15 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import modelo.servicio.NombresDeFabricables;
 import control.EscuchadorBotonSeleccionRuedas;
 
-
-
-import modelo.servicio.NombresDeFabricables;
-
 public class VentanaSeleccionRuedas extends VentanaSeleccion {
-	private JButton BotonPaler9;
-	private JButton BotonMess10;
+	private final JButton BotonPaler9;
+	private final JButton BotonMess10;
 
-	public VentanaSeleccionRuedas(String titulo, Dimension tamaño, MenuPrincipal menu) {
+	public VentanaSeleccionRuedas(String titulo, Dimension tamaño,
+			MenuPrincipal menu) {
 		super(titulo, tamaño, menu);
 		this.BotonPaler9 = inicializarBotonDeSeleccion(NombresDeFabricables.PALER9);
 		this.BotonMess10 = inicializarBotonDeSeleccion(NombresDeFabricables.MESS10);
@@ -24,11 +22,17 @@ public class VentanaSeleccionRuedas extends VentanaSeleccion {
 		panelNorte.add(BotonPaler9);
 		panelNorte.add(BotonMess10);
 
-		this.add("Center", panelNorte);	
+		this.add("Center", panelNorte);
+		this.setResizable(false);
+
+		this.setSize(200, 100);
+		this.setLocation(480, 250);
+
 		this.setVisible(true);
 	}
-	
-	protected JButton inicializarBotonDeSeleccion(String nombre){
+
+	@Override
+	protected JButton inicializarBotonDeSeleccion(String nombre) {
 		JButton boton = super.inicializarBotonDeSeleccion(nombre);
 		boton.addActionListener(new EscuchadorBotonSeleccionRuedas(menu));
 		return boton;

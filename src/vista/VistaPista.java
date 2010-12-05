@@ -29,6 +29,8 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	private final ControlDeObstaculos controlObstaculos;
 	private boolean finalDePista;
 	private boolean mostrarBanderaInicio = false;
+	private boolean mostrarBanderaLlegada = false;
+	private int desplazamientoBanderaLlegada = 0;
 
 	public VistaPista(Pista pista, Velocidad vel) {
 		super();
@@ -70,11 +72,13 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		if (controlTerreno.cambiarTerrno(this.cantFranjasPintadas))
 			this.cambiarTerreno();
 		// Todavia a que definir algunos valores
-		if (tiempoAnterior == 0 || true) {
 
-			this.desplazamiento += ((int) velocidad.y() / 7);
+		this.desplazamiento += ((int) velocidad.y() / 7);
 
-			tiempoAnterior = System.currentTimeMillis();
+		tiempoAnterior = System.currentTimeMillis();
+
+		if (mostrarBanderaLlegada) {
+			this.desplazamientoBanderaLlegada += ((int) velocidad.y() / 7);
 		}
 
 		// this.distanciaRecorrida += this.desplazamiento;
@@ -171,23 +175,30 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 					(i * 43 + desplazamiento - 645), null);
 		}
 
-		if (!mostrarBanderaInicio) {
-			grafico.drawImage(this.bandera, 0, 12 * 43 + desplazamiento, null);
-			if (this.desplazamiento > 200)
-				mostrarBanderaInicio = true;
-		}
-
-		if (pista.getLargo() - CambioDeCoordenadas.posicionAuto.y() <= 60) {
-			grafico.drawImage(this.bandera, 0, (43 + desplazamiento - 645),
-					null);
-
-		}
+		this.pintarBanderas(grafico);
 
 		if (desplazamiento >= 600) {
 			desplazamiento = 0;
 			this.inferior = this.superior;
 			this.cantFranjasPintadas++;
 		}
+	}
+
+	private void pintarBanderas(Graphics grafico) {
+
+		if (!mostrarBanderaInicio) {
+			grafico.drawImage(this.bandera, 0, 12 * 43 + desplazamiento, null);
+			if (this.desplazamiento > 200)
+				mostrarBanderaInicio = true;
+		}
+
+		if (pista.getLargo() - (long) CambioDeCoordenadas.posicionAuto.y() <= 45) {
+			grafico.drawImage(this.bandera, 0, desplazamientoBanderaLlegada,
+					null);
+			mostrarBanderaLlegada = true;
+
+		}
+
 	}
 
 	public Pista getPista() {

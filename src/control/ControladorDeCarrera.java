@@ -18,8 +18,6 @@ public class ControladorDeCarrera {
 
 	public ControladorDeCarrera(Automovil unAuto, Pista unaPista) {
 
-		System.out.println(unaPista.getListaDeTerrenos().get(1).tipoTerreno());
-
 		controlador = new ControladorJuego();
 		controlador.setIntervaloSimulacion(20);
 
@@ -31,7 +29,7 @@ public class ControladorDeCarrera {
 		controlador.setSuperficieDeDibujo(ventana);
 
 		ventana.setVisible(true);
-		ventana.setTitle("Fi-ormula 3...");
+		ventana.setTitle("Fi-ormula 3.");
 		ventana.setResizable(false);
 
 		OyenteTeclado oyenteTeclado = new OyenteTeclado(unAuto, controlador);
@@ -54,7 +52,7 @@ public class ControladorDeCarrera {
 	public static void terminarCarrera(long tiempoJugado, Pista pistaDeAutos) {
 
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -63,7 +61,7 @@ public class ControladorDeCarrera {
 		// ventanaInfo.setVisible(false);
 		// ventana.setVisible(false);
 
-		new VentanaDeRegistro();
+		new VentanaDeRegistro(tiempoJugado);
 	}
 
 	public static void carreraPerdida() {

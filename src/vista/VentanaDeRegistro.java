@@ -9,12 +9,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import modelo.Pista;
+import modelo.Tiempo;
+
 public class VentanaDeRegistro extends Frame {
 
 	private final Button botonAceptar;
 	public final TextField texto;
 
-	public VentanaDeRegistro() {
+	public VentanaDeRegistro(long tiempoJugado) {
 
 		this.setTitle("Felicidadez Completaste la Pista: Ingrese su nombre");
 
@@ -31,7 +34,7 @@ public class VentanaDeRegistro extends Frame {
 		this.add(texto);
 		this.add(botonAceptar);
 
-		Cliqueador accionDeBoton = new Cliqueador(this);
+		Cliqueador accionDeBoton = new Cliqueador(this, tiempoJugado);
 
 		this.botonAceptar.addActionListener(accionDeBoton);
 
@@ -56,18 +59,31 @@ public class VentanaDeRegistro extends Frame {
 	private class Cliqueador implements ActionListener {
 
 		private final VentanaDeRegistro ventana;
+		private final long timepoJugado;
 
-		public Cliqueador(VentanaDeRegistro ventana) {
+		public Cliqueador(VentanaDeRegistro ventana, long tiempoJugado) {
 			this.ventana = ventana;
+			this.timepoJugado = tiempoJugado;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			if (!(ventana.texto.getText() == " "))
-				ventana.setVisible(false);
+			if (!(ventana.texto.getText().isEmpty())) {
+
+				Tiempo nuevoTiempo = new Tiempo(ventana.texto.getText(),
+						timepoJugado);
+
+				Pista.instancia.intentarAgregarNuevoTiempo(nuevoTiempo);
+				Pista.instancia.serializarXML();
+
+				System.out.println("Serializado");
+
+				new VentanaDeMejoresTiempos(Pista.instancia
+						.getListaDeMejoresTiempos());
+
+			}
 
 		}
-
 	}
 
 }

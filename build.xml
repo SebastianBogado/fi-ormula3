@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1" ?> 
-<project name="fi-ormula3" default="ayuda" basedir=".">
+<project name="fi-ormula3" default="correrlimpio" basedir=".">
     <property name="src.dir"     value="src"/>
 	<property name="test.dir"	value="${src.dir}/test"/>
     <property name="build.dir"   value="bin"/>

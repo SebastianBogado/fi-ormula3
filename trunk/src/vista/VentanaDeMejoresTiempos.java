@@ -77,7 +77,7 @@ public class VentanaDeMejoresTiempos extends JFrame {
 			 
 			if(e.getActionCommand()=="Nuevo Juego"){
 								
-				new MenuPrincipal();
+				Fiormula3.main(null);
 				
 				Ventana.instancia.setVisible(false);
 				

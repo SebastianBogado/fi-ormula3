@@ -1,14 +1,16 @@
 package vista;
 
+import java.io.File;
+
 public class UbicacionArchivo {
 
-	public static final String ImagenBandera = "res/Bandera.JPG";
-	public static final String ImagenPozo = "res/Pozo.jpg";
-	public static final String ImagenLomaDeBurro = "res/LomaDeBurro.jpg";
-	public static final String ImagenAutomovil = "res/Automovil.jpg";
-	public static final String ImagenRipio = "res/Ripio.jpg";
-	public static final String ImagenAsfalto = "res/Asfalto.jpg";
-	public static final String ImagenTierra = "res/Tierra.jpg";
-	public static final String Pistas = "pistas/";
+	public static final String ImagenBandera = "res" +File.separatorChar+ "Bandera.JPG";
+	public static final String ImagenPozo = "res" +File.separatorChar+ "Pozo.jpg";
+	public static final String ImagenLomaDeBurro = "res" +File.separatorChar+ "LomaDeBurro.jpg";
+	public static final String ImagenAutomovil = "res" +File.separatorChar+ "Automovil.jpg";
+	public static final String ImagenRipio = "res" +File.separatorChar+ "Ripio.jpg";
+	public static final String ImagenAsfalto = "res" +File.separatorChar+ "Asfalto.jpg";
+	public static final String ImagenTierra = "res" +File.separatorChar+ "Tierra.jpg";
+	public static final String Pistas = "pistas" +File.separatorChar;
 
 }

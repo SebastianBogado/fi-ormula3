@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Pista NombreDeLaPista="Pista1" LargoDeLaPista="1600" AnchoDeLaPista="5">
-  <ListaDePozos CantidadDePozos="30">
+  <ListaDePozos CantidadDePozos="39">
     <Pozo posicionX="2" posicionY="100" />
     <Pozo posicionX="2" posicionY="250" />
     <Pozo posicionX="1" posicionY="300" />
@@ -31,8 +31,17 @@
     <Pozo posicionX="2" posicionY="950" />
     <Pozo posicionX="3" posicionY="960" />
     <Pozo posicionX="4" posicionY="965" />
+    <Pozo posicionX="2" posicionY="1100" />
+    <Pozo posicionX="2" posicionY="1250" />
+    <Pozo posicionX="1" posicionY="1300" />
+    <Pozo posicionX="4" posicionY="1375" />
+    <Pozo posicionX="3" posicionY="1400" />
+    <Pozo posicionX="0" posicionY="1405" />
+    <Pozo posicionX="1" posicionY="1515" />
+    <Pozo posicionX="2" posicionY="1516" />
+    <Pozo posicionX="5" posicionY="1560" />
   </ListaDePozos>
-  <ListaDeLomasDeBurro CantidadDeLomasDeBurro="10">
+  <ListaDeLomasDeBurro CantidadDeLomasDeBurro="15">
     <LomaDeBurro posicionX="3" posicionY="123" />
     <LomaDeBurro posicionX="1" posicionY="212" />
     <LomaDeBurro posicionX="3" posicionY="355" />
@@ -43,21 +52,26 @@
     <LomaDeBurro posicionX="3" posicionY="823" />
     <LomaDeBurro posicionX="1" posicionY="950" />
     <LomaDeBurro posicionX="2" posicionY="960" />
+    <LomaDeBurro posicionX="3" posicionY="1123" />
+    <LomaDeBurro posicionX="1" posicionY="1212" />
+    <LomaDeBurro posicionX="3" posicionY="1355" />
+    <LomaDeBurro posicionX="4" posicionY="1410" />
+    <LomaDeBurro posicionX="2" posicionY="1501" />
   </ListaDeLomasDeBurro>
   <ListaDeTerrenos CantidadDeTerrenos="5">
-    <Tierra principio="0" fin="500" />
-    <Asfalto principio="501" fin="850" />
-    <Ripio principio="851" fin="1100" />
-    <Tierra principio="1301" fin="1450" />
-    <Ripio principio="1451" fin="1600" />
+    <Tierra principio="0" fin="400" />
+    <Asfalto principio="401" fin="700" />
+    <Ripio principio="701" fin="900" />
+    <Tierra principio="901" fin="1200" />
+    <Asfalto principio="1201" fin="1600" />
   </ListaDeTerrenos>
   <ListaDeMejoresTiempos>
-    <Tiempo Nombre="Jugador1" Tiempo="370.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="666" Tiempo="39.0" />
+    <Tiempo Nombre="mat1204" Tiempo="40.0" />
+    <Tiempo Nombre="Migue666" Tiempo="42.0" />
+    <Tiempo Nombre="Migue1204" Tiempo="42.0" />
+    <Tiempo Nombre="Migue" Tiempo="37.0" />
+    <Tiempo Nombre="Migue" Tiempo="37.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />

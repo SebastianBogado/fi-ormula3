@@ -87,16 +87,16 @@
   <ListaDeTerrenos CantidadDeTerrenos="7">
     <Tierra principio="0" fin="500" />
     <Asfalto principio="501" fin="850" />
-    <Ripio principio="851" fin="1100" />
-    <Tierra principio="1301" fin="1450" />
-    <Ripio principio="1451" fin="1600" />
+    <Ripio principio="851" fin="1300" />
+    <Tierra principio="1301" fin="1590" />
+    <Ripio principio="1591" fin="1600" />
     <Asfalto principio="1601" fin="2000" />
     <Tierra principio="2001" fin="2500" />
   </ListaDeTerrenos>
   <ListaDeMejoresTiempos>
-    <Tiempo Nombre="Jugador1" Tiempo="370.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+    <Tiempo Nombre="Migue1204" Tiempo="91.0" />
+    <Tiempo Nombre="Migue" Tiempo="64.0" />
+    <Tiempo Nombre="Migue666" Tiempo="61.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />

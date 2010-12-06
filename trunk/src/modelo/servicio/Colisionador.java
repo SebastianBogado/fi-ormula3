@@ -61,19 +61,19 @@ public class Colisionador {
 
 		boolean coincide = false;
 
-		int posAutoX = (int) auto.posicionEsquinaInferiorIzquierda.x();
-		int posAutoY = (int) auto.posicionEsquinaInferiorIzquierda.y();
+		double posAutoX =  auto.posicionEsquinaInferiorIzquierda.x();
+		double posAutoY =  auto.posicionEsquinaInferiorIzquierda.y();
 
-		int posObsX = (int) obstaculoSiguiente.posicionEsquinaInferiorIzquierda
+		double posObsX = obstaculoSiguiente.posicionEsquinaInferiorIzquierda
 				.x();
-		int posObsY = (int) obstaculoSiguiente.posicionEsquinaInferiorIzquierda
+		double posObsY = obstaculoSiguiente.posicionEsquinaInferiorIzquierda
 				.y();
 
 		posObsX *= 100;
 
 		if (posObsX == posAutoX)
-			if (posObsY - 10 <= posAutoY
-					&& (posObsY + obstaculoSiguiente.largo + 5 >= posAutoY))
+			if (posObsY -15.0  <= posAutoY
+					&& (posObsY + obstaculoSiguiente.largo-obstaculoSiguiente.largo -5.0 >= posAutoY))
 				coincide = true;
 
 		return coincide;

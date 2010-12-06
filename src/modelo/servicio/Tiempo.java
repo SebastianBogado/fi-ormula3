@@ -22,7 +22,7 @@ public class Tiempo {
 
 	public boolean EsMejorQue(Tiempo unTiempo) {
 		if (unTiempo.tiempo != 0)
-			return (unTiempo.tiempo <= this.tiempo);
+			return (unTiempo.tiempo > this.tiempo);
 		else
 			return true;
 	}

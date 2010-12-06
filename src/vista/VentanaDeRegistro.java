@@ -19,7 +19,7 @@ public class VentanaDeRegistro extends Frame {
 
 	public VentanaDeRegistro(long tiempoJugado) {
 
-		this.setTitle("Felicidadez Completaste la Pista: Ingrese su nombre");
+		this.setTitle("Felicidades, completaste la Pista: Ingrese su nombre");
 
 		this.agregarListerner();
 		this.setResizable(false);

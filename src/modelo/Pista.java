@@ -526,7 +526,7 @@ public class Pista {
 		Tiempo unTiempo;
 		LinkedList<Tiempo> NuevaListaDeMejoresTiempos = new LinkedList<Tiempo>();
 		boolean nuevoTiempoAgregado = false;
-
+		this.IteradorListaDeMejoresTiempos=this.ListaDeMejoresTiempos.iterator();
 		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
 
 			unTiempo = this.IteradorListaDeMejoresTiempos.next();

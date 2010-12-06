@@ -7,9 +7,12 @@ public class Fiormula3 {
 	/**
 	 * @param args
 	 */
+	
+	
+	public static MenuPrincipal menu;
 
 	public static void main(String[] args) {
-		new MenuPrincipal();
+		menu=new MenuPrincipal();
 	}
 
 }

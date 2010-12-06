@@ -74,12 +74,14 @@ public class VentanaDeRegistro extends Frame {
 						timepoJugado);
 
 				Pista.instancia.intentarAgregarNuevoTiempo(nuevoTiempo);
-				Pista.instancia.serializarXML();
+				Pista.instancia.guardarEnXML();
 
 				System.out.println("Serializado");
 
 				new VentanaDeMejoresTiempos(Pista.instancia
 						.getListaDeMejoresTiempos());
+				
+				this.ventana.setVisible(false);
 
 			}
 

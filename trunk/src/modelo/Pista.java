@@ -155,19 +155,19 @@ public class Pista {
 		Terreno unTerreno;
 
 		try {
-			unTerreno = new Asfalto(0, 500);
+			unTerreno = new Asfalto(0, 200);
 			this.ListaDeTerrenos.add(0, unTerreno);
 		} catch (Exception e) {
 		}
 
 		try {
-			unTerreno = new Tierra(501, 800);
+			unTerreno = new Tierra(201, 300);
 			this.ListaDeTerrenos.add(1, unTerreno);
 		} catch (Exception e) {
 		}
 
 		try {
-			unTerreno = new Ripio(801, LargoPista);
+			unTerreno = new Ripio(301, LargoPista);
 			this.ListaDeTerrenos.add(2, unTerreno);
 		} catch (Exception e) {
 		}
@@ -536,9 +536,11 @@ public class Pista {
 					NuevaListaDeMejoresTiempos.add(unTiempo);
 					nuevoTiempoAgregado = true;
 				}
-			} else {
+				else
+					NuevaListaDeMejoresTiempos.add(unTiempo);
+			}else 
 				NuevaListaDeMejoresTiempos.add(unTiempo);
-			}
+			
 		}
 
 		NuevaListaDeMejoresTiempos.removeLast();

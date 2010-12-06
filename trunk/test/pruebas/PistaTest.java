@@ -51,12 +51,12 @@ public class PistaTest {
 		Terreno unTerreno;
 		unTerreno=this.unaPista.getTerreno(0);
 		assertTrue(unTerreno.principio()==0);
-		assertTrue(unTerreno.fin()==500);
-		unTerreno=this.unaPista.getTerreno(501);
-		assertTrue(unTerreno.principio()==501);
-		assertTrue(unTerreno.fin()==800);
-		unTerreno=this.unaPista.getTerreno(801);
-		assertTrue(unTerreno.principio()==801);
+		assertTrue(unTerreno.fin()==200);
+		unTerreno=this.unaPista.getTerreno(201);
+		assertTrue(unTerreno.principio()==201);
+		assertTrue(unTerreno.fin()==300);
+		unTerreno=this.unaPista.getTerreno(301);
+		assertTrue(unTerreno.principio()==301);
 		assertTrue(unTerreno.fin()== unaPista.getLargo());
 		
 	}
@@ -107,7 +107,7 @@ public class PistaTest {
 	@Test
 	public void testGetLargo(){
 		
-		assertTrue(unaPista.getLargo()==2000);
+		assertTrue(unaPista.getLargo()==500);
 	}
 	
 	@Test
@@ -136,4 +136,15 @@ public class PistaTest {
 		assertTrue(unaPista.getListaDeMejoresTiempos().getFirst().getTiempo()==0);
 		
 	}
+	
+	
+/*
+
+	@Test
+	public void testAleatoria() {
+		fail("Not yet implemented");
+	}
+*/
+
+
 }

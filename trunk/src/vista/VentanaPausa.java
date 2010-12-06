@@ -17,8 +17,8 @@ public class VentanaPausa extends Frame {
 	public VentanaPausa(ControladorJuego controlador) {
 
 		this.controlador = controlador;
-		this.setTitle("JuegoPausado");
-		this.setSize(200, 60);
+		this.setTitle("Juego pausado");
+		this.setSize(230, 60);
 
 		this.setLayout(new FlowLayout());
 		this.setResizable(false);

@@ -155,19 +155,19 @@ public class Pista {
 		Terreno unTerreno;
 
 		try {
-			unTerreno = new Asfalto(0, 200);
+			unTerreno = new Asfalto(0, 500);
 			this.ListaDeTerrenos.add(0, unTerreno);
 		} catch (Exception e) {
 		}
 
 		try {
-			unTerreno = new Tierra(201, 300);
+			unTerreno = new Tierra(501, 800);
 			this.ListaDeTerrenos.add(1, unTerreno);
 		} catch (Exception e) {
 		}
 
 		try {
-			unTerreno = new Ripio(301, LargoPista);
+			unTerreno = new Ripio(801, LargoPista);
 			this.ListaDeTerrenos.add(2, unTerreno);
 		} catch (Exception e) {
 		}
@@ -279,8 +279,7 @@ public class Pista {
 		ListaDePozos.getAttributes().add(CantidadDePozos);
 		elementPista.getChildren().add(ListaDePozos);
 
-		unPozo = this.ListaDePozos.getFirst();
-		ListaDePozos.getChildren().add(unPozo.serializarXML());
+		this.IteradorListaDePozos=this.ListaDePozos.iterator();
 
 		while (this.IteradorListaDePozos.hasNext()) {
 			unPozo = this.IteradorListaDePozos.next();
@@ -301,9 +300,9 @@ public class Pista {
 		ListaDeLomasDeBurro.getAttributes().add(CantidadDeLomasDeBurro);
 		elementPista.getChildren().add(ListaDeLomasDeBurro);
 
-		unaLomaDeBurro = this.ListaDeLomasDeBurro.getFirst();
-		ListaDeLomasDeBurro.getChildren().add(unaLomaDeBurro.serializarXML());
 
+		
+		this.IteradorListaDeLomasDeBurro=this.ListaDeLomasDeBurro.iterator();
 		while (this.IteradorListaDeLomasDeBurro.hasNext()) {
 			unaLomaDeBurro = this.IteradorListaDeLomasDeBurro.next();
 			ListaDeLomasDeBurro.getChildren().add(
@@ -323,9 +322,9 @@ public class Pista {
 		ListaDeTerrenos.getAttributes().add(CantidadDeTerrenos);
 		elementPista.getChildren().add(ListaDeTerrenos);
 
-		unTerreno = this.ListaDeTerrenos.getFirst();
-		ListaDeTerrenos.getChildren().add(unTerreno.serializarXML());
 
+		
+		this.IteradorListaDeTerrenos=this.ListaDeTerrenos.iterator();
 		while (this.IteradorListaDeTerrenos.hasNext()) {
 			unTerreno = this.IteradorListaDeTerrenos.next();
 			ListaDeTerrenos.getChildren().add(unTerreno.serializarXML());
@@ -526,27 +525,24 @@ public class Pista {
 		Tiempo unTiempo;
 		LinkedList<Tiempo> NuevaListaDeMejoresTiempos = new LinkedList<Tiempo>();
 		boolean nuevoTiempoAgregado = false;
-		this.IteradorListaDeMejoresTiempos=this.ListaDeMejoresTiempos.iterator();
-		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
+		Iterator<Tiempo> itAux=this.ListaDeMejoresTiempos.iterator();
+		while (itAux.hasNext()) {
 
-			unTiempo = this.IteradorListaDeMejoresTiempos.next();
+			unTiempo = itAux.next();
 			if (!nuevoTiempoAgregado) {
 				if (nuevoTiempo.EsMejorQue(unTiempo)) {
 					NuevaListaDeMejoresTiempos.add(nuevoTiempo);
 					NuevaListaDeMejoresTiempos.add(unTiempo);
 					nuevoTiempoAgregado = true;
 				}
-				else
-					NuevaListaDeMejoresTiempos.add(unTiempo);
-			}else 
+			} else {
 				NuevaListaDeMejoresTiempos.add(unTiempo);
-			
+			}
 		}
-
+		
 		NuevaListaDeMejoresTiempos.removeLast();
 		this.ListaDeMejoresTiempos = NuevaListaDeMejoresTiempos;
-		this.IteradorListaDeMejoresTiempos = this.ListaDeMejoresTiempos
-				.iterator();
+
 
 	}
 
@@ -557,17 +553,18 @@ public class Pista {
 		Element elementListaDeMejoresTiempos = new Element(
 				"ListaDeMejoresTiempos");
 		elementPista.getChildren().add(elementListaDeMejoresTiempos);
-		/*
-		 * if(!this.ListaDeMejoresTiempos.isEmpty()){ unTiempo =
-		 * this.ListaDeMejoresTiempos.getFirst();
-		 * elementListaDeMejoresTiempos.getChildren
-		 * ().add(unTiempo.serializarXML()); }
-		 */
-		while (this.IteradorListaDeMejoresTiempos.hasNext()) {
+		
+		
+		this.IteradorListaDeMejoresTiempos=this.ListaDeMejoresTiempos.iterator();
+		
+		for (int i=0;this.IteradorListaDeMejoresTiempos.hasNext() && i<10;i++) {
 			unTiempo = this.IteradorListaDeMejoresTiempos.next();
 			elementListaDeMejoresTiempos.getChildren().add(
 					unTiempo.serializarXML());
 		}
+		
+		
+		
 		return elementListaDeMejoresTiempos;
 	}
 

@@ -19,6 +19,8 @@ public class ControlDeCambioDeTerreno {
 
 		this.pista = unaPista;
 		this.terrenos = pista.getListaDeTerrenos();
+
+		
 	}
 
 	public String primerTerreno() {
@@ -42,14 +44,14 @@ public class ControlDeCambioDeTerreno {
 	}
 
 	// Defino que 10 pixeles representa un 1 metro de distancia
-	public boolean cambiarTerrno(int cantFranjasPintadas) {
+	public boolean cambiarTerreno() {
 
 		Terreno t;
 
 		Iterator<Terreno> it = this.terrenos.iterator();
 
 		boolean encontrado = false;
-		long recorrido = (cantFranjasPintadas) * 600 / 10;
+		double recorrido = CambioDeCoordenadas.posicionAuto.y()+70;
 
 		while (it.hasNext() && !encontrado) {
 
@@ -60,7 +62,10 @@ public class ControlDeCambioDeTerreno {
 				proximoTerreno = t.tipoTerreno();
 			}
 		}
-		return !(terrenoActual == proximoTerreno);
+		String auxTerrenoActual=terrenoActual;
+		terrenoActual=proximoTerreno;
+		
+		return !(auxTerrenoActual == proximoTerreno);
 	}
 
 	public String proximoTerreno() {

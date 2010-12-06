@@ -31,6 +31,8 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	private boolean mostrarBanderaInicio = false;
 	private boolean mostrarBanderaLlegada = false;
 	private int desplazamientoBanderaLlegada = 0;
+	private BufferedImage aCambiar;
+	private boolean TieneQueCambiarTerreno=false;
 
 	public VistaPista(Pista pista, Velocidad vel) {
 		super();
@@ -69,9 +71,9 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		Graphics grafico = ((Ventana) superficeDeDibujo).getGrafico();
 
-		if (controlTerreno.cambiarTerrno(this.cantFranjasPintadas))
+		if (controlTerreno.cambiarTerreno())
 			this.cambiarTerreno();
-		// Todavia a que definir algunos valores
+
 
 		this.desplazamiento += ((int) velocidad.y() / 7);
 
@@ -81,18 +83,11 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 			this.desplazamientoBanderaLlegada += ((int) velocidad.y() / 7);
 		}
 
-		// this.distanciaRecorrida += this.desplazamiento;
-
 		this.pintarPista(grafico);
 
 		this.pintarPozos(superficeDeDibujo);
 
 		this.pintarLomasDeBurro(superficeDeDibujo);
-		/*
-		 * int y = 100; if (this.desplazamiento == 0) y = (int)
-		 * Math.ceil(Math.random() * 500.0); vistaLomaDeBurro.dibujarEn(y,
-		 * desplazamiento, superficeDeDibujo);
-		 */
 
 		finalDePista = this.controlTerreno.finDePista();
 
@@ -153,15 +148,21 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 	private void cambiarTerreno() {
 		String proximoTerreno = controlTerreno.proximoTerreno();
 
-		if (proximoTerreno == Terreno.Asfalto)
-			this.superior = this.asfalto;
+		if (proximoTerreno == Terreno.Asfalto){
+			this.aCambiar = this.asfalto;
+			this.TieneQueCambiarTerreno=true;
+		}
 
-		if (proximoTerreno == Terreno.Ripio)
-			this.superior = this.ripio;
+		if (proximoTerreno == Terreno.Ripio){
+			this.aCambiar = this.ripio;
+			this.TieneQueCambiarTerreno=true;
+		}
 
-		if (proximoTerreno == Terreno.Tierra)
-			this.superior = this.tierra;
-
+		if (proximoTerreno == Terreno.Tierra){
+			this.aCambiar = this.tierra;
+			this.TieneQueCambiarTerreno=true;
+		}
+		
 	}
 
 	private void pintarPista(Graphics grafico) {
@@ -180,6 +181,11 @@ public class VistaPista extends Imagen implements MouseClickObservador {
 		if (desplazamiento >= 600) {
 			desplazamiento = 0;
 			this.inferior = this.superior;
+			if(this.TieneQueCambiarTerreno){
+				this.superior=this.aCambiar;
+				this.TieneQueCambiarTerreno=false;
+				
+			}
 			this.cantFranjasPintadas++;
 		}
 	}

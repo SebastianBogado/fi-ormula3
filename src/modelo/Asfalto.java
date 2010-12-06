@@ -47,7 +47,7 @@ public class Asfalto extends Terreno {
 
 	@Override
 	public String tipoTerreno() {
-		// TODO Auto-generated method stub
+
 		return Asfalto;
 	}
 

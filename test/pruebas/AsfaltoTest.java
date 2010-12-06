@@ -1,4 +1,4 @@
-package pruevas;
+package pruebas;
 
 import java.io.FileWriter;
 import junit.framework.TestCase;

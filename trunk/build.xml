@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<project name="fi-ormula3" default="ayuda" basedir=".">
+    <property name="src.dir"     value="src"/>
+	<property name="test.dir"	value="${src.dir}/test"/>
+    <property name="build.dir"   value="bin"/>
+    <property name="clases.dir" value="${build.dir}/clases"/>
+	<property name="testbuild.dir"	value="${clases.dir}/test"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+	<property name="lib.dir" value="lib" />
+  	<property name="zip.name" value="Entrega.zip" />
+	
+    <property name="main-class"  value="programa.Fiormula3"/>
+	
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+		<dirset dir="${build.dir}">
+			<include name="${src.dir}/*" />
+			<exclude name="${test.dir}/**/*"/>	
+		</dirset>
+		<pathelement location="${ant.project.basedir}" />
+	</path>
+	<path id="application" location="${jar.dir}/${ant.project.name}.jar"/> 
+
+		
+	<target name="limpiar">
+		<delete dir = "${build.dir}" />
+		<delete file= "${zip.name}" />
+	</target>
+	
+	<target name="compilar" depends="limpiar">
+	    <mkdir dir="${clases.dir}"/>
+		<javac srcdir="${src.dir}" classpathref="classpath" destdir="${clases.dir}"/>
+	</target>
+	
+    <target name="junit" depends="compilar">
+        <junit printsummary="yes">
+            <classpath>
+                <path refid="classpath"/>
+                <path refid="application"/>
+            </classpath>
+            
+            <batchtest fork="yes">
+            	<fileset dir="${test.dir}" includes="*Test.java"/>
+            </batchtest>
+        </junit>
+    </target>
+
+	<target name="jar" depends="junit">
+		<mkdir dir="${jar.dir}"/>
+		<jar destfile="${jar.dir}/${ant.project.name}.jar" 
+			basedir="${clases.dir}"	
+			excludes="${testbuild.dir}">
+	 		<manifest>
+	 			<attribute name="Main-Class" value="${main-class}"/>
+	   		</manifest>
+	    </jar>
+	</target>
+	
+	<target name="correrlimpio" depends="jar,correr" />
+	
+	<target name="correr">
+    	<java fork="true" classname="${main-class}">
+    		<classpath>
+    			<path refid="classpath"/>
+    	      	<path location="${jar.dir}/${ant.project.name}.jar"/>
+    	    </classpath>
+    	</java>
+	</target>
+
+
+
+
+	
+	
+	<target name="generarentrega">
+		<zip destfile="${zip.name}" basedir="."/>
+		<echo>Archivo ${zip.name} generado.</echo>
+	</target>	
+	
+	<target name="ayuda">
+		<echo>ant limpiar : borra lo compilado</echo>
+		<echo>ant compilar : limpia, y recompila el programa</echo>
+		<echo>ant junit : compila el programa y corre los tests</echo>
+		<echo>ant correr : corre el jar. Falla si no hay jar</echo>
+		<echo>ant correrlimpio : recompila el programa y corre el jar</echo>
+		<echo>ant compilar : compila el programa</echo>
+		<echo>ant generarentrega : genera un zip listo para entregar</echo>
+	</target>
+	
+</project>

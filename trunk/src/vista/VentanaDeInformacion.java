@@ -76,8 +76,8 @@ public class VentanaDeInformacion extends JFrame implements ObjetoVivo {
 
 		this.boton.setLabel("Velocidad: " + Math.ceil(velocidad.rapidez())
 				+ "km / h");
-		this.botonDistancia.setLabel("Distancia: "
-				+ Math.ceil(posicionAuto.y()) + " m ");
+		this.botonDistancia.setLabel("Recorrido: "
+				+ Math.ceil(posicionAuto.y()) + " mts ");
 
 		this.calcularTiempo();
 		this.botonTiempo.setLabel("Tiempo: "
@@ -86,11 +86,9 @@ public class VentanaDeInformacion extends JFrame implements ObjetoVivo {
 		this.botonDaño.setLabel("Daño: "
 				+ Math.ceil(this.neumaticos.dañoDiscreto()) + " %");
 
-		// this.x.setLabel("X: " + CambioDeCoordenadas.posicionAuto.x());
-		// this.y.setLabel("Y: " + CambioDeCoordenadas.posicionAuto.y());
 	}
 
-	// Math.ceil(this.neumaticos.dañoDiscreto())
+
 	private void calcularTiempo() {
 
 		if (tiempoPre == 0) {

@@ -2,16 +2,99 @@
 <Pista NombreDeLaPista="Pista2" LargoDeLaPista="2500" AnchoDeLaPista="5">
   <ListaDePozos CantidadDePozos="60">
     <Pozo posicionX="2" posicionY="100" />
+    <Pozo posicionX="2" posicionY="250" />
+    <Pozo posicionX="1" posicionY="300" />
+    <Pozo posicionX="4" posicionY="375" />
+    <Pozo posicionX="3" posicionY="400" />
+    <Pozo posicionX="0" posicionY="405" />
+    <Pozo posicionX="1" posicionY="515" />
+    <Pozo posicionX="2" posicionY="516" />
+    <Pozo posicionX="5" posicionY="560" />
+    <Pozo posicionX="4" posicionY="600" />
+    <Pozo posicionX="1" posicionY="625" />
+    <Pozo posicionX="3" posicionY="643" />
+    <Pozo posicionX="3" posicionY="667" />
+    <Pozo posicionX="1" posicionY="677" />
+    <Pozo posicionX="0" posicionY="700" />
+    <Pozo posicionX="2" posicionY="725" />
+    <Pozo posicionX="1" posicionY="760" />
+    <Pozo posicionX="2" posicionY="800" />
+    <Pozo posicionX="3" posicionY="817" />
+    <Pozo posicionX="4" posicionY="825" />
+    <Pozo posicionX="0" posicionY="860" />
+    <Pozo posicionX="2" posicionY="865" />
+    <Pozo posicionX="3" posicionY="870" />
+    <Pozo posicionX="4" posicionY="875" />
+    <Pozo posicionX="0" posicionY="900" />
+    <Pozo posicionX="6" posicionY="910" />
+    <Pozo posicionX="1" posicionY="920" />
+    <Pozo posicionX="2" posicionY="950" />
+    <Pozo posicionX="3" posicionY="960" />
+    <Pozo posicionX="4" posicionY="965" />
+    <Pozo posicionX="2" posicionY="1100" />
+    <Pozo posicionX="2" posicionY="1250" />
+    <Pozo posicionX="1" posicionY="1300" />
+    <Pozo posicionX="4" posicionY="1375" />
+    <Pozo posicionX="3" posicionY="1400" />
+    <Pozo posicionX="0" posicionY="1405" />
+    <Pozo posicionX="1" posicionY="1515" />
+    <Pozo posicionX="2" posicionY="1516" />
+    <Pozo posicionX="5" posicionY="1560" />
+    <Pozo posicionX="4" posicionY="1600" />
+    <Pozo posicionX="1" posicionY="1625" />
+    <Pozo posicionX="3" posicionY="1643" />
+    <Pozo posicionX="3" posicionY="1667" />
+    <Pozo posicionX="1" posicionY="1677" />
+    <Pozo posicionX="0" posicionY="1700" />
+    <Pozo posicionX="2" posicionY="1725" />
+    <Pozo posicionX="1" posicionY="1760" />
+    <Pozo posicionX="2" posicionY="1800" />
+    <Pozo posicionX="3" posicionY="1817" />
+    <Pozo posicionX="4" posicionY="1825" />
+    <Pozo posicionX="0" posicionY="1860" />
+    <Pozo posicionX="2" posicionY="1865" />
+    <Pozo posicionX="3" posicionY="1870" />
+    <Pozo posicionX="4" posicionY="1875" />
+    <Pozo posicionX="0" posicionY="1900" />
+    <Pozo posicionX="6" posicionY="1910" />
+    <Pozo posicionX="1" posicionY="1920" />
+    <Pozo posicionX="2" posicionY="1950" />
+    <Pozo posicionX="3" posicionY="1960" />
     <Pozo posicionX="4" posicionY="1965" />
   </ListaDePozos>
   <ListaDeLomasDeBurro CantidadDeLomasDeBurro="20">
     <LomaDeBurro posicionX="3" posicionY="123" />
+    <LomaDeBurro posicionX="1" posicionY="212" />
+    <LomaDeBurro posicionX="3" posicionY="355" />
+    <LomaDeBurro posicionX="4" posicionY="410" />
+    <LomaDeBurro posicionX="2" posicionY="501" />
+    <LomaDeBurro posicionX="1" posicionY="607" />
+    <LomaDeBurro posicionX="0" posicionY="753" />
+    <LomaDeBurro posicionX="3" posicionY="823" />
+    <LomaDeBurro posicionX="1" posicionY="950" />
+    <LomaDeBurro posicionX="2" posicionY="960" />
+    <LomaDeBurro posicionX="3" posicionY="1123" />
+    <LomaDeBurro posicionX="1" posicionY="1212" />
+    <LomaDeBurro posicionX="3" posicionY="1355" />
+    <LomaDeBurro posicionX="4" posicionY="1410" />
+    <LomaDeBurro posicionX="2" posicionY="1501" />
+    <LomaDeBurro posicionX="1" posicionY="1607" />
+    <LomaDeBurro posicionX="0" posicionY="1753" />
+    <LomaDeBurro posicionX="3" posicionY="1823" />
+    <LomaDeBurro posicionX="1" posicionY="1950" />
+    <LomaDeBurro posicionX="2" posicionY="1960" />
   </ListaDeLomasDeBurro>
   <ListaDeTerrenos CantidadDeTerrenos="7">
     <Tierra principio="0" fin="500" />
+    <Asfalto principio="501" fin="850" />
+    <Ripio principio="851" fin="1300" />
+    <Tierra principio="1301" fin="1590" />
+    <Ripio principio="1591" fin="1600" />
+    <Asfalto principio="1601" fin="2000" />
+    <Tierra principio="2001" fin="2500" />
   </ListaDeTerrenos>
   <ListaDeMejoresTiempos>
-    <Tiempo Nombre="Seba" Tiempo="61.0" />
+    <Tiempo Nombre="l337 h4xor" Tiempo="23.0" />
     <Tiempo Nombre="Migue1204" Tiempo="91.0" />
     <Tiempo Nombre="Migue" Tiempo="64.0" />
     <Tiempo Nombre="Migue666" Tiempo="61.0" />
@@ -21,16 +104,15 @@
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
+
+
+
+
+
+
+
+
+
   </ListaDeMejoresTiempos>
 </Pista>
 

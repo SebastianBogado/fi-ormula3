@@ -2,22 +2,28 @@
 <project name="fi-ormula3" default="correrlimpio" basedir=".">
     <property name="src.dir"     value="src"/>
 	<property name="test.dir"	value="${src.dir}/test"/>
+	
     <property name="build.dir"   value="bin"/>
     <property name="clases.dir" value="${build.dir}/clases"/>
 	<property name="testbuild.dir"	value="${clases.dir}/test"/>
+	
     <property name="jar.dir"     value="${build.dir}/jar"/>
+	
 	<property name="lib.dir" value="lib" />
+	<property name="junit.jar" value="${lib.dir}/junit.jar"/>
+	<property name="jdom.jar" value="${lib.dir}/jdom.jar"/>
+	
+	<property name="res.dir" value="res" />
+	<property name="pistas.dir" value="pistas" />
+	
   	<property name="zip.name" value="Entrega.zip" />
 	
     <property name="main-class"  value="programa.Fiormula3"/>
 	
 	<path id="classpath">
-		<fileset dir="${lib.dir}" includes="**/*.jar" />
-		<dirset dir="${build.dir}">
-			<include name="${src.dir}/*" />
-			<exclude name="${test.dir}/**/*"/>	
-		</dirset>
-		<pathelement location="${ant.project.basedir}" />
+		<pathelement location="${build.dir}" />
+		<pathelement location="${junit.jar}" />
+		<pathelement location="${jdom.jar}" />
 	</path>
 	<path id="application" location="${jar.dir}/${ant.project.name}.jar"/> 
 
@@ -30,6 +36,12 @@
 	<target name="compilar" depends="limpiar">
 	    <mkdir dir="${clases.dir}"/>
 		<javac srcdir="${src.dir}" classpathref="classpath" destdir="${clases.dir}"/>
+		<copy todir="${clases.dir}/res">
+	      	<fileset dir="${res.dir}"></fileset>
+		</copy>
+		<copy todir="${clases.dir}/pistas">
+			<fileset dir="${pistas.dir}"></fileset>
+		</copy>
 	</target>
 	
     <target name="junit" depends="compilar">
@@ -46,13 +58,15 @@
     </target>
 
 	<target name="jar" depends="junit">
+		<manifest file="MANIFEST.MF">
+			<attribute name="Main-Class" value="${main-class}"/>
+		</manifest>
 		<mkdir dir="${jar.dir}"/>
 		<jar destfile="${jar.dir}/${ant.project.name}.jar" 
-			basedir="${clases.dir}"	
-			excludes="${testbuild.dir}">
-	 		<manifest>
-	 			<attribute name="Main-Class" value="${main-class}"/>
-	   		</manifest>
+			basedir="${clases.dir}"
+			manifest="MANIFEST.MF"
+			excludes="${testbuild.dir}/**"
+			whenmanifestonly="fail">
 	    </jar>
 	</target>
 	
@@ -67,11 +81,6 @@
     	</java>
 	</target>
 
-
-
-
-	
-	
 	<target name="generarentrega">
 		<zip destfile="${zip.name}" basedir="."/>
 		<echo>Archivo ${zip.name} generado.</echo>
@@ -83,7 +92,6 @@
 		<echo>ant junit : compila el programa y corre los tests</echo>
 		<echo>ant correr : corre el jar. Falla si no hay jar</echo>
 		<echo>ant correrlimpio : recompila el programa y corre el jar</echo>
-		<echo>ant compilar : compila el programa</echo>
 		<echo>ant generarentrega : genera un zip listo para entregar</echo>
 	</target>
 	

@@ -51,7 +51,7 @@ abstract public class VentanaSeleccion extends JFrame {
 			clase = Class.forName("modelo." + nombre);
 		} catch (ClassNotFoundException e) {
 		}
-
+		
 		Field atributo = null;
 		try {
 			atributo = clase.getField("descripcion");

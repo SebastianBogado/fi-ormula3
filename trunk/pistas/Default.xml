@@ -120,9 +120,9 @@
     <Ripio principio="801" fin="1200" />
   </ListaDeTerrenos>
   <ListaDeMejoresTiempos>
+    <Tiempo Nombre="Seba" Tiempo="23.0" />
+    <Tiempo Nombre="Seba" Tiempo="29.0" />
     <Tiempo Nombre="Jugador1" Tiempo="370.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />

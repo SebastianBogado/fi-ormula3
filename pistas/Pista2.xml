@@ -94,13 +94,13 @@
     <Tierra principio="2001" fin="2500" />
   </ListaDeTerrenos>
   <ListaDeMejoresTiempos>
+    <Tiempo Nombre="l33t-h4x0r" Tiempo="17.0" />
     <Tiempo Nombre="Seba" Tiempo="43.0" />
     <Tiempo Nombre="Seba" Tiempo="46.0" />
     <Tiempo Nombre="Seba" Tiempo="48.0" />
     <Tiempo Nombre="Migue666" Tiempo="61.0" />
     <Tiempo Nombre="Migue" Tiempo="64.0" />
     <Tiempo Nombre="Migue1204" Tiempo="91.0" />
-    <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />
     <Tiempo Nombre="Vacio" Tiempo="0.0" />

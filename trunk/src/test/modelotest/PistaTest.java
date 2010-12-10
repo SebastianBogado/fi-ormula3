@@ -31,7 +31,7 @@ public class PistaTest {
 	public void testGetObstaculoSiguiente() {
 
 		Obstaculo unObstaculo;
-		;
+		
 		unObstaculo = unaPista.getObstaculoSiguiente();
 		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().x() == 1);
 		assertTrue(unObstaculo.posicionEsquinaInferiorIzquierda().y() == 120);
